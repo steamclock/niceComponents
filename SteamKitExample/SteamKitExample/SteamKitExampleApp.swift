@@ -11,9 +11,10 @@ import SwiftUI
 @main
 struct SteamKitExampleApp: App {
     init() {
-        print("--- init")
-        var newConfig = SteamKit.Config()
-        newConfig.bodyText = FontStyle(color: Color.green, size: 16)
+        var newConfig = SteamKit.Config(
+            textFont: Font.system(.title)
+        )
+        newConfig.bodyText.color = Color.green
         Config.current = newConfig
     }
 

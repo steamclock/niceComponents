@@ -7,12 +7,14 @@
 
 import SwiftUI
 
-public struct FontStyle {
-    public let color: Color
-    public let size: CGFloat
+public struct TextStyle {
+    public var color: Color
+    public var font: Font
+    public var size: CGFloat
 
-    public init(color: Color, size: CGFloat) {
+    public init(color: Color, font: Font, size: CGFloat) {
         self.color = color
+        self.font = font
         self.size = size
     }
 }
@@ -20,13 +22,17 @@ public struct FontStyle {
 public struct Config {
     public static var current = Config()
 
-    public var textFont = Font.system(.body)
-    public var titleFont = Font.bold
+    public var textFont: Font
+    public var titleFont: Font
 
-    public var bodyText = FontStyle(color: Color.gray, size: 16)
-    public var itemTitle = FontStyle(color: Color.black, size: 20)
+    public var bodyText: TextStyle
+    public var itemTitle: TextStyle
 
-    public init() {
+    public init(textFont: Font = Font.body, titleFont: Font = Font.title) {
+        self.textFont = textFont
+        self.titleFont = titleFont
 
+        bodyText = TextStyle(color: Color.gray, font: textFont, size: 16)
+        itemTitle = TextStyle(color: Color.black, font: titleFont, size: 20)
     }
 }

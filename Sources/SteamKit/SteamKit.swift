@@ -2,7 +2,7 @@ import SwiftUI
 
 public protocol TextView: View {
     var text: String { get }
-    var style: FontStyle { get }
+    var style: TextStyle { get }
 }
 
 public struct BodyText: TextView {
