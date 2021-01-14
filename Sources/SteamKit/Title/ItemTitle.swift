@@ -23,3 +23,9 @@ public struct ItemTitle: TextView {
             .lineLimit(nil)
     }
 }
+
+struct ItemTitle_Previews: PreviewProvider {
+    static var previews: some View {
+        ItemTitle("Item Title")
+    }
+}

@@ -1,5 +1,5 @@
 //
-//  BodyText.swift
+//  SwiftUIView.swift
 //  
 //
 //  Created by Brendan on 2021-01-13.
@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-public struct BodyText: TextView {
+public struct DetailText: TextView {
     public let text: String
-    public let style = Config.current.bodyText
+    public let style = Config.current.detailText
 
     public init(_ text: String) {
         self.text = text
@@ -24,8 +24,8 @@ public struct BodyText: TextView {
     }
 }
 
-struct BodyText_Previews: PreviewProvider {
+struct DetailText_Previews: PreviewProvider {
     static var previews: some View {
-        BodyText("Body Text")
+        DetailText("Detail Text")
     }
 }

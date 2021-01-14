@@ -11,8 +11,11 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack(alignment: .leading) {
-            ItemTitle("Hi mom")
-            BodyText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit ess")
+            ScreenTitle("Screen Title")
+            SectionTitle("Section Title")
+            ItemTitle("Item Title")
+            BodyText("Body Text")
+            DetailText("Detail Text")
         }.padding()
     }
 }
