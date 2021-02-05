@@ -7,74 +7,88 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C645B5A325AF80770006EEF2 /* SteamKitExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C645B5A225AF80770006EEF2 /* SteamKitExampleApp.swift */; };
-		C645B5A525AF80770006EEF2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C645B5A425AF80770006EEF2 /* ContentView.swift */; };
-		C645B5A725AF80790006EEF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C645B5A625AF80790006EEF2 /* Assets.xcassets */; };
-		C645B5AA25AF80790006EEF2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C645B5A925AF80790006EEF2 /* Preview Assets.xcassets */; };
-		C645B5B925AF81820006EEF2 /* SteamKit in Frameworks */ = {isa = PBXBuildFile; productRef = C645B5B825AF81820006EEF2 /* SteamKit */; };
+		C628F0D325C4A08B001331AB /* NotoSerif-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C628F0D125C4A08B001331AB /* NotoSerif-Bold.ttf */; };
+		C628F0D425C4A08B001331AB /* NotoSerif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C628F0D225C4A08B001331AB /* NotoSerif-Regular.ttf */; };
+		C671309E25C4948800F75E44 /* NiceComponentsExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C671309D25C4948800F75E44 /* NiceComponentsExampleApp.swift */; };
+		C67130A025C4948800F75E44 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C671309F25C4948800F75E44 /* ContentView.swift */; };
+		C67130A225C4948900F75E44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C67130A125C4948900F75E44 /* Assets.xcassets */; };
+		C67130A525C4948900F75E44 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C67130A425C4948900F75E44 /* Preview Assets.xcassets */; };
+		C67130B625C4966400F75E44 /* NiceComponents in Frameworks */ = {isa = PBXBuildFile; productRef = C67130B525C4966400F75E44 /* NiceComponents */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C645B59F25AF80770006EEF2 /* SteamKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SteamKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C645B5A225AF80770006EEF2 /* SteamKitExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SteamKitExampleApp.swift; sourceTree = "<group>"; };
-		C645B5A425AF80770006EEF2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		C645B5A625AF80790006EEF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C645B5A925AF80790006EEF2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		C645B5AB25AF80790006EEF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C645B5B525AF81750006EEF2 /* SteamKit */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SteamKit; path = ..; sourceTree = "<group>"; };
+		C628F0D125C4A08B001331AB /* NotoSerif-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerif-Bold.ttf"; sourceTree = "<group>"; };
+		C628F0D225C4A08B001331AB /* NotoSerif-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerif-Regular.ttf"; sourceTree = "<group>"; };
+		C671309A25C4948800F75E44 /* NiceComponentsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NiceComponentsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C671309D25C4948800F75E44 /* NiceComponentsExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiceComponentsExampleApp.swift; sourceTree = "<group>"; };
+		C671309F25C4948800F75E44 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C67130A125C4948900F75E44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C67130A425C4948900F75E44 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C67130A625C4948900F75E44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C67130AD25C4949100F75E44 /* NiceComponents */ = {isa = PBXFileReference; lastKnownFileType = folder; name = NiceComponents; path = ..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C645B59C25AF80770006EEF2 /* Frameworks */ = {
+		C671309725C4948800F75E44 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C645B5B925AF81820006EEF2 /* SteamKit in Frameworks */,
+				C67130B625C4966400F75E44 /* NiceComponents in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C645B59625AF80770006EEF2 = {
+		C628F0D025C49F9B001331AB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C645B5B525AF81750006EEF2 /* SteamKit */,
-				C645B5A125AF80770006EEF2 /* SteamKitExample */,
-				C645B5A025AF80770006EEF2 /* Products */,
-				C645B5B725AF81820006EEF2 /* Frameworks */,
+				C628F0D125C4A08B001331AB /* NotoSerif-Bold.ttf */,
+				C628F0D225C4A08B001331AB /* NotoSerif-Regular.ttf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C671309125C4948800F75E44 = {
+			isa = PBXGroup;
+			children = (
+				C67130AD25C4949100F75E44 /* NiceComponents */,
+				C671309C25C4948800F75E44 /* NiceComponentsExample */,
+				C671309B25C4948800F75E44 /* Products */,
+				C67130AF25C495C200F75E44 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		C645B5A025AF80770006EEF2 /* Products */ = {
+		C671309B25C4948800F75E44 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C645B59F25AF80770006EEF2 /* SteamKitExample.app */,
+				C671309A25C4948800F75E44 /* NiceComponentsExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C645B5A125AF80770006EEF2 /* SteamKitExample */ = {
+		C671309C25C4948800F75E44 /* NiceComponentsExample */ = {
 			isa = PBXGroup;
 			children = (
-				C645B5A225AF80770006EEF2 /* SteamKitExampleApp.swift */,
-				C645B5A425AF80770006EEF2 /* ContentView.swift */,
-				C645B5A625AF80790006EEF2 /* Assets.xcassets */,
-				C645B5AB25AF80790006EEF2 /* Info.plist */,
-				C645B5A825AF80790006EEF2 /* Preview Content */,
+				C628F0D025C49F9B001331AB /* Resources */,
+				C671309D25C4948800F75E44 /* NiceComponentsExampleApp.swift */,
+				C671309F25C4948800F75E44 /* ContentView.swift */,
+				C67130A125C4948900F75E44 /* Assets.xcassets */,
+				C67130A625C4948900F75E44 /* Info.plist */,
+				C67130A325C4948900F75E44 /* Preview Content */,
 			);
-			path = SteamKitExample;
+			path = NiceComponentsExample;
 			sourceTree = "<group>";
 		};
-		C645B5A825AF80790006EEF2 /* Preview Content */ = {
+		C67130A325C4948900F75E44 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				C645B5A925AF80790006EEF2 /* Preview Assets.xcassets */,
+				C67130A425C4948900F75E44 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		C645B5B725AF81820006EEF2 /* Frameworks */ = {
+		C67130AF25C495C200F75E44 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -84,41 +98,41 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C645B59E25AF80770006EEF2 /* SteamKitExample */ = {
+		C671309925C4948800F75E44 /* NiceComponentsExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C645B5AE25AF80790006EEF2 /* Build configuration list for PBXNativeTarget "SteamKitExample" */;
+			buildConfigurationList = C67130A925C4948900F75E44 /* Build configuration list for PBXNativeTarget "NiceComponentsExample" */;
 			buildPhases = (
-				C645B59B25AF80770006EEF2 /* Sources */,
-				C645B59C25AF80770006EEF2 /* Frameworks */,
-				C645B59D25AF80770006EEF2 /* Resources */,
+				C671309625C4948800F75E44 /* Sources */,
+				C671309725C4948800F75E44 /* Frameworks */,
+				C671309825C4948800F75E44 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = SteamKitExample;
+			name = NiceComponentsExample;
 			packageProductDependencies = (
-				C645B5B825AF81820006EEF2 /* SteamKit */,
+				C67130B525C4966400F75E44 /* NiceComponents */,
 			);
-			productName = SteamKitExample;
-			productReference = C645B59F25AF80770006EEF2 /* SteamKitExample.app */;
+			productName = NiceComponentsExample;
+			productReference = C671309A25C4948800F75E44 /* NiceComponentsExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		C645B59725AF80770006EEF2 /* Project object */ = {
+		C671309225C4948800F75E44 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1230;
-				LastUpgradeCheck = 1230;
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
 				TargetAttributes = {
-					C645B59E25AF80770006EEF2 = {
-						CreatedOnToolsVersion = 12.3;
+					C671309925C4948800F75E44 = {
+						CreatedOnToolsVersion = 12.4;
 					};
 				};
 			};
-			buildConfigurationList = C645B59A25AF80770006EEF2 /* Build configuration list for PBXProject "SteamKitExample" */;
+			buildConfigurationList = C671309525C4948800F75E44 /* Build configuration list for PBXProject "NiceComponentsExample" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -126,42 +140,44 @@
 				en,
 				Base,
 			);
-			mainGroup = C645B59625AF80770006EEF2;
-			productRefGroup = C645B5A025AF80770006EEF2 /* Products */;
+			mainGroup = C671309125C4948800F75E44;
+			productRefGroup = C671309B25C4948800F75E44 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C645B59E25AF80770006EEF2 /* SteamKitExample */,
+				C671309925C4948800F75E44 /* NiceComponentsExample */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		C645B59D25AF80770006EEF2 /* Resources */ = {
+		C671309825C4948800F75E44 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C645B5AA25AF80790006EEF2 /* Preview Assets.xcassets in Resources */,
-				C645B5A725AF80790006EEF2 /* Assets.xcassets in Resources */,
+				C67130A525C4948900F75E44 /* Preview Assets.xcassets in Resources */,
+				C628F0D425C4A08B001331AB /* NotoSerif-Regular.ttf in Resources */,
+				C628F0D325C4A08B001331AB /* NotoSerif-Bold.ttf in Resources */,
+				C67130A225C4948900F75E44 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C645B59B25AF80770006EEF2 /* Sources */ = {
+		C671309625C4948800F75E44 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C645B5A525AF80770006EEF2 /* ContentView.swift in Sources */,
-				C645B5A325AF80770006EEF2 /* SteamKitExampleApp.swift in Sources */,
+				C67130A025C4948800F75E44 /* ContentView.swift in Sources */,
+				C671309E25C4948800F75E44 /* NiceComponentsExampleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		C645B5AC25AF80790006EEF2 /* Debug */ = {
+		C67130A725C4948900F75E44 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -212,7 +228,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -222,7 +238,7 @@
 			};
 			name = Debug;
 		};
-		C645B5AD25AF80790006EEF2 /* Release */ = {
+		C67130A825C4948900F75E44 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -267,7 +283,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -277,44 +293,44 @@
 			};
 			name = Release;
 		};
-		C645B5AF25AF80790006EEF2 /* Debug */ = {
+		C67130AA25C4948900F75E44 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"SteamKitExample/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"NiceComponentsExample/Preview Content\"";
 				DEVELOPMENT_TEAM = GH868RP95T;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = SteamKitExample/Info.plist;
+				INFOPLIST_FILE = NiceComponentsExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = steamclock.SteamKitExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.steamclock.NiceComponentsExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		C645B5B025AF80790006EEF2 /* Release */ = {
+		C67130AB25C4948900F75E44 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"SteamKitExample/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"NiceComponentsExample/Preview Content\"";
 				DEVELOPMENT_TEAM = GH868RP95T;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = SteamKitExample/Info.plist;
+				INFOPLIST_FILE = NiceComponentsExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = steamclock.SteamKitExample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.steamclock.NiceComponentsExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -324,20 +340,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C645B59A25AF80770006EEF2 /* Build configuration list for PBXProject "SteamKitExample" */ = {
+		C671309525C4948800F75E44 /* Build configuration list for PBXProject "NiceComponentsExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C645B5AC25AF80790006EEF2 /* Debug */,
-				C645B5AD25AF80790006EEF2 /* Release */,
+				C67130A725C4948900F75E44 /* Debug */,
+				C67130A825C4948900F75E44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C645B5AE25AF80790006EEF2 /* Build configuration list for PBXNativeTarget "SteamKitExample" */ = {
+		C67130A925C4948900F75E44 /* Build configuration list for PBXNativeTarget "NiceComponentsExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C645B5AF25AF80790006EEF2 /* Debug */,
-				C645B5B025AF80790006EEF2 /* Release */,
+				C67130AA25C4948900F75E44 /* Debug */,
+				C67130AB25C4948900F75E44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -345,11 +361,11 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C645B5B825AF81820006EEF2 /* SteamKit */ = {
+		C67130B525C4966400F75E44 /* NiceComponents */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = SteamKit;
+			productName = NiceComponents;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = C645B59725AF80770006EEF2 /* Project object */;
+	rootObject = C671309225C4948800F75E44 /* Project object */;
 }

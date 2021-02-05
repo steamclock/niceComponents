@@ -2,24 +2,25 @@
 //  BodyText.swift
 //  
 //
-//  Created by Brendan on 2021-01-13.
+//  Created by Brendan on 2021-01-29.
 //
 
 import SwiftUI
 
-public struct BodyText: TextView {
+public struct BodyText: View {
     public let text: String
-    public let style = Config.current.bodyText
+    public let theme: TextTheme
 
-    public init(_ text: String) {
+    public init(_ text: String, theme: TextTheme? = nil) {
         self.text = text
+        self.theme = theme ?? Config.current.bodyText
     }
 
     public var body: some View {
         Text(text)
+            .foregroundColor(theme.color)
+            .font(Font.system(size: theme.size))
             .fixedSize(horizontal: false, vertical: true)
-            .foregroundColor(style.color)
-            .font(Font.system(size: style.size))
             .lineLimit(nil)
     }
 }
