@@ -14,6 +14,8 @@
 		C67130A225C4948900F75E44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C67130A125C4948900F75E44 /* Assets.xcassets */; };
 		C67130A525C4948900F75E44 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C67130A425C4948900F75E44 /* Preview Assets.xcassets */; };
 		C67130B625C4966400F75E44 /* NiceComponents in Frameworks */ = {isa = PBXBuildFile; productRef = C67130B525C4966400F75E44 /* NiceComponents */; };
+		C6CD255825D6F01C008026D5 /* AllComponentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CD255725D6F01C008026D5 /* AllComponentsView.swift */; };
+		C6CD255D25D6F0B1008026D5 /* SampleSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CD255C25D6F0B1008026D5 /* SampleSignInView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		C67130A425C4948900F75E44 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C67130A625C4948900F75E44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C67130AD25C4949100F75E44 /* NiceComponents */ = {isa = PBXFileReference; lastKnownFileType = folder; name = NiceComponents; path = ..; sourceTree = "<group>"; };
+		C6CD255725D6F01C008026D5 /* AllComponentsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllComponentsView.swift; sourceTree = "<group>"; };
+		C6CD255C25D6F0B1008026D5 /* SampleSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleSignInView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 		C671309C25C4948800F75E44 /* NiceComponentsExample */ = {
 			isa = PBXGroup;
 			children = (
+				C6CD255625D6F006008026D5 /* View */,
 				C628F0D025C49F9B001331AB /* Resources */,
 				C671309D25C4948800F75E44 /* NiceComponentsExampleApp.swift */,
 				C671309F25C4948800F75E44 /* ContentView.swift */,
@@ -93,6 +98,15 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C6CD255625D6F006008026D5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C6CD255725D6F01C008026D5 /* AllComponentsView.swift */,
+				C6CD255C25D6F0B1008026D5 /* SampleSignInView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +185,8 @@
 			files = (
 				C67130A025C4948800F75E44 /* ContentView.swift in Sources */,
 				C671309E25C4948800F75E44 /* NiceComponentsExampleApp.swift in Sources */,
+				C6CD255D25D6F0B1008026D5 /* SampleSignInView.swift in Sources */,
+				C6CD255825D6F01C008026D5 /* AllComponentsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,7 +19,7 @@ public struct BodyText: View {
     public var body: some View {
         Text(text)
             .foregroundColor(theme.color)
-            .font(Font.system(size: theme.size))
+            .font(Config.current.textFont(size: theme.size))
             .fixedSize(horizontal: false, vertical: true)
             .lineLimit(nil)
     }

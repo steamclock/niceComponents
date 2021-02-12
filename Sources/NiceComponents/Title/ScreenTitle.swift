@@ -20,7 +20,7 @@ public struct ScreenTitle: View {
         Text(text)
             .fixedSize(horizontal: false, vertical: true)
             .foregroundColor(theme.color)
-            .font(Font.system(size: theme.size))
+            .font(Config.current.titleFont(size: theme.size))
             .lineLimit(nil)
     }
 }

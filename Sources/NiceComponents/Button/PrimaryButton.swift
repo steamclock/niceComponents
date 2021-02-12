@@ -22,7 +22,7 @@ public struct PrimaryButton: View {
         Button(action: onClick) {
             Text(text)
                 .foregroundColor(theme.textTheme.color)
-                .font(Font.system(size: theme.textTheme.size))
+                .font(Config.current.textFont(size: theme.textTheme.size))
                 .lineLimit(1)
                 .frame(maxWidth: .infinity, minHeight: theme.height, maxHeight: theme.height)
         }

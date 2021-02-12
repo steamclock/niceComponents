@@ -15,8 +15,8 @@ public struct TextTheme {
 public struct Config {
     public static var current = Config()
 
-    public var textFont: Font
-    public var titleFont: Font
+    private var textFontName: String?
+    private var titleFontName: String?
     public var themeColors: ThemeColors
 
     // Body Themes
@@ -35,9 +35,9 @@ public struct Config {
     public var inactiveButton: ButtonTheme
     public var destructiveButton: ButtonTheme
 
-    public init(textFont: Font? = nil, titleFont: Font? = nil, themeColors: ThemeColors? = nil) {
-        self.textFont = textFont ?? Font.body
-        self.titleFont = titleFont ?? Font.title
+    public init(textFontName: String? = nil, titleFontName: String? = nil, themeColors: ThemeColors? = nil) {
+        self.textFontName = textFontName
+        self.titleFontName = titleFontName
         self.themeColors = themeColors ?? Config.defaultThemeColors
 
         bodyText = TextTheme(color: self.themeColors.text.primary, size: 16)
@@ -77,4 +77,21 @@ public struct Config {
         )
         return ThemeColors(text: text, theme: theme)
     }
+
+    public func textFont(size: CGFloat) -> Font {
+        if let textFontName = textFontName {
+            return Font.custom(textFontName, size: size)
+        }
+
+        return Font.system(size: size, weight: .semibold)
+    }
+
+    public func titleFont(size: CGFloat) -> Font {
+        if let titleFontName = titleFontName {
+            return Font.custom(titleFontName, size: size)
+        }
+
+        return Font.system(size: size, weight: .medium)
+    }
+
 }
