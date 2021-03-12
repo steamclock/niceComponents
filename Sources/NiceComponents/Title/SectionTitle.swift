@@ -9,19 +9,19 @@ import SwiftUI
 
 public struct SectionTitle: View {
     public let text: String
-    public let theme: TextTheme
+    public let style: TypeStyle
 
-    public init(_ text: String, theme: TextTheme? = nil) {
+    public init(_ text: String, style: TypeStyle? = nil) {
         self.text = text
-        self.theme = theme ?? Config.current.sectionTitle
+        self.style = style ?? Config.current.sectionTitleStyle
     }
 
     public var body: some View {
         Text(text)
+            .foregroundColor(style.color)
+            .scaledFont(name: style.theme.name, size: style.theme.size, weight: style.theme.weight)
             .fixedSize(horizontal: false, vertical: true)
-            .foregroundColor(theme.color)
-            .font(Config.current.titleFont(size: theme.size))
-            .lineLimit(nil)
+            .lineLimit(style.lineLimit)
     }
 }
 

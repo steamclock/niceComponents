@@ -13,7 +13,7 @@ public struct SampleSignInView: View {
     @State private var passwordField: String = ""
 
     public var body: some View {
-        VStack(alignment: .leading, spacing: Layout.Padding.standard) {
+        VStack(alignment: .leading, spacing: Layout.Spacing.standard) {
             ScreenTitle("Sign In")
 
             DetailText("Email")
@@ -26,6 +26,6 @@ public struct SampleSignInView: View {
 
             SecondaryButton("Create an Account") {}
             Spacer()
-        }.padding(Layout.Padding.standard)
+        }.padding(Layout.Spacing.standard)
     }
 }

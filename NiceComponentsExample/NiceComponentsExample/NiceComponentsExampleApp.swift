@@ -11,10 +11,10 @@ import SwiftUI
 @main
 struct NiceComponentsExampleApp: App {
     init() {
-        let newConfig = Config(textFontName: "NotoSerif-Regular", titleFontName: "NotoSerif-Bold", themeColors: nil)
+        let newConfig = Config()
+        print("==== init called")
         Config.current = newConfig
     }
-
 
     var body: some Scene {
         WindowGroup {

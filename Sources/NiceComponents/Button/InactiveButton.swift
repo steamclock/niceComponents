@@ -9,29 +9,28 @@ import SwiftUI
 
 public struct InactiveButton: View {
     let text: String
-    let theme: ButtonTheme
+    let style: ButtonStyle
     let onClick: () -> Void
 
-    public init(_ text: String, theme: ButtonTheme? = nil, onClick: @escaping () -> Void) {
+    public init(_ text: String, style: ButtonStyle? = nil, onClick: @escaping () -> Void) {
         self.text = text
-        self.theme = theme ?? Config.current.inactiveButton
+        self.style = style ?? Config.current.inactiveButtonStyle
         self.onClick = onClick
     }
 
     public var body: some View {
         Button(action: onClick) {
             Text(text)
-                .foregroundColor(theme.textTheme.color)
-                .font(Config.current.textFont(size: theme.textTheme.size))
-                .lineLimit(1)
-                .frame(maxWidth: .infinity, minHeight: theme.height, maxHeight: theme.height)
+                .foregroundColor(style.onSurfaceColor)
+                .scaledFont(name: style.textStyle.name, size: style.textStyle.size, weight: style.textStyle.weight)
+                .frame(maxWidth: .infinity, minHeight: style.height, maxHeight: style.height)
         }
         .fixedSize(horizontal: false, vertical: true)
-        .background(theme.color)
-        .cornerRadius(theme.borderRadius)
+        .background(style.surfaceColor)
+        .cornerRadius(style.borderRadius)
         .overlay(
-            RoundedRectangle(cornerRadius: theme.borderRadius)
-                .stroke(theme.borderColor, lineWidth: 2)
-        ).padding(Layout.Padding.standard)
+            RoundedRectangle(cornerRadius: style.borderRadius)
+                .stroke(style.borderColor, lineWidth: 2)
+        ).padding(Layout.Spacing.standard)
     }
 }

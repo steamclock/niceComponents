@@ -17,10 +17,14 @@ struct AllComponentsView: View {
                 ItemTitle("Item Title")
             }
 
+            ThemedDivider()
+
             VStack(alignment: .leading, spacing: 2) {
                 BodyText("Body Text")
                 DetailText("Detail Text")
             }
+
+            ThemedDivider()
 
             VStack(alignment: .leading, spacing: 2) {
                 PrimaryButton("Primary Button") { }
@@ -28,6 +32,6 @@ struct AllComponentsView: View {
                 InactiveButton("Inactive Button") { }
                 DestructiveButton("Destructive Button") { }
             }
-        }.padding(Layout.Padding.standard)
+        }.padding(Layout.Spacing.standard)
     }
 }

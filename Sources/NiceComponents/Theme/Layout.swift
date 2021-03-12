@@ -8,7 +8,7 @@
 import SwiftUI
 
 public enum Layout {
-    public enum Padding {
+    public enum Spacing {
         public static let large: CGFloat = 16
         public static let standard: CGFloat = 8
         public static let small: CGFloat = 4
