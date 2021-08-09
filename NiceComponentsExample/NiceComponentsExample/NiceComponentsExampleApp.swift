@@ -11,8 +11,13 @@ import SwiftUI
 @main
 struct NiceComponentsExampleApp: App {
     init() {
-        let newConfig = Config()
-        print("==== init called")
+        var newConfig = Config()
+        newConfig.primaryButtonStyle = NiceComponents.ButtonStyle(
+            textStyle: Config.current.typeTheme.body1,
+            surfaceColor: Color.red,
+            onSurfaceColor: .black
+        )
+        newConfig.primaryButtonStyle.textStyle = TypeTheme.TextStyle(size: 16, weight: .semibold)
         Config.current = newConfig
     }
 

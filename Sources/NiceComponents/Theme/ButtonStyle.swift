@@ -8,30 +8,24 @@
 import SwiftUI
 
 public struct ButtonStyle {
-    public var textStyle: TypeTheme.Text
+    public var textStyle: TypeTheme.TextStyle
     public var height: CGFloat
     public var surfaceColor: Color
     public var onSurfaceColor: Color
-    public var borderColor: Color
-    public var borderRadius: CGFloat
-    public var borderWidth: CGFloat
+    public var border: BorderStyle
 
     public init(
-        textStyle: TypeTheme.Text,
+        textStyle: TypeTheme.TextStyle,
         height: CGFloat = 44,
         surfaceColor: Color,
         onSurfaceColor: Color,
-        borderColor: Color? = nil,
-        borderRadius: CGFloat = 4,
-        borderWidth: CGFloat = 0
+        border: BorderStyle? = nil
     ) {
         self.textStyle = textStyle
         self.height = height
         self.surfaceColor = surfaceColor
         self.onSurfaceColor = onSurfaceColor
 
-        self.borderColor = borderColor ?? surfaceColor
-        self.borderRadius = borderRadius
-        self.borderWidth = borderWidth
+        self.border = border ?? BorderStyle()
     }
 }

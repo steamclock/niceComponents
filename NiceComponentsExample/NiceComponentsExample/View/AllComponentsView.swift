@@ -29,6 +29,7 @@ struct AllComponentsView: View {
             VStack(alignment: .leading, spacing: 2) {
                 PrimaryButton("Primary Button") { }
                 SecondaryButton("Secondary Button") { }
+                BorderlessButton("Borderless Button") { }
                 InactiveButton("Inactive Button") { }
                 DestructiveButton("Destructive Button") { }
             }

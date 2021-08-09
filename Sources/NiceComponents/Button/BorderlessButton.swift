@@ -1,20 +1,20 @@
 //
-//  DestructiveButton.swift
+//  BorderlessButton.swift
 //  
 //
-//  Created by Brendan on 2021-02-05.
+//  Created by Brendan on 2021-07-13.
 //
 
 import SwiftUI
 
-public struct DestructiveButton: View {
+public struct BorderlessButton: View {
     let text: String
     let style: ButtonStyle
     let onClick: () -> Void
 
     public init(_ text: String, style: ButtonStyle? = nil, onClick: @escaping () -> Void) {
         self.text = text
-        self.style = style ?? Config.current.destructiveButtonStyle
+        self.style = style ?? Config.current.borderlessButtonStyle
         self.onClick = onClick
     }
 

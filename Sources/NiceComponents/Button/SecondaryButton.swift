@@ -27,10 +27,10 @@ public struct SecondaryButton: View {
         }
         .fixedSize(horizontal: false, vertical: true)
         .background(style.surfaceColor)
-        .cornerRadius(style.borderRadius)
+        .cornerRadius(style.border.radius)
         .overlay(
-            RoundedRectangle(cornerRadius: style.borderRadius)
-                .stroke(style.borderColor, lineWidth: 2)
+            RoundedRectangle(cornerRadius: style.border.radius)
+                .stroke(style.border.color, lineWidth: 2)
         ).padding(Layout.Spacing.standard)
     }
 }

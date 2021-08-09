@@ -8,7 +8,7 @@
 import SwiftUI
 
 public struct TypeTheme {
-    public struct Text {
+    public struct TextStyle {
         let name: String?
         let weight: Font.Weight?
         let size: CGFloat
@@ -20,18 +20,45 @@ public struct TypeTheme {
         }
     }
 
-    public var headline1 = Text(size: 48, weight: .semibold)
-    public var headline2 = Text(size: 34, weight: .semibold)
-    public var headline3 = Text(size: 24, weight: .semibold)
-    public var headline4 = Text(size: 20, weight: .semibold)
+    public var headline1: TextStyle
+    public var headline2: TextStyle
+    public var headline3: TextStyle
+    public var headline4: TextStyle
+    public var subtitle1: TextStyle
+    public var subtitle2: TextStyle
 
-    public var subtitle1 = Text(size: 16, weight: .semibold)
-    public var subtitle2 = Text(size: 14, weight: .semibold)
+    public var body1: TextStyle
+    public var body2: TextStyle
 
-    public var body1 = Text(size: 16)
-    public var body2 = Text(size: 14)
+    public var button: TextStyle
+    public var caption: TextStyle
+    public var overline: TextStyle
 
-    public var button = Text(size: 14)
-    public var caption = Text(size: 12)
-    public var overline = Text(size: 12)
+    public init(headline1: TextStyle? = nil,
+            headline2: TextStyle? = nil,
+            headline3: TextStyle? = nil,
+            headline4: TextStyle? = nil,
+            subtitle1: TextStyle? = nil,
+            subtitle2: TextStyle? = nil,
+            body1: TextStyle? = nil,
+            body2: TextStyle? = nil,
+            button: TextStyle? = nil,
+            caption: TextStyle? = nil,
+            overline: TextStyle? = nil ) {
+        self.headline1 = headline1 ?? TextStyle(size: 48, weight: .semibold)
+        self.headline2 = headline2 ?? TextStyle(size: 34, weight: .semibold)
+        self.headline3 = headline3 ?? TextStyle(size: 24, weight: .semibold)
+        self.headline4 = headline4 ?? TextStyle(size: 20, weight: .semibold)
+
+        self.subtitle1 = subtitle1 ?? TextStyle(size: 16, weight: .semibold)
+        self.subtitle2 = subtitle2 ?? TextStyle(size: 14, weight: .semibold)
+
+        self.body1 = body1 ?? TextStyle(size: 16)
+        self.body2 = body2 ?? TextStyle(size: 14)
+
+        self.button = button ?? TextStyle(size: 14)
+        self.caption = caption ?? TextStyle(size: 12)
+        self.overline = overline ?? TextStyle(size: 12)
+
+    }
 }

@@ -8,13 +8,13 @@
 import SwiftUI
 
 public struct TypeStyle {
-    public let color: Color
-    public let theme: TypeTheme.Text
-    public let lineLimit: Int?
+    public var color: Color
+    public var theme: TypeTheme.TextStyle
+    public var lineLimit: Int?
 
-    init(color: Color,
-         theme: TypeTheme.Text,
-         lineLimit: Int? = nil) {
+    public init(color: Color,
+            theme: TypeTheme.TextStyle,
+            lineLimit: Int? = nil) {
         self.color = color
         self.theme = theme
         self.lineLimit = lineLimit

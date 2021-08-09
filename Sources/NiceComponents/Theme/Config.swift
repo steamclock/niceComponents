@@ -31,6 +31,7 @@ public struct Config {
     public var typeTheme: TypeTheme
 
     // Button Styles
+    public var borderlessButtonStyle: ButtonStyle
     public var destructiveButtonStyle: ButtonStyle
     public var inactiveButtonStyle: ButtonStyle
     public var primaryButtonStyle: ButtonStyle
@@ -47,6 +48,14 @@ public struct Config {
     public init(colorTheme: ColorTheme? = nil, typeTheme: TypeTheme? = nil) {
         self.colorTheme = colorTheme ?? ColorTheme()
         self.typeTheme = typeTheme ?? TypeTheme()
+
+        // Set Button styles
+        
+        borderlessButtonStyle = ButtonStyle(
+            textStyle: self.typeTheme.button,
+            surfaceColor: Color.clear,
+            onSurfaceColor: self.colorTheme.primary
+        )
 
         destructiveButtonStyle = ButtonStyle(
             textStyle: self.typeTheme.button,
@@ -66,17 +75,13 @@ public struct Config {
             onSurfaceColor: self.colorTheme.onPrimary
         )
 
-        print(self.colorTheme.onPrimary)
         secondaryButtonStyle = ButtonStyle(
             textStyle: self.typeTheme.button,
             surfaceColor: self.colorTheme.secondary,
             onSurfaceColor: self.colorTheme.onSecondary
         )
 
-        bodyTextStyle = TypeStyle(
-            color: self.colorTheme.onSurface,
-            theme: self.typeTheme.body1
-        )
+        // Set Text styles
 
         bodyTextStyle = TypeStyle(
             color: self.colorTheme.onSurface,
@@ -87,6 +92,8 @@ public struct Config {
             color: self.colorTheme.onSurface,
             theme: self.typeTheme.caption // body2?
         )
+
+        // Set Title styles
 
         itemTitleStyle = TypeStyle(
             color: self.colorTheme.onSurface,
