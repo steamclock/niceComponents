@@ -15,16 +15,16 @@ public struct ButtonStyle {
     public var border: BorderStyle
 
     public init(
-        textStyle: TypeTheme.TextStyle,
+        textStyle: TypeTheme.TextStyle? = nil,
         height: CGFloat = 44,
-        surfaceColor: Color,
-        onSurfaceColor: Color,
+        surfaceColor: Color? = nil,
+        onSurfaceColor: Color? = nil,
         border: BorderStyle? = nil
     ) {
-        self.textStyle = textStyle
+        self.textStyle = textStyle ?? Config.current.primaryButtonStyle.textStyle
         self.height = height
-        self.surfaceColor = surfaceColor
-        self.onSurfaceColor = onSurfaceColor
+        self.surfaceColor = surfaceColor ?? Config.current.primaryButtonStyle.surfaceColor
+        self.onSurfaceColor = onSurfaceColor ?? Config.current.primaryButtonStyle.onSurfaceColor
 
         self.border = border ?? BorderStyle()
     }

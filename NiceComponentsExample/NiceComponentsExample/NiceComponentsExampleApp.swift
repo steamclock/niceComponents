@@ -13,11 +13,9 @@ struct NiceComponentsExampleApp: App {
     init() {
         var newConfig = Config()
         newConfig.primaryButtonStyle = NiceComponents.ButtonStyle(
-            textStyle: Config.current.typeTheme.body1,
-            surfaceColor: Color.red,
+            surfaceColor: Color.orange,
             onSurfaceColor: .black
         )
-        newConfig.primaryButtonStyle.textStyle = TypeTheme.TextStyle(size: 16, weight: .semibold)
         Config.current = newConfig
     }
 

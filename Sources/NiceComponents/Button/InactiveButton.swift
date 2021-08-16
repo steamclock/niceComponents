@@ -30,7 +30,7 @@ public struct InactiveButton: View {
         .cornerRadius(style.border.radius)
         .overlay(
             RoundedRectangle(cornerRadius: style.border.radius)
-                .stroke(style.border.color, lineWidth: 2)
+                .stroke(style.border.color, lineWidth: style.border.width)
         ).padding(Layout.Spacing.standard)
     }
 }
