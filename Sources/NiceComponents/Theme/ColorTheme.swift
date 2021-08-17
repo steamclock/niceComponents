@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-// TODO: Figure out how to support light/dark colors.
-// TODO: is there a better way to pair the color/onColors?
 public struct ColorTheme {
     public var primary: Color
     public var primaryVariant: Color
@@ -17,6 +15,7 @@ public struct ColorTheme {
     public var secondary: Color
     public var secondaryVariant: Color
     public var onSecondary: Color
+
     public var background: Color
     public var onBackground: Color
 

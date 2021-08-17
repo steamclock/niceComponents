@@ -41,7 +41,6 @@ import NiceComponents
    init() {
        var newConfig = Config()
        newConfig.primaryButtonStyle = NiceComponents.ButtonStyle(
-           textStyle: Config.current.typeTheme.body1,
            surfaceColor: Color.red,
            onSurfaceColor: .black
        )
@@ -110,7 +109,18 @@ Components are colored using a theme inspired by the [Material Design color syst
 We also recommend declaring your colors in an Asset Catalog to make supporting light and dark mode a breeze. 
 
 ```swift
-TODO: show setting config.colorTheme
+import NiceComponents
+
+@main struct ExampleApp: App {
+   init() {
+       var newConfig = Config()
+       newConfig.colorTheme = ColorTheme(
+        primary: Color("theme_primary"),
+        onPrimary: Color("theme_onPrimary)"
+       )
+       Config.current = newConfig
+   }
+}
 ```
 
 #### Setting a Custom Font 
@@ -135,6 +145,10 @@ Just like how you can set a `colorTheme`, you can also set a `typeTheme` that de
     )
     Config.current = newConfig
 ```
+
+## Using the Figma Companion Components
+
+Coming soon...
 
 ### Requirements
 

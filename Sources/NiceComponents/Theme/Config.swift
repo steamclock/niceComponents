@@ -8,7 +8,11 @@
 import os
 import SwiftUI
 
+/// Global config settings for all components.
+/// Themes here will be applied to any components that don't define their own theme.
 public struct Config {
+    /// Your current component configuration.
+    /// Note that you can only set this configuration once, ideally during app startup.
     public static var current: Config {
         get {
             return _current
