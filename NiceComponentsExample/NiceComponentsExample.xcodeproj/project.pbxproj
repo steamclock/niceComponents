@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C628F0D325C4A08B001331AB /* NotoSerif-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C628F0D125C4A08B001331AB /* NotoSerif-Bold.ttf */; };
 		C628F0D425C4A08B001331AB /* NotoSerif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C628F0D225C4A08B001331AB /* NotoSerif-Regular.ttf */; };
+		C65289F326CF0DFF009D486B /* StatefulExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65289F226CF0DFF009D486B /* StatefulExampleView.swift */; };
 		C671309E25C4948800F75E44 /* NiceComponentsExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C671309D25C4948800F75E44 /* NiceComponentsExampleApp.swift */; };
 		C67130A025C4948800F75E44 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C671309F25C4948800F75E44 /* ContentView.swift */; };
 		C67130A225C4948900F75E44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C67130A125C4948900F75E44 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* Begin PBXFileReference section */
 		C628F0D125C4A08B001331AB /* NotoSerif-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerif-Bold.ttf"; sourceTree = "<group>"; };
 		C628F0D225C4A08B001331AB /* NotoSerif-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerif-Regular.ttf"; sourceTree = "<group>"; };
+		C65289F226CF0DFF009D486B /* StatefulExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulExampleView.swift; sourceTree = "<group>"; };
 		C671309A25C4948800F75E44 /* NiceComponentsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NiceComponentsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C671309D25C4948800F75E44 /* NiceComponentsExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiceComponentsExampleApp.swift; sourceTree = "<group>"; };
 		C671309F25C4948800F75E44 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			children = (
 				C6CD255725D6F01C008026D5 /* AllComponentsView.swift */,
 				C6CD255C25D6F0B1008026D5 /* SampleSignInView.swift */,
+				C65289F226CF0DFF009D486B /* StatefulExampleView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 			files = (
 				C67130A025C4948800F75E44 /* ContentView.swift in Sources */,
 				C671309E25C4948800F75E44 /* NiceComponentsExampleApp.swift in Sources */,
+				C65289F326CF0DFF009D486B /* StatefulExampleView.swift in Sources */,
 				C6CD255D25D6F0B1008026D5 /* SampleSignInView.swift in Sources */,
 				C6CD255825D6F01C008026D5 /* AllComponentsView.swift in Sources */,
 			);

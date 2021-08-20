@@ -8,25 +8,35 @@
 import SwiftUI
 
 public struct StatefulView: View {
-    @Binding public var state: ContentLoadState
+    private var state: ContentLoadState
 
     public let content: AnyView
+    public let errorView: AnyView?
+    public let loadingView: AnyView?
+    public let noDataView: AnyView?
+
+    public init(_ content: AnyView, state: ContentLoadState, errorView: AnyView? = nil, loadingView: AnyView? = nil, noDataView: AnyView? = nil) {
+        self.content = content
+        self.state = state
+        
+        self.errorView = errorView
+        self.loadingView = loadingView
+        self.noDataView = noDataView
+    }
 
     public var body: some View {
         switch state {
-        case .noData:
-            return AnyView(Text("no data"))
         case .error(let error):
-            return AnyView(Text("Error"))
+            return errorView ?? AnyView(Text("Error: \(error.localizedDescription)"))
+        case .noData:
+            return noDataView ?? AnyView(Text("No data"))
         case .loading:
-            AnyView(LoadingView()
+            return AnyView(LoadingView()
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             )
         case .hasData:
             return content
         }
-
-        return AnyView(EmptyView())
     }
 }
 
