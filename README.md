@@ -4,9 +4,7 @@ A simple library with some nice looking SwiftUI components to get your next proj
 
 Help jump start your prototypes with some sensible default components, then come back later and customize the look and feel of your app all in one place.
 
-![](all_components.png)
-
-![](simple_sign_in.png)
+![](preview.png)
 
 ## Usage
 
