@@ -31,6 +31,6 @@ public struct SecondaryButton: View {
         .overlay(
             RoundedRectangle(cornerRadius: style.border.radius)
                 .stroke(style.border.color, lineWidth: style.border.width)
-        ).padding(Layout.Spacing.standard)
+        )
     }
 }

@@ -18,10 +18,11 @@ public struct SampleSignInView: View {
 
             DetailText("Email")
             TextField("", text: $emailField)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
 
             DetailText("Password")
             TextField("", text: $passwordField)
-
+                .textFieldStyle(RoundedBorderTextFieldStyle())
             PrimaryButton("Sign In") {}
 
             SecondaryButton("Create an Account") {}

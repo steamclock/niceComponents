@@ -28,6 +28,5 @@ public struct BorderlessButton: View {
         .fixedSize(horizontal: false, vertical: true)
         .background(style.surfaceColor)
         .cornerRadius(style.border.radius)
-        .padding(Layout.Spacing.standard)
     }
 }

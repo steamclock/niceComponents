@@ -2,7 +2,11 @@
 
 A simple library with some nice looking SwiftUI components to get your next project started 🚀
 
-Help jump start your prototype with some sensible defaults, then come back later and customize the look and feel of your app all in one place.
+Help jump start your prototypes with some sensible default components, then come back later and customize the look and feel of your app all in one place.
+
+![](all_components.png)
+
+![](simple_sign_in.png)
 
 ## Usage
 
@@ -93,6 +97,10 @@ var body: some View {
 
 ```
 
+#### Using `StatefulView`
+
+
+
 #### Setting a Color Palette
 
 Components are colored using a theme inspired by the [Material Design color system](https://material.io/design/color/the-color-system.html#color-theme-creation).
@@ -145,12 +153,6 @@ Just like how you can set a `colorTheme`, you can also set a `typeTheme` that de
     )
     Config.current = newConfig
 ```
-
-## Using the Figma Companion Components
-
-Coming soon...
-
-### Requirements
 
 ### Installation
 
