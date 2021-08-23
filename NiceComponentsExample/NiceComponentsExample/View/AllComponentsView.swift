@@ -9,29 +9,43 @@ import NiceComponents
 import SwiftUI
 
 struct AllComponentsView: View {
+    @State private var isLoading = true
+
     var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
-            VStack(alignment: .leading, spacing: 2) {
-                ScreenTitle("Screen Title")
-                SectionTitle("Section Title")
-                ItemTitle("Item Title")
-            }
+        ScrollView {
+            VStack(alignment: .leading, spacing: 5) {
+                VStack(alignment: .leading, spacing: 2) {
+                    ScreenTitle("Screen Title")
+                    SectionTitle("Section Title")
+                    ItemTitle("Item Title")
+                }
 
-            ThemedDivider()
+                ThemedDivider()
 
-            VStack(alignment: .leading, spacing: 2) {
-                BodyText("Body Text")
-                DetailText("Detail Text")
-            }
+                VStack(alignment: .leading, spacing: 2) {
+                    BodyText("Body Text")
+                    DetailText("Detail Text")
+                }
 
-            ThemedDivider()
+                ThemedDivider()
 
-            VStack(alignment: .leading, spacing: 2) {
-                PrimaryButton("Primary Button") { }
-                SecondaryButton("Secondary Button") { }
-                BorderlessButton("Borderless Button") { }
-                InactiveButton("Inactive Button") { }
-                DestructiveButton("Destructive Button") { }
+                VStack(alignment: .leading, spacing: 2) {
+                    PrimaryButton("Primary Button") { }
+                    SecondaryButton("Secondary Button") { }
+                    BorderlessButton("Borderless Button") { }
+                    InactiveButton("Inactive Button") { }
+                    DestructiveButton("Destructive Button") { }
+                }
+
+                ThemedDivider()
+
+                HStack {
+                    Spacer()
+
+                    LoadingView()
+
+                    Spacer()
+                }
             }
         }.padding(Layout.Spacing.standard)
     }
