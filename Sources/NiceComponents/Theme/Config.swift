@@ -58,7 +58,8 @@ public struct Config {
         borderlessButtonStyle = ButtonStyle(
             textStyle: self.typeTheme.button,
             surfaceColor: Color.clear,
-            onSurfaceColor: self.colorTheme.primary
+            onSurfaceColor: self.colorTheme.primary,
+            border: BorderStyle(color: Color.clear)
         )
 
         destructiveButtonStyle = ButtonStyle(
