@@ -11,12 +11,7 @@ import SwiftUI
 @main
 struct NiceComponentsExampleApp: App {
     init() {
-        var newConfig = Config()
-        newConfig.primaryButtonStyle = NiceComponents.ButtonStyle(
-            surfaceColor: Color.orange,
-            onSurfaceColor: .black
-        )
-        Config.current = newConfig
+        Config.current = Theme.config
     }
 
     var body: some Scene {

@@ -51,6 +51,7 @@ import NiceComponents
 }
 ```
 
+
 #### Extending an Existing Component
 
 ```swift
