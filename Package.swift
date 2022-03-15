@@ -15,7 +15,7 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/onevcat/Kingfisher.git",
-            from: "6.2.1"
+            from: "7.2.0"
         )
     ],
     targets: [
