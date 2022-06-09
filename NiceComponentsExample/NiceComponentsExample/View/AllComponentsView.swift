@@ -18,6 +18,15 @@ struct AllComponentsView: View {
                     ScreenTitle("Screen Title")
                     SectionTitle("Section Title")
                     ItemTitle("Item Title")
+                    ItemTitle(
+                        NSAttributedString(
+                            string: "Attributed Text",
+                            attributes: [
+                                .underlineStyle: 1,
+                                .foregroundColor: Color.blue
+                            ]
+                        )
+                    )
                 }
 
                 ThemedDivider()
@@ -33,7 +42,7 @@ struct AllComponentsView: View {
                     PrimaryButton("Primary Button") { }
                     SecondaryButton("Secondary Button") { }
                     BorderlessButton("Borderless Button") { }
-                    InactiveButton("Inactive Button") { }
+                    InactiveButton("Inactive Button")
                     DestructiveButton("Destructive Button") { }
                 }
 

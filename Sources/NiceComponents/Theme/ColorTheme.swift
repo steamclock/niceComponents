@@ -25,6 +25,8 @@ public struct ColorTheme {
     public var surface: Color
     public var onSurface: Color
 
+    public var shadow: Color
+
     public init(primary: Color? = nil,
             primaryVariant: Color? = nil,
             onPrimary: Color? = nil,
@@ -36,7 +38,8 @@ public struct ColorTheme {
             error: Color? = nil,
             onError: Color? = nil,
             surface: Color? = nil,
-            onSurface: Color? = nil) {
+            onSurface: Color? = nil,
+            shadow: Color? = nil) {
         self.primary = primary ?? Color("primary", bundle: Bundle.module)
         self.primaryVariant = primaryVariant ?? Color("primaryVariant", bundle: Bundle.module)
         self.onPrimary = onPrimary ?? Color("onPrimary", bundle: Bundle.module)
@@ -53,5 +56,7 @@ public struct ColorTheme {
 
         self.surface = surface ?? Color("surface", bundle: Bundle.module)
         self.onSurface = onSurface ?? Color("onSurface", bundle: Bundle.module)
+
+        self.shadow = shadow ?? Color.black.opacity(0.25)
     }
 }

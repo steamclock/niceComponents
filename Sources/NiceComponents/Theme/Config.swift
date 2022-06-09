@@ -49,6 +49,8 @@ public struct Config {
     public var screenTitleStyle: TypeStyle
     public var sectionTitleStyle: TypeStyle
 
+    public var shadowStyle: ShadowStyle
+
     public init(colorTheme: ColorTheme? = nil, typeTheme: TypeTheme? = nil) {
         self.colorTheme = colorTheme ?? ColorTheme()
         self.typeTheme = typeTheme ?? TypeTheme()
@@ -113,6 +115,15 @@ public struct Config {
         sectionTitleStyle = TypeStyle(
             color: self.colorTheme.onSurface,
             theme: self.typeTheme.headline2
+        )
+
+        // Set Shadow style
+
+        shadowStyle = ShadowStyle(
+            color: self.colorTheme.shadow,
+            radius: 10.0,
+            x: 0,
+            y: 3
         )
     }
 

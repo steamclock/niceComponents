@@ -7,13 +7,17 @@
 
 import SwiftUI
 
-public struct BodyText: View {
-    public let text: String
+public struct BodyText: NiceText {
+    public let text: NSAttributedString
     public let style: TypeStyle
 
-    public init(_ text: String, style: TypeStyle? = nil) {
+    public static var defaultStyle: TypeStyle {
+        Config.current.bodyTextStyle
+    }
+
+    public init(_ text: NSAttributedString, style: TypeStyle? = nil) {
         self.text = text
-        self.style = style ?? Config.current.bodyTextStyle
+        self.style = style ?? Self.defaultStyle
     }
 
     public var body: some View {

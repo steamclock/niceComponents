@@ -7,13 +7,18 @@
 
 import SwiftUI
 
-public struct ItemTitle: View {
-    public let text: String
+public struct ItemTitle: NiceText {
+
+    public let text: NSAttributedString
     public let style: TypeStyle
 
-    public init(_ text: String, style: TypeStyle? = nil) {
+    static public var defaultStyle: TypeStyle {
+        Config.current.itemTitleStyle
+    }
+
+    public init(_ text: NSAttributedString, style: TypeStyle? = nil) {
         self.text = text
-        self.style = style ?? Config.current.itemTitleStyle
+        self.style = style ?? Self.defaultStyle
     }
 
     public var body: some View {
@@ -27,6 +32,18 @@ public struct ItemTitle: View {
 
 struct ItemTitle_Previews: PreviewProvider {
     static var previews: some View {
-        ItemTitle("Item Title")
+        VStack(spacing: Layout.Spacing.large) {
+            ItemTitle("Item Title")
+            ItemTitle("Item Title", color: .red)
+            ItemTitle(
+                NSAttributedString(
+                    string: "Item Title",
+                    attributes: [
+                        .underlineStyle: 1,
+                        .foregroundColor: Color.blue
+                    ]
+                )
+            )
+        }
     }
 }
