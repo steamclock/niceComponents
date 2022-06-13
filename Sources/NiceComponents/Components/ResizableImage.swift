@@ -24,18 +24,20 @@ struct ResizableImage: View {
         self.tintColor = tintColor
     }
 
-    init(_ url: URL?, width: CGFloat, height: CGFloat) {
+    init(_ url: URL?, width: CGFloat, height: CGFloat, tintColor: Color? = nil) {
         self.bundleString = nil
         self.url = url
         self.height = height
         self.width = width
-        self.tintColor = nil
+        self.tintColor = tintColor
     }
 
     var body: some View {
         if let url = url {
             KFImage(url)
+                .renderingMode(tintColor == nil ? .original : .template)
                 .resizable()
+                .foregroundColor(tintColor)
                 .scaledToFill()
                 .frame(width: width, height: height)
                 .clipped()

@@ -9,14 +9,14 @@ import SwiftUI
 
 public struct ItemTitle: NiceText {
 
-    public let text: NSAttributedString
+    public let text: String
     public let style: TypeStyle
 
     static public var defaultStyle: TypeStyle {
         Config.current.itemTitleStyle
     }
 
-    public init(_ text: NSAttributedString, style: TypeStyle? = nil) {
+    public init(_ text: String, style: TypeStyle? = nil) {
         self.text = text
         self.style = style ?? Self.defaultStyle
     }
@@ -35,15 +35,6 @@ struct ItemTitle_Previews: PreviewProvider {
         VStack(spacing: Layout.Spacing.large) {
             ItemTitle("Item Title")
             ItemTitle("Item Title", color: .red)
-            ItemTitle(
-                NSAttributedString(
-                    string: "Item Title",
-                    attributes: [
-                        .underlineStyle: 1,
-                        .foregroundColor: Color.blue
-                    ]
-                )
-            )
         }
     }
 }

@@ -57,6 +57,6 @@ public struct ColorTheme {
         self.surface = surface ?? Color("surface", bundle: Bundle.module)
         self.onSurface = onSurface ?? Color("onSurface", bundle: Bundle.module)
 
-        self.shadow = shadow ?? Color.black.opacity(0.25)
+        self.shadow = shadow ?? Color.black.opacity(0.15)
     }
 }

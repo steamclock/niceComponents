@@ -18,15 +18,6 @@ struct AllComponentsView: View {
                     ScreenTitle("Screen Title")
                     SectionTitle("Section Title")
                     ItemTitle("Item Title")
-                    ItemTitle(
-                        NSAttributedString(
-                            string: "Attributed Text",
-                            attributes: [
-                                .underlineStyle: 1,
-                                .foregroundColor: Color.blue
-                            ]
-                        )
-                    )
                 }
 
                 ThemedDivider()
