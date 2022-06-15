@@ -9,9 +9,9 @@ import SwiftUI
 
 public struct TypeTheme {
     public struct TextStyle {
-        let name: String?
-        let weight: Font.Weight?
-        let size: CGFloat
+        public let name: String?
+        public let weight: Font.Weight?
+        public let size: CGFloat
 
         public init(_ name: String? = nil, size: CGFloat, weight: Font.Weight? = nil) {
             self.name = name
