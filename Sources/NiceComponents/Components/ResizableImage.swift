@@ -9,14 +9,14 @@ import SwiftUI
 import UIKit
 import Kingfisher
 
-struct ResizableImage: View {
-    let bundleString: String?
-    let url: URL?
-    let width: CGFloat
-    let height: CGFloat
-    let tintColor: Color?
+public struct ResizableImage: View {
+    public let bundleString: String?
+    public let url: URL?
+    public let width: CGFloat
+    public let height: CGFloat
+    public let tintColor: Color?
 
-    init(_ bundleString: String, width: CGFloat, height: CGFloat, tintColor: Color? = nil) {
+    public init(_ bundleString: String, width: CGFloat, height: CGFloat, tintColor: Color? = nil) {
         self.bundleString = bundleString
         self.url = nil
         self.height = height
@@ -24,7 +24,7 @@ struct ResizableImage: View {
         self.tintColor = tintColor
     }
 
-    init(_ url: URL?, width: CGFloat, height: CGFloat, tintColor: Color? = nil) {
+    public init(_ url: URL?, width: CGFloat, height: CGFloat, tintColor: Color? = nil) {
         self.bundleString = nil
         self.url = url
         self.height = height
@@ -32,7 +32,7 @@ struct ResizableImage: View {
         self.tintColor = tintColor
     }
 
-    var body: some View {
+    public var body: some View {
         if let url = url {
             KFImage(url)
                 .renderingMode(tintColor == nil ? .original : .template)
