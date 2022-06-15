@@ -7,13 +7,18 @@
 
 import SwiftUI
 
-public struct SectionTitle: View {
-    public let text: String
+public struct SectionTitle: NiceText {
+
+    public var text: String
     public let style: TypeStyle
+
+    public static var defaultStyle: TypeStyle {
+        Config.current.sectionTitleStyle
+    }
 
     public init(_ text: String, style: TypeStyle? = nil) {
         self.text = text
-        self.style = style ?? Config.current.sectionTitleStyle
+        self.style = style ?? Self.defaultStyle
     }
 
     public var body: some View {

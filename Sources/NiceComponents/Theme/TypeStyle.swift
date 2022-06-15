@@ -20,3 +20,9 @@ public struct TypeStyle {
         self.lineLimit = lineLimit
     }
 }
+
+public extension TypeStyle {
+    func with(color: Color) -> TypeStyle {
+        TypeStyle(color: color, theme: self.theme)
+    }
+}
