@@ -15,15 +15,23 @@ public protocol NiceText: View {
 
     init(_ text: String, style: TypeStyle?)
 
-    init(_ text: String, color: Color)
+    init(_ text: String, color: Color?, size: CGFloat?, lineLimit: Int?)
 }
 
 public extension NiceText {
-
-    init(_ text: String, color: Color) {
+    init(
+        _ text: String,
+        color: Color? = nil,
+        size: CGFloat? = nil,
+        lineLimit: Int? = nil
+    ) {
         self.init(
             text,
-            style: Self.defaultStyle.with(color: color)
+            style: Self.defaultStyle.with(
+                color: color,
+                size: size,
+                lineLimit: lineLimit
+            )
         )
     }
 }

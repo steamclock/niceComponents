@@ -35,6 +35,8 @@ struct ItemTitle_Previews: PreviewProvider {
         VStack(spacing: Layout.Spacing.large) {
             ItemTitle("Item Title")
             ItemTitle("Item Title", color: .red)
+            ItemTitle("Item Title", size: 64)
+            ItemTitle("Veeeeeeeeeeeery Loooooong Item Title", lineLimit: 1).padding()
         }
     }
 }

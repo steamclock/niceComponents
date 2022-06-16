@@ -22,7 +22,15 @@ public struct TypeStyle {
 }
 
 public extension TypeStyle {
-    func with(color: Color) -> TypeStyle {
-        TypeStyle(color: color, theme: self.theme)
+    func with(color: Color? = nil, size: CGFloat? = nil, lineLimit: Int? = nil) -> TypeStyle {
+        TypeStyle(
+            color: color ?? self.color,
+            theme: TypeTheme.TextStyle(
+                self.theme.name,
+                size: size ?? self.theme.size,
+                weight: self.theme.weight
+            ),
+            lineLimit: lineLimit ?? self.lineLimit
+        )
     }
 }
