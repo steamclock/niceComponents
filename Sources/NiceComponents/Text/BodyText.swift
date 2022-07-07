@@ -8,14 +8,14 @@
 import SwiftUI
 
 public struct BodyText: NiceText {
-    public let text: String
+    public let text: AttributedString
     public let style: TypeStyle
 
     public static var defaultStyle: TypeStyle {
         Config.current.bodyTextStyle
     }
 
-    public init(_ text: String, style: TypeStyle? = nil) {
+    public init(_ text: AttributedString, style: TypeStyle? = nil) {
         self.text = text
         self.style = style ?? Self.defaultStyle
     }
