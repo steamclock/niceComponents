@@ -9,14 +9,14 @@ import SwiftUI
 
 public struct SectionTitle: NiceText {
 
-    public var text: String
+    public var text: AttributedString
     public let style: TypeStyle
 
     public static var defaultStyle: TypeStyle {
         Config.current.sectionTitleStyle
     }
 
-    public init(_ text: String, style: TypeStyle? = nil) {
+    public init(_ text: AttributedString, style: TypeStyle? = nil) {
         self.text = text
         self.style = style ?? Self.defaultStyle
     }
