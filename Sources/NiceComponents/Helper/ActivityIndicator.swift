@@ -12,7 +12,12 @@ public struct ActivityIndicator: UIViewRepresentable {
     public typealias UIView = UIActivityIndicatorView
 
     var isAnimating: Bool
-    var configuration = { (indicator: UIView) in }
+    var configuration = { (_: UIView) in }
+
+    public init(isAnimating: Bool, configuration: @escaping (ActivityIndicator.UIView) -> ()) {
+        self.isAnimating = isAnimating
+        self.configuration = configuration
+    }
 
     public func makeUIView(context: UIViewRepresentableContext<Self>) -> UIView { UIView() }
     public func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<Self>) {

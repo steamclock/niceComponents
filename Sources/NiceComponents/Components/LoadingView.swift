@@ -8,23 +8,28 @@
 import SwiftUI
 import UIKit
 
-public struct LoadingView: View {
-    var loadingText: String? = "Loading"
+public struct LoadingView<Footer: View>: View {
+    let style: UIActivityIndicatorView.Style
+    let footer: () -> Footer
+
     @State var playAnimation = true
 
-    public init(_ loadingText: String? = nil) {
-        if let text = loadingText {
-            self.loadingText = text
-        }
+    public init(_ style: UIActivityIndicatorView.Style = .large, footer: @escaping () -> Footer) {
+        self.style = style
+        self.footer = footer
     }
 
     public var body: some View {
         VStack(alignment: .center) {
-            ActivityIndicator(isAnimating: true) { $0.style = .large }
+            ActivityIndicator(isAnimating: true) { $0.style = style }
 
-            if let text = loadingText {
-                BodyText(text)
-            }
+            footer()
         }
+    }
+}
+
+public extension LoadingView where Footer == EmptyView {
+    init(_ style: UIActivityIndicatorView.Style = .large) {
+        self.init(style, footer: { EmptyView() })
     }
 }
