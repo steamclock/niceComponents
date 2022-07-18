@@ -9,8 +9,7 @@ import NiceComponents
 import SwiftUI
 
 struct AllComponentsView: View {
-    @State private var isLoading = true
-
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 5) {
@@ -29,23 +28,20 @@ struct AllComponentsView: View {
 
                 ThemedDivider()
 
-                VStack(alignment: .leading, spacing: 2) {
+                VStack(alignment: .center, spacing: 8) {
                     PrimaryButton("Primary Button") { }
                     SecondaryButton("Secondary Button") { }
                     BorderlessButton("Borderless Button") { }
-                    InactiveButton("Inactive Button")
                     DestructiveButton("Destructive Button") { }
                 }
 
                 ThemedDivider()
 
-                HStack {
-                    Spacer()
-
-                    LoadingView()
-
-                    Spacer()
-                }
+                LoadingView()
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .padding()
+                LoadingView(typeStyle: TypeStyle(color: .gray, theme: .init(size: 12)),indicatorStyle: .medium)
+                    .frame(maxWidth: .infinity, alignment: .center)
             }
         }.padding(Layout.Spacing.standard)
     }

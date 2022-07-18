@@ -9,21 +9,23 @@ import SwiftUI
 import UIKit
 
 public struct LoadingView: View {
-    var loadingText: String? = "Loading"
-    @State var playAnimation = true
+    let loadingText: String?
+    let activityIndicatorStyle: UIActivityIndicatorView.Style
+    let typeStyle: TypeStyle?
 
-    public init(_ loadingText: String? = nil) {
-        if let text = loadingText {
-            self.loadingText = text
-        }
+    public init(_ loadingText: String? = nil,typeStyle: TypeStyle? = nil, indicatorStyle: UIActivityIndicatorView.Style = .large) {
+        self.loadingText = loadingText ?? "Loading"
+        self.activityIndicatorStyle = indicatorStyle
+        self.typeStyle = typeStyle
     }
+    
 
     public var body: some View {
         VStack(alignment: .center) {
-            ActivityIndicator(isAnimating: true) { $0.style = .large }
+            ActivityIndicator(isAnimating: true) { $0.style = activityIndicatorStyle }
 
             if let text = loadingText {
-                BodyText(text)
+                BodyText(text, style: typeStyle)
             }
         }
     }

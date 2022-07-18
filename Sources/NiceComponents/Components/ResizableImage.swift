@@ -11,6 +11,7 @@ import Kingfisher
 
 public struct ResizableImage: View {
     public let bundleString: String?
+    public let systemIcon: String?
     public let url: URL?
     public let width: CGFloat
     public let height: CGFloat
@@ -19,6 +20,16 @@ public struct ResizableImage: View {
     public init(_ bundleString: String, width: CGFloat, height: CGFloat, tintColor: Color? = nil) {
         self.bundleString = bundleString
         self.url = nil
+        self.systemIcon = nil
+        self.height = height
+        self.width = width
+        self.tintColor = tintColor
+    }
+
+    public init(systemIcon: String, width: CGFloat, height: CGFloat, tintColor: Color? = nil) {
+        self.bundleString = nil
+        self.url = nil
+        self.systemIcon = systemIcon
         self.height = height
         self.width = width
         self.tintColor = tintColor
@@ -26,10 +37,20 @@ public struct ResizableImage: View {
 
     public init(_ url: URL?, width: CGFloat, height: CGFloat, tintColor: Color? = nil) {
         self.bundleString = nil
+        self.systemIcon = nil
         self.url = url
         self.height = height
         self.width = width
         self.tintColor = tintColor
+    }
+
+    private var image: Image? {
+        if let string = bundleString {
+            return Image(string)
+        } else if let icon = systemIcon {
+            return Image(systemName: icon)
+        }
+        return nil
     }
 
     public var body: some View {
@@ -41,13 +62,13 @@ public struct ResizableImage: View {
                 .scaledToFill()
                 .frame(width: width, height: height)
                 .clipped()
-        } else if let string = bundleString {
-            Image(string)
+        } else if let image = image {
+            image
                 .renderingMode(tintColor == nil ? .original : .template)
                 .resizable()
+                .frame(width: width, height: height)
                 .foregroundColor(tintColor)
                 .scaledToFill()
-                .frame(width: width, height: height)
                 .clipped()
         } else {
             EmptyView()
