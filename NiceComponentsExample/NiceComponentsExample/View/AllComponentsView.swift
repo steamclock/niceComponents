@@ -28,7 +28,7 @@ struct AllComponentsView: View {
 
                 ThemedDivider()
 
-                VStack(alignment: .center, spacing: 8) {
+                VStack(alignment: .leading, spacing: 2) {
                     PrimaryButton("Primary Button") { }
                     SecondaryButton("Secondary Button") { }
                     BorderlessButton("Borderless Button") { }
@@ -37,11 +37,13 @@ struct AllComponentsView: View {
 
                 ThemedDivider()
 
-                LoadingView()
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .padding()
-                LoadingView(typeStyle: TypeStyle(color: .gray, theme: .init(size: 12)),indicatorStyle: .medium)
-                    .frame(maxWidth: .infinity, alignment: .center)
+                HStack {
+                    Spacer()
+
+                    LoadingView()
+
+                    Spacer()
+                }
             }
         }.padding(Layout.Spacing.standard)
     }
