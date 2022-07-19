@@ -14,7 +14,11 @@ struct NiceButtonExampleView: View {
 
                 VStack(alignment: .center, spacing: 8) {
 
-                    PrimaryButton("Primary") { }
+                    PrimaryButton("Primary") {
+                        print("Tapped")
+                    }.withRightImage(
+                        ResizableImage.init(systemIcon: "heart.fill", width: 14, height: 14, tintColor: .red)
+                    )
 
                     PrimaryButton("Bigger Primary", height: 56) { }
 

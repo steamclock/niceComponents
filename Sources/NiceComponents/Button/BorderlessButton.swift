@@ -11,7 +11,7 @@ public struct BorderlessButton: NiceButton {
     public let text: String
     public let style: NiceButtonStyle
     public let action: () -> Void
-    public let disabled: Bool
+    public let inactive: Bool
 
     public var leftImage: ResizableImage?
     public var rightImage: ResizableImage?
@@ -30,7 +30,7 @@ public struct BorderlessButton: NiceButton {
     ) {
         self.text = text
         self.style = style ?? Config.current.borderlessButtonStyle
-        self.disabled = disabled
+        self.inactive = disabled
         self.action = action
     }
 }

@@ -12,7 +12,7 @@ public protocol NiceButton: View {
     var text: String { get }
     var style: NiceButtonStyle { get }
     var action: () -> Void { get }
-    var disabled: Bool { get }
+    var inactive: Bool { get }
     static var defaultStyle: NiceButtonStyle { get }
     @ViewBuilder var defaultBody: DefaultBody { get }
 
@@ -76,7 +76,7 @@ extension NiceButton {
                     leftImage
                 }
                 Text(text)
-                    .foregroundColor(disabled ? style.disabledOnSurfaceColor : style.onSurfaceColor)
+                    .foregroundColor(inactive ? style.disabledOnSurfaceColor : style.onSurfaceColor)
                     .scaledFont(name: style.textStyle.name, size: style.textStyle.size, weight: style.textStyle.weight)
                     .padding(.leading, leftImageOffset)
                     .padding(.trailing, rightImageOffset)
@@ -86,14 +86,16 @@ extension NiceButton {
             }
             .frame(maxWidth: .infinity)
         }
+        .disabled(inactive)
         .frame(height: style.height)
         .fixedSize(horizontal: false, vertical: true)
-        .background(disabled ? style.disabledSurfaceColor : style.surfaceColor)
+        .background(inactive ? style.disabledSurfaceColor : style.surfaceColor)
         .cornerRadius(style.cornerRadius)
         .overlay(
             borderOverlay
         )
         .padding(paddingToAdd)
+
     }
 
     private var paddingToAdd: CGFloat {
