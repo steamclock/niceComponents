@@ -17,6 +17,13 @@ struct AllComponentsView: View {
                     ScreenTitle("Screen Title")
                     SectionTitle("Section Title")
                     ItemTitle("Item Title")
+                    ItemTitle("Attributed Item Title") { string  in
+                        if let range = string.range(of: "Attributed") {
+                            string[range].foregroundColor = .red
+                            string[range].underlineStyle = .single
+                            string[range].font = .custom(Config.current.detailTextStyle)
+                        }
+                    }
                 }
 
                 ThemedDivider()
