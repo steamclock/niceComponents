@@ -35,11 +35,10 @@ public struct Config {
     public var typeTheme: TypeTheme
 
     // Button Styles
-    public var borderlessButtonStyle: ButtonStyle
-    public var destructiveButtonStyle: ButtonStyle
-    public var inactiveButtonStyle: ButtonStyle
-    public var primaryButtonStyle: ButtonStyle
-    public var secondaryButtonStyle: ButtonStyle
+    public var borderlessButtonStyle: NiceButtonStyle
+    public var destructiveButtonStyle: NiceButtonStyle
+    public var primaryButtonStyle: NiceButtonStyle
+    public var secondaryButtonStyle: NiceButtonStyle
 
     // Text Styles
 
@@ -58,32 +57,26 @@ public struct Config {
 
         // Set Button styles
         
-        borderlessButtonStyle = ButtonStyle(
+        borderlessButtonStyle = NiceButtonStyle(
             textStyle: self.typeTheme.button,
             surfaceColor: Color.clear,
             onSurfaceColor: self.colorTheme.primary,
-            border: BorderStyle(color: Color.clear)
+            border: NiceBorderStyle.none
         )
 
-        destructiveButtonStyle = ButtonStyle(
+        destructiveButtonStyle = NiceButtonStyle(
             textStyle: self.typeTheme.button,
             surfaceColor: self.colorTheme.error,
             onSurfaceColor: self.colorTheme.onError
         )
 
-        inactiveButtonStyle = ButtonStyle(
-            textStyle: self.typeTheme.button,
-            surfaceColor: self.colorTheme.background,
-            onSurfaceColor: self.colorTheme.secondary
-        )
-
-        primaryButtonStyle = ButtonStyle(
+        primaryButtonStyle = NiceButtonStyle(
             textStyle: self.typeTheme.button,
             surfaceColor: self.colorTheme.primary,
             onSurfaceColor: self.colorTheme.onPrimary
         )
 
-        secondaryButtonStyle = ButtonStyle(
+        secondaryButtonStyle = NiceButtonStyle(
             textStyle: self.typeTheme.button,
             surfaceColor: self.colorTheme.secondary,
             onSurfaceColor: self.colorTheme.onSecondary
