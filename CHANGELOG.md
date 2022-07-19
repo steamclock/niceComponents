@@ -14,3 +14,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - ContentLoadState is now equatable
 - ResizableImage handles both bundle string and URL
 - InactiveButton removed onClick modifier
+
+## [0.3.0]
+- Min iOS version incremented to iOS 15
+- NiceButton introduced
+- All Button components are now NiceButtons
+- ResizableImage supports systemIcons
+- NiceButtonStyle replaced ButtonStyle
+- NiceBorderStyle replaced BorderStyle
+- AttributedString support for Text components
+- Update to StatefulView to support opaque view types
+- LoadingView improvement
