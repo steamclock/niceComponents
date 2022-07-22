@@ -9,8 +9,7 @@ import NiceComponents
 import SwiftUI
 
 struct AllComponentsView: View {
-    @State private var isLoading = true
-
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 5) {
@@ -40,7 +39,6 @@ struct AllComponentsView: View {
                     PrimaryButton("Primary Button") { }
                     SecondaryButton("Secondary Button") { }
                     BorderlessButton("Borderless Button") { }
-                    InactiveButton("Inactive Button")
                     DestructiveButton("Destructive Button") { }
                 }
 
