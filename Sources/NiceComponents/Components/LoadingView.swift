@@ -12,8 +12,6 @@ public struct LoadingView<Footer: View>: View {
     let style: UIActivityIndicatorView.Style
     let footer: () -> Footer
 
-    @State var playAnimation = true
-
     public init(_ style: UIActivityIndicatorView.Style = .large, footer: @escaping () -> Footer) {
         self.style = style
         self.footer = footer
