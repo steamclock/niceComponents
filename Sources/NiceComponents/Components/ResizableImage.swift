@@ -16,14 +16,16 @@ public struct ResizableImage: View {
     public let width: CGFloat
     public let height: CGFloat
     public let tintColor: Color?
+    public let loadingStyle: UIActivityIndicatorView.Style?
 
-    public init(_ bundleString: String, width: CGFloat, height: CGFloat, tintColor: Color? = nil) {
+    public init(_ bundleString: String, width: CGFloat, height: CGFloat, tintColor: Color? = nil, loadingStyle: UIActivityIndicatorView.Style? = nil) {
         self.bundleString = bundleString
         self.url = nil
         self.systemIcon = nil
         self.height = height
         self.width = width
         self.tintColor = tintColor
+        self.loadingStyle = loadingStyle
     }
 
     public init(systemIcon: String, width: CGFloat, height: CGFloat, tintColor: Color? = nil) {
@@ -33,6 +35,7 @@ public struct ResizableImage: View {
         self.height = height
         self.width = width
         self.tintColor = tintColor
+        self.loadingStyle = nil
     }
 
     public init(_ url: URL?, width: CGFloat, height: CGFloat, tintColor: Color? = nil) {
@@ -42,6 +45,7 @@ public struct ResizableImage: View {
         self.height = height
         self.width = width
         self.tintColor = tintColor
+        self.loadingStyle = nil
     }
 
     private var image: Image? {
@@ -59,7 +63,7 @@ public struct ResizableImage: View {
                 .renderingMode(tintColor == nil ? .original : .template)
                 .resizable()
                 .placeholder {
-                    LoadingView()
+                    LoadingView(loadingStyle ?? .large)
                 }
                 .foregroundColor(tintColor)
                 .scaledToFill()
