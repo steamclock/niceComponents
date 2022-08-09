@@ -58,6 +58,9 @@ public struct ResizableImage: View {
             KFImage(url)
                 .renderingMode(tintColor == nil ? .original : .template)
                 .resizable()
+                .placeholder {
+                    LoadingView()
+                }
                 .foregroundColor(tintColor)
                 .scaledToFill()
                 .frame(width: width, height: height)
