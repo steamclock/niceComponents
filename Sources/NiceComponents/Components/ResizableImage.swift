@@ -7,45 +7,33 @@
 
 import SwiftUI
 import UIKit
-import Kingfisher
 
-public struct ResizableImage: View {
+public struct ResizableImage<Placeholder: View>: View {
     public let bundleString: String?
     public let systemIcon: String?
     public let url: URL?
     public let width: CGFloat
     public let height: CGFloat
     public let tintColor: Color?
-    public let loadingStyle: UIActivityIndicatorView.Style?
+    public let contentMode: ContentMode
+    let placeholderView: () -> Placeholder
 
-    public init(_ bundleString: String, width: CGFloat, height: CGFloat, tintColor: Color? = nil, loadingStyle: UIActivityIndicatorView.Style? = nil) {
-        self.bundleString = bundleString
-        self.url = nil
-        self.systemIcon = nil
-        self.height = height
-        self.width = width
-        self.tintColor = tintColor
-        self.loadingStyle = loadingStyle
-    }
-
-    public init(systemIcon: String, width: CGFloat, height: CGFloat, tintColor: Color? = nil) {
-        self.bundleString = nil
-        self.url = nil
-        self.systemIcon = systemIcon
-        self.height = height
-        self.width = width
-        self.tintColor = tintColor
-        self.loadingStyle = nil
-    }
-
-    public init(_ url: URL?, width: CGFloat, height: CGFloat, tintColor: Color? = nil) {
-        self.bundleString = nil
-        self.systemIcon = nil
+    public init(
+        _ url: URL?,
+        maxWidth: CGFloat,
+        maxHeight: CGFloat,
+        tintColor: Color? = nil,
+        contentMode: ContentMode = .fit,
+        placeholderView: @escaping () -> Placeholder
+    ) {
         self.url = url
-        self.height = height
-        self.width = width
+        self.bundleString = nil
+        self.systemIcon = nil
+        self.height = maxHeight
+        self.width = maxWidth
         self.tintColor = tintColor
-        self.loadingStyle = nil
+        self.contentMode = contentMode
+        self.placeholderView = placeholderView
     }
 
     private var image: Image? {
@@ -59,26 +47,82 @@ public struct ResizableImage: View {
 
     public var body: some View {
         if let url = url {
-            KFImage(url)
-                .renderingMode(tintColor == nil ? .original : .template)
-                .resizable()
-                .placeholder {
-                    LoadingView(loadingStyle ?? .large)
-                }
-                .foregroundColor(tintColor)
-                .scaledToFill()
-                .frame(width: width, height: height)
-                .clipped()
+            AsyncImage(url: url) { image in
+                image.resizable()
+                    .renderingMode(tintColor == nil ? .original : .template)
+                    .aspectRatio(contentMode: contentMode)
+                    .frame(maxWidth: width, maxHeight: height)
+                    .foregroundColor(tintColor)
+            } placeholder: {
+                placeholderView()
+                    .frame(width: width, height: height)
+            }
         } else if let image = image {
             image
                 .renderingMode(tintColor == nil ? .original : .template)
                 .resizable()
                 .frame(width: width, height: height)
                 .foregroundColor(tintColor)
-                .scaledToFill()
+                .aspectRatio(contentMode: contentMode)
                 .clipped()
         } else {
             EmptyView()
         }
+    }
+}
+
+public extension ResizableImage where Placeholder == LoadingView<EmptyView>  {
+    init(
+        _ url: URL?,
+        maxWidth: CGFloat,
+        maxHeight: CGFloat,
+        tintColor: Color? = nil,
+        loadingStyle: UIActivityIndicatorView.Style = .large,
+        contentMode: ContentMode = .fit
+    ) {
+        self.bundleString = nil
+        self.systemIcon = nil
+        self.url = url
+        self.width = maxWidth
+        self.height = maxHeight
+        self.tintColor = tintColor
+        self.contentMode = contentMode
+        self.placeholderView = { LoadingView(loadingStyle) }
+    }
+}
+
+public extension ResizableImage where Placeholder == EmptyView {
+    init(
+        systemIcon: String,
+        width: CGFloat,
+        height: CGFloat,
+        tintColor: Color? = nil,
+        contentMode: ContentMode = .fit
+    ) {
+        self.bundleString = nil
+        self.url = nil
+        self.systemIcon = systemIcon
+        self.height = height
+        self.width = width
+        self.tintColor = tintColor
+        self.contentMode = contentMode
+        self.placeholderView = { EmptyView() }
+    }
+
+    init(
+        _ bundleString: String,
+        width: CGFloat,
+        height: CGFloat,
+        tintColor: Color? = nil,
+        contentMode: ContentMode = .fit
+    ) {
+        self.bundleString = bundleString
+        self.url = nil
+        self.systemIcon = nil
+        self.width = width
+        self.height = height
+        self.tintColor = tintColor
+        self.contentMode = contentMode
+        self.placeholderView = { EmptyView() }
     }
 }

@@ -16,13 +16,13 @@ public protocol NiceButton: View {
     static var defaultStyle: NiceButtonStyle { get }
     @ViewBuilder var defaultBody: DefaultBody { get }
 
-    var leftImage: ResizableImage? { get set }
-    var rightImage: ResizableImage? { get set }
+    var leftImage: LocalResizableImage? { get set }
+    var rightImage: LocalResizableImage? { get set }
     var leftImageOffset: CGFloat? { get set }
     var rightImageOffset: CGFloat? { get set }
 
-    mutating func addLeftImage(_ image: ResizableImage?, spacing: CGFloat)
-    mutating func addRightImage(_ image: ResizableImage?, spacing: CGFloat)
+    mutating func addLeftImage(_ image: LocalResizableImage?, spacing: CGFloat)
+    mutating func addRightImage(_ image: LocalResizableImage?, spacing: CGFloat)
 
     init(
         _ text: String,
@@ -121,23 +121,23 @@ extension NiceButton {
 
 public extension NiceButton {
 
-    mutating func addLeftImage(_ image: ResizableImage?, spacing: CGFloat) {
+    mutating func addLeftImage(_ image: LocalResizableImage?, spacing: CGFloat) {
         self.leftImage = image
         self.leftImageOffset = spacing
     }
 
-    mutating func addRightImage(_ image: ResizableImage?, spacing: CGFloat) {
+    mutating func addRightImage(_ image: LocalResizableImage?, spacing: CGFloat) {
         self.rightImage = image
         self.rightImageOffset = spacing
     }
 
-    func withLeftImage(_ image: ResizableImage?, spacing: CGFloat = 8.0) -> Self {
+    func withLeftImage(_ image: LocalResizableImage?, spacing: CGFloat = 8.0) -> Self {
         var copy = self
         copy.addLeftImage(image, spacing: spacing)
         return copy
     }
 
-    func withRightImage(_ image: ResizableImage?, spacing: CGFloat = 8.0) -> Self {
+    func withRightImage(_ image: LocalResizableImage?, spacing: CGFloat = 8.0) -> Self {
         var copy = self
         copy.addRightImage(image, spacing: spacing)
         return copy

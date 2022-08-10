@@ -13,8 +13,8 @@ public struct DestructiveButton: NiceButton {
     public let action: () -> Void
     public let inactive: Bool
 
-    public var leftImage: ResizableImage?
-    public var rightImage: ResizableImage?
+    public var leftImage: LocalResizableImage?
+    public var rightImage: LocalResizableImage?
     public var rightImageOffset: CGFloat?
     public var leftImageOffset: CGFloat?
 

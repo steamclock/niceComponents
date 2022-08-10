@@ -12,15 +12,9 @@ let package = Package(
             name: "NiceComponents",
             targets: ["NiceComponents"]),
     ],
-    dependencies: [
-        .package(
-            url: "https://github.com/onevcat/Kingfisher.git",
-            from: "7.2.0"
-        )
-    ],
     targets: [
         .target(
-            name: "NiceComponents",
-            dependencies: ["Kingfisher"]),
+            name: "NiceComponents"
+        ),
     ]
 )

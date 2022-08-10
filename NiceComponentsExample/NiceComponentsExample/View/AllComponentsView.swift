@@ -52,7 +52,7 @@ struct AllComponentsView: View {
                     Spacer()
                 }
 
-                ResizableImage(URL(string: "https://placekitten.com/200/300"), width: 200, height: 300)
+                ResizableImage(URL(string: "https://placekitten.com/200/300"), maxWidth: 200, maxHeight: 300)
             }
         }.padding(Layout.Spacing.standard)
     }

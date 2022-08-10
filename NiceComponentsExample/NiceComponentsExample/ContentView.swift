@@ -18,6 +18,9 @@ struct ContentView: View {
                 NavigationLink(destination: NiceButtonExampleView()) {
                     Text("Nice Button")
                 }
+                NavigationLink(destination: AsyncImageExampleView()) {
+                    Text("Async Image Example")
+                }
                 NavigationLink(destination: SampleSignInView()) {
                     Text("Sign In")
                 }

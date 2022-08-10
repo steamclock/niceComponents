@@ -19,6 +19,7 @@
 		C6CD255825D6F01C008026D5 /* AllComponentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CD255725D6F01C008026D5 /* AllComponentsView.swift */; };
 		C6CD255D25D6F0B1008026D5 /* SampleSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CD255C25D6F0B1008026D5 /* SampleSignInView.swift */; };
 		D204537028860ABC00174C13 /* NiceButtonExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D204536F28860ABC00174C13 /* NiceButtonExampleView.swift */; };
+		D2F8201228A464AA008BCF68 /* AsyncImageExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F8201128A464AA008BCF68 /* AsyncImageExampleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		C6CD255725D6F01C008026D5 /* AllComponentsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllComponentsView.swift; sourceTree = "<group>"; };
 		C6CD255C25D6F0B1008026D5 /* SampleSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleSignInView.swift; sourceTree = "<group>"; };
 		D204536F28860ABC00174C13 /* NiceButtonExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiceButtonExampleView.swift; sourceTree = "<group>"; };
+		D2F8201128A464AA008BCF68 /* AsyncImageExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageExampleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				C6CD255C25D6F0B1008026D5 /* SampleSignInView.swift */,
 				C65289F226CF0DFF009D486B /* StatefulExampleView.swift */,
 				D204536F28860ABC00174C13 /* NiceButtonExampleView.swift */,
+				D2F8201128A464AA008BCF68 /* AsyncImageExampleView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				C614E74226E12DAB00F7F87C /* Theme.swift in Sources */,
 				C6CD255D25D6F0B1008026D5 /* SampleSignInView.swift in Sources */,
 				C6CD255825D6F01C008026D5 /* AllComponentsView.swift in Sources */,
+				D2F8201228A464AA008BCF68 /* AsyncImageExampleView.swift in Sources */,
 				D204537028860ABC00174C13 /* NiceButtonExampleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
