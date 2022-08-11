@@ -27,7 +27,7 @@ public struct ResizableImage: View {
         width: CGFloat,
         height: CGFloat,
         tintColor: Color? = nil,
-        contentMode: SwiftUI.ContentMode = .fit
+        contentMode: SwiftUI.ContentMode = .fill
     ) {
         self.bundleString = bundleString
         self.url = nil
@@ -45,7 +45,7 @@ public struct ResizableImage: View {
         width: CGFloat,
         height: CGFloat,
         tintColor: Color? = nil,
-        contentMode: SwiftUI.ContentMode = .fit
+        contentMode: SwiftUI.ContentMode = .fill
     ) {
         self.bundleString = nil
         self.url = nil
@@ -64,7 +64,7 @@ public struct ResizableImage: View {
         height: CGFloat,
         tintColor: Color? = nil,
         fallbackImage: String? = nil,
-        contentMode: SwiftUI.ContentMode = .fit,
+        contentMode: SwiftUI.ContentMode = .fill,
         loadingStyle: UIActivityIndicatorView.Style? = nil
     ) {
         self.bundleString = nil
