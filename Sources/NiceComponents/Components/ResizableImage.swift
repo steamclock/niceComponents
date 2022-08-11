@@ -63,7 +63,7 @@ public struct ResizableImage: View {
         width: CGFloat,
         height: CGFloat,
         tintColor: Color? = nil,
-        fallbackImage: UIImage? = nil,
+        fallbackImage: String? = nil,
         contentMode: SwiftUI.ContentMode = .fit,
         loadingStyle: UIActivityIndicatorView.Style? = nil
     ) {
@@ -75,7 +75,11 @@ public struct ResizableImage: View {
         self.contentMode = contentMode
         self.tintColor = tintColor
         self.loadingStyle = loadingStyle
-        self.fallbackImage = fallbackImage
+        if let imageName = fallbackImage {
+            self.fallbackImage = UIImage(named: imageName)
+        } else {
+            self.fallbackImage = nil
+        }
     }
 
     private var image: Image? {
