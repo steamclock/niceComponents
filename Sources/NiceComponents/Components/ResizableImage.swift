@@ -18,8 +18,17 @@ public struct ResizableImage: View {
     public let tintColor: Color?
     public let contentMode: SwiftUI.ContentMode
     public let loadingStyle: UIActivityIndicatorView.Style?
+    public let fallbackImage: UIImage?
 
-    public init(_ bundleString: String, width: CGFloat, height: CGFloat, tintColor: Color? = nil, contentMode: SwiftUI.ContentMode = .fit, loadingStyle: UIActivityIndicatorView.Style? = nil) {
+    @State private var didErrorWithNoFallback: Bool = false
+
+    public init(
+        _ bundleString: String,
+        width: CGFloat,
+        height: CGFloat,
+        tintColor: Color? = nil,
+        contentMode: SwiftUI.ContentMode = .fit
+    ) {
         self.bundleString = bundleString
         self.url = nil
         self.systemIcon = nil
@@ -27,10 +36,17 @@ public struct ResizableImage: View {
         self.width = width
         self.contentMode = contentMode
         self.tintColor = tintColor
-        self.loadingStyle = loadingStyle
+        self.loadingStyle = nil
+        self.fallbackImage = nil
     }
 
-    public init(systemIcon: String, width: CGFloat, height: CGFloat, tintColor: Color? = nil, contentMode: SwiftUI.ContentMode = .fit) {
+    public init(
+        systemIcon: String,
+        width: CGFloat,
+        height: CGFloat,
+        tintColor: Color? = nil,
+        contentMode: SwiftUI.ContentMode = .fit
+    ) {
         self.bundleString = nil
         self.url = nil
         self.systemIcon = systemIcon
@@ -39,9 +55,18 @@ public struct ResizableImage: View {
         self.contentMode = contentMode
         self.tintColor = tintColor
         self.loadingStyle = nil
+        self.fallbackImage = nil
     }
 
-    public init(_ url: URL?, width: CGFloat, height: CGFloat, tintColor: Color? = nil, contentMode: SwiftUI.ContentMode = .fit) {
+    public init(
+        _ url: URL?,
+        width: CGFloat,
+        height: CGFloat,
+        tintColor: Color? = nil,
+        fallbackImage: UIImage? = nil,
+        contentMode: SwiftUI.ContentMode = .fit,
+        loadingStyle: UIActivityIndicatorView.Style? = nil
+    ) {
         self.bundleString = nil
         self.systemIcon = nil
         self.url = url
@@ -49,7 +74,8 @@ public struct ResizableImage: View {
         self.width = width
         self.contentMode = contentMode
         self.tintColor = tintColor
-        self.loadingStyle = nil
+        self.loadingStyle = loadingStyle
+        self.fallbackImage = fallbackImage
     }
 
     private var image: Image? {
@@ -63,16 +89,27 @@ public struct ResizableImage: View {
 
     public var body: some View {
         if let url = url {
-            KFImage(url)
-                .renderingMode(tintColor == nil ? .original : .template)
-                .resizable()
-                .placeholder {
-                    LoadingView(loadingStyle ?? .large)
-                }
-                .foregroundColor(tintColor)
-                .aspectRatio(contentMode: contentMode)
-                .frame(width: width, height: height)
-                .clipped()
+            if didErrorWithNoFallback {
+                Color.clear
+                    .frame(width: width, height: height)
+            } else {
+                KFImage(url)
+                    .renderingMode(tintColor == nil ? .original : .template)
+                    .resizable()
+                    .placeholder {
+                        LoadingView(loadingStyle ?? .large)
+                    }
+                    .onFailure { _ in
+                        if fallbackImage == nil {
+                            didErrorWithNoFallback = true
+                        }
+                    }
+                    .onFailureImage(fallbackImage)
+                    .foregroundColor(tintColor)
+                    .aspectRatio(contentMode: contentMode)
+                    .frame(width: width, height: height)
+                    .clipped()
+            }
         } else if let image = image {
             image
                 .renderingMode(tintColor == nil ? .original : .template)
