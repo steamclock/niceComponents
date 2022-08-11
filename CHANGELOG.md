@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.4.0] - 2022-07-22
 - Reworked stateful view
+- ResizeableImage now supports loading / fallbackImage 
 
 
 ## [0.3.0] - 2022-07-19
