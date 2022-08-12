@@ -13,9 +13,14 @@ public struct ScaledFont: ViewModifier {
     var name: String?
     var weight: Font.Weight
     var size: CGFloat
+    var maxSize: DynamicTypeSize?
 
     public func body(content: Content) -> some View {
-       let scaledSize = UIFontMetrics.default.scaledValue(for: size)
+        var scaledSize = UIFontMetrics.default.scaledValue(for: size)
+
+        if let maxFontSize = maxSize?.maxFontSize {
+            scaledSize = min(maxFontSize, scaledSize)
+        }
         if let name = name {
             return content.font(.custom(name, size: scaledSize))
         }
@@ -26,7 +31,7 @@ public struct ScaledFont: ViewModifier {
 
 @available(iOS 13, macCatalyst 13, tvOS 13, watchOS 6, *)
 extension View {
-    public func scaledFont(name: String?, size: CGFloat, weight: Font.Weight?) -> some View {
-        return self.modifier(ScaledFont(name: name, weight: weight ?? .medium, size: size))
+    public func scaledFont(name: String?, size: CGFloat, weight: Font.Weight?, maxSize: DynamicTypeSize? = nil) -> some View {
+        return self.modifier(ScaledFont(name: name, weight: weight ?? .medium, size: size, maxSize: maxSize))
     }
 }

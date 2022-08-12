@@ -22,13 +22,14 @@ public struct TypeStyle {
 }
 
 public extension TypeStyle {
-    func with(color: Color? = nil, size: CGFloat? = nil, lineLimit: Int? = nil) -> TypeStyle {
+    func with(color: Color? = nil, size: CGFloat? = nil, lineLimit: Int? = nil, dynamicTypeMaxSize: DynamicTypeSize? = nil) -> TypeStyle {
         TypeStyle(
             color: color ?? self.color,
             theme: TypeTheme.TextStyle(
                 self.theme.name,
                 size: size ?? self.theme.size,
-                weight: self.theme.weight
+                weight: self.theme.weight,
+                dynamicTypeMaxSize: dynamicTypeMaxSize
             ),
             lineLimit: lineLimit ?? self.lineLimit
         )

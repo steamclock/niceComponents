@@ -23,7 +23,12 @@ public struct ScreenTitle: NiceText {
     public var body: some View {
         Text(text)
             .foregroundColor(style.color)
-            .scaledFont(name: style.theme.name, size: style.theme.size, weight: style.theme.weight)
+            .scaledFont(
+                name: style.theme.name,
+                size: style.theme.size,
+                weight: style.theme.weight,
+                maxSize: style.theme.dynamicTypeMaxSize
+            )
             .fixedSize(horizontal: false, vertical: true)
             .lineLimit(style.lineLimit)
     }

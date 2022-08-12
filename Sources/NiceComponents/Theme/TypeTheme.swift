@@ -12,11 +12,17 @@ public struct TypeTheme {
         public let name: String?
         public let weight: Font.Weight?
         public let size: CGFloat
+        public var dynamicTypeMaxSize: DynamicTypeSize?
 
-        public init(_ name: String? = nil, size: CGFloat, weight: Font.Weight? = nil) {
+        public init(
+                _ name: String? = nil,
+                size: CGFloat,
+                weight: Font.Weight? = nil,
+                dynamicTypeMaxSize: DynamicTypeSize? = nil) {
             self.name = name
             self.size = size
             self.weight = weight
+            self.dynamicTypeMaxSize = dynamicTypeMaxSize
         }
     }
 
