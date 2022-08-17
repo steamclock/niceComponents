@@ -8,6 +8,7 @@
 import SwiftUI
 
 extension DynamicTypeSize {
+    // These values were determined based on the iOS accessibility settings on iOS 16.0
     var maxFontSize: CGFloat? {
         switch self {
         case .xSmall: return 30
