@@ -77,7 +77,12 @@ extension NiceButton {
                 }
                 Text(text)
                     .foregroundColor(inactive ? style.disabledOnSurfaceColor : style.onSurfaceColor)
-                    .scaledFont(name: style.textStyle.name, size: style.textStyle.size, weight: style.textStyle.weight)
+                    .scaledFont(
+                        name: style.textStyle.name,
+                        size: style.textStyle.size,
+                        weight: style.textStyle.weight,
+                        maxSize: style.textStyle.dynamicTypeMaxSize
+                    )
                     .padding(.leading, leftImageOffset)
                     .padding(.trailing, rightImageOffset)
                 if let rightImage = rightImage {

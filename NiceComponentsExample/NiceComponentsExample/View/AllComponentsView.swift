@@ -14,7 +14,9 @@ struct AllComponentsView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 5) {
                 VStack(alignment: .leading, spacing: 2) {
-                    ScreenTitle("Screen Title")
+                    ScreenTitle("Screen Title", style: Config.current.sectionTitleStyle.with(
+                        dynamicTypeMaxSize: .accessibility4
+                    ))
                     SectionTitle("Section Title")
                     ItemTitle("Item Title")
                     ItemTitle("Attributed Item Title") { string  in
