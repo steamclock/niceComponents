@@ -17,9 +17,9 @@ public protocol NiceText: View {
 
     init(_ text: String, style: TypeStyle?)
 
-    init(_ text: String, color: Color?, size: CGFloat?, lineLimit: Int?, dynamicMaxSize: CGFloat?)
+    init(_ text: String, color: Color?, size: CGFloat?, lineLimit: Int?, dynamicMaxSize: DynamicTypeSize?)
 
-    init(_ text: String, color: Color?, size: CGFloat?, lineLimit: Int?, dynamicMaxSize: CGFloat?, configure: (inout AttributedString) -> Void)
+    init(_ text: String, color: Color?, size: CGFloat?, lineLimit: Int?, dynamicMaxSize: DynamicTypeSize?, configure: (inout AttributedString) -> Void)
 }
 
 public extension NiceText {
@@ -29,7 +29,7 @@ public extension NiceText {
         color: Color? = nil,
         size: CGFloat? = nil,
         lineLimit: Int? = nil,
-        dynamicMaxSize: CGFloat? = nil
+        dynamicMaxSize: DynamicTypeSize? = nil
     ) {
         self.init(
             text,
@@ -51,7 +51,7 @@ public extension NiceText {
         color: Color? = nil,
         size: CGFloat? = nil,
         lineLimit: Int? = nil,
-        dynamicMaxSize: CGFloat? = nil,
+        dynamicMaxSize: DynamicTypeSize? = nil,
         configure: (inout AttributedString) -> Void
     ) {
         var attributedString = AttributedString(text)

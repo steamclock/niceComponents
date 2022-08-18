@@ -14,14 +14,13 @@ struct AllComponentsView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 5) {
                 VStack(alignment: .leading, spacing: 2) {
-                    ScreenTitle("Screen Title", dynamicMaxSize: 90)
+                    ScreenTitle("Screen Title", dynamicMaxSize: .xxxLarge)
                     SectionTitle("Section Title")
                     ItemTitle("Item Title")
-                    ItemTitle("Attributed Item Title", dynamicMaxSize: 32) { string  in
+                    ItemTitle("Attributed Item Title", dynamicMaxSize: .xxxLarge) { string  in
                         if let range = string.range(of: "Attributed") {
                             string[range].foregroundColor = .red
                             string[range].underlineStyle = .single
-                            string[range].font = .scaledFont(name: Config.current.detailTextStyle.theme.name, size: Config.current.detailTextStyle.theme.size, maxSize: 32)
                         }
                     }
                 }
