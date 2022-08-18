@@ -29,7 +29,7 @@ public extension TypeStyle {
                 self.theme.name,
                 size: size ?? self.theme.size,
                 weight: self.theme.weight,
-                dynamicTypeMaxSize: dynamicTypeMaxSize
+                dynamicTypeMaxSize: dynamicTypeMaxSize ?? self.theme.dynamicTypeMaxSize
             ),
             lineLimit: lineLimit ?? self.lineLimit
         )
