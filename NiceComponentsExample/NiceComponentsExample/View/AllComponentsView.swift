@@ -14,16 +14,13 @@ struct AllComponentsView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 5) {
                 VStack(alignment: .leading, spacing: 2) {
-                    ScreenTitle("Screen Title", style: Config.current.sectionTitleStyle.with(
-                        dynamicTypeMaxSize: .accessibility4
-                    ))
+                    ScreenTitle("Screen Title", dynamicMaxSize: .xxxLarge)
                     SectionTitle("Section Title")
                     ItemTitle("Item Title")
-                    ItemTitle("Attributed Item Title") { string  in
+                    ItemTitle("Attributed Item Title", dynamicMaxSize: .xxxLarge) { string  in
                         if let range = string.range(of: "Attributed") {
                             string[range].foregroundColor = .red
                             string[range].underlineStyle = .single
-                            string[range].font = .custom(Config.current.detailTextStyle)
                         }
                     }
                 }
