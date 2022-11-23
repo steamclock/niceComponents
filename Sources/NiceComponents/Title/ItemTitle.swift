@@ -7,16 +7,25 @@
 
 import SwiftUI
 
+/// A smaller title style meant to emphasize elements on a page or further divide sections.
 public struct ItemTitle: NiceText {
 
     public let text: AttributedString
-    public let style: TypeStyle
+    public let style: NiceTextStyle
 
-    static public var defaultStyle: TypeStyle {
+    static public var defaultStyle: NiceTextStyle {
         Config.current.itemTitleStyle
     }
 
-    public init(_ text: AttributedString, style: TypeStyle? = nil) {
+    /**
+     * Create a new title title.
+     * Item titles should be used to further break up content within sections, roughly equivalent to <h3>.
+     *
+     * - Parameters:
+     *  - text: The text to display.
+     *  - style: Any customizations to the style that should be applied. By default your config's `itemTitleStyle` is used.
+     */
+    public init(_ text: AttributedString, style: NiceTextStyle? = nil) {
         self.text = text
         self.style = style ?? Self.defaultStyle
     }
@@ -25,10 +34,10 @@ public struct ItemTitle: NiceText {
         Text(text)
             .foregroundColor(style.color)
             .scaledFont(
-                name: style.theme.name,
-                size: style.theme.size,
-                weight: style.theme.weight,
-                maxSize: style.theme.dynamicTypeMaxSize
+                name: style.fontStyle.name,
+                size: style.fontStyle.size,
+                weight: style.fontStyle.weight,
+                maxSize: style.fontStyle.dynamicTypeMaxSize
             )
             .fixedSize(horizontal: false, vertical: true)
             .lineLimit(style.lineLimit)

@@ -8,7 +8,8 @@
 import SwiftUI
 
 public protocol NiceButton: View {
-    associatedtype DefaultBody : View
+    associatedtype DefaultBody: View
+
     var text: String { get }
     var style: NiceButtonStyle { get }
     var action: () -> Void { get }
@@ -16,18 +17,18 @@ public protocol NiceButton: View {
     static var defaultStyle: NiceButtonStyle { get }
     @ViewBuilder var defaultBody: DefaultBody { get }
 
-    var leftImage: ResizableImage? { get set }
-    var rightImage: ResizableImage? { get set }
+    var leftImage: NiceImage? { get set }
+    var rightImage: NiceImage? { get set }
     var leftImageOffset: CGFloat? { get set }
     var rightImageOffset: CGFloat? { get set }
 
-    mutating func addLeftImage(_ image: ResizableImage?, spacing: CGFloat)
-    mutating func addRightImage(_ image: ResizableImage?, spacing: CGFloat)
+    mutating func addLeftImage(_ image: NiceImage?, spacing: CGFloat)
+    mutating func addRightImage(_ image: NiceImage?, spacing: CGFloat)
 
     init(
         _ text: String,
         style: NiceButtonStyle?,
-        disabled: Bool,
+        inactive: Bool,
         action: @escaping () -> Void
     )
 }
@@ -35,13 +36,13 @@ public protocol NiceButton: View {
 public extension NiceButton {
     init(
         _ text: String,
-        disabled: Bool = false,
-        textStyle: TypeTheme.TextStyle? = nil,
+        inactive: Bool = false,
+        fontStyle: FontStyle? = nil,
         height: CGFloat? = nil,
         surfaceColor: Color? = nil,
         onSurfaceColor: Color? = nil,
-        disabledColor: Color? = nil,
-        disabledOnSurfaceColor: Color? = nil,
+        inactiveColor: Color? = nil,
+        inactiveOnSurfaceColor: Color? = nil,
         border: NiceBorderStyle? = nil,
         action: @escaping () -> Void
     ) {
@@ -49,22 +50,21 @@ public extension NiceButton {
             text,
             style:
                 Self.defaultStyle.with(
-                    textStyle: textStyle,
+                    fontStyle: fontStyle,
                     height: height,
                     surfaceColor: surfaceColor,
                     onSurfaceColor: onSurfaceColor,
-                    disabledSurfaceColor: disabledColor,
-                    disabledOnSurfaceColor: disabledOnSurfaceColor,
+                    inactiveSurfaceColor: inactiveColor,
+                    inactiveOnSurfaceColor: inactiveOnSurfaceColor,
                     border: border
                 ),
-            disabled: disabled,
+            inactive: inactive,
             action: action
         )
     }
 }
 
 extension NiceButton {
-
     public var body: some View {
         defaultBody
     }
@@ -76,12 +76,12 @@ extension NiceButton {
                     leftImage
                 }
                 Text(text)
-                    .foregroundColor(inactive ? style.disabledOnSurfaceColor : style.onSurfaceColor)
+                    .foregroundColor(inactive ? style.inactiveOnSurfaceColor : style.onSurfaceColor)
                     .scaledFont(
-                        name: style.textStyle.name,
-                        size: style.textStyle.size,
-                        weight: style.textStyle.weight,
-                        maxSize: style.textStyle.dynamicTypeMaxSize
+                        name: style.fontStyle.name,
+                        size: style.fontStyle.size,
+                        weight: style.fontStyle.weight,
+                        maxSize: style.fontStyle.dynamicTypeMaxSize
                     )
                     .padding(.leading, leftImageOffset)
                     .padding(.trailing, rightImageOffset)
@@ -94,8 +94,8 @@ extension NiceButton {
         .disabled(inactive)
         .frame(height: style.height)
         .fixedSize(horizontal: false, vertical: true)
-        .background(inactive ? style.disabledSurfaceColor : style.surfaceColor)
-        .cornerRadius(style.cornerRadius)
+        .background(inactive ? style.inactiveSurfaceColor : style.surfaceColor)
+        .cornerRadius(style.borderStyle.cornerRadius)
         .overlay(
             borderOverlay
         )
@@ -104,45 +104,44 @@ extension NiceButton {
     }
 
     private var paddingToAdd: CGFloat {
-        if let strokeWidth = style.strokeStyle?.lineWidth, strokeWidth > 0.0 {
+        if let strokeWidth = style.borderStyle.strokeStyle?.lineWidth, strokeWidth > 0.0 {
             return strokeWidth / 2
-        } else if style.borderWidth > 0.0 {
-            return style.borderWidth / 2
+        } else if style.borderStyle.width > 0.0 {
+            return style.borderStyle.width / 2
         }
         return 0.0
     }
 
     @ViewBuilder
     private var borderOverlay: some View {
-        if let strokeStyle = style.strokeStyle {
-            RoundedRectangle(cornerRadius: style.cornerRadius)
+        if let strokeStyle = style.borderStyle.strokeStyle {
+            RoundedRectangle(cornerRadius: style.borderStyle.cornerRadius)
                 .stroke(style: strokeStyle)
         } else {
-            RoundedRectangle(cornerRadius: style.cornerRadius)
-                .stroke(style.borderColor, lineWidth: style.borderWidth)
+            RoundedRectangle(cornerRadius: style.borderStyle.cornerRadius)
+                .stroke(style.borderStyle.color, lineWidth: style.borderStyle.width)
         }
     }
 }
 
 public extension NiceButton {
-
-    mutating func addLeftImage(_ image: ResizableImage?, spacing: CGFloat) {
+    mutating func addLeftImage(_ image: NiceImage?, spacing: CGFloat) {
         self.leftImage = image
         self.leftImageOffset = spacing
     }
 
-    mutating func addRightImage(_ image: ResizableImage?, spacing: CGFloat) {
+    mutating func addRightImage(_ image: NiceImage?, spacing: CGFloat) {
         self.rightImage = image
         self.rightImageOffset = spacing
     }
 
-    func withLeftImage(_ image: ResizableImage?, spacing: CGFloat = 8.0) -> Self {
+    func withLeftImage(_ image: NiceImage?, spacing: CGFloat = 8.0) -> Self {
         var copy = self
         copy.addLeftImage(image, spacing: spacing)
         return copy
     }
 
-    func withRightImage(_ image: ResizableImage?, spacing: CGFloat = 8.0) -> Self {
+    func withRightImage(_ image: NiceImage?, spacing: CGFloat = 8.0) -> Self {
         var copy = self
         copy.addRightImage(image, spacing: spacing)
         return copy

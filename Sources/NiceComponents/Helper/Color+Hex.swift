@@ -9,6 +9,13 @@ import SwiftUI
 
 // https://stackoverflow.com/a/56874327
 extension Color {
+
+    /**
+     * Create a new color from a hex string
+     * From https://stackoverflow.com/a/56874327
+     *
+     * - parameter hex: The hex string to create a color from. Can be passed with or without #.
+     */
     public init(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int: UInt64 = 0

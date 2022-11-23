@@ -8,7 +8,7 @@
 import os
 import SwiftUI
 
-/// Global config settings for all components.
+/// Global settings for all components.
 /// Themes here will be applied to any components that don't define their own theme.
 public struct Config {
     /// Your current component configuration.
@@ -42,11 +42,11 @@ public struct Config {
 
     // Text Styles
 
-    public var bodyTextStyle: TypeStyle
-    public var detailTextStyle: TypeStyle
-    public var itemTitleStyle: TypeStyle
-    public var screenTitleStyle: TypeStyle
-    public var sectionTitleStyle: TypeStyle
+    public var bodyTextStyle: NiceTextStyle
+    public var detailTextStyle: NiceTextStyle
+    public var itemTitleStyle: NiceTextStyle
+    public var screenTitleStyle: NiceTextStyle
+    public var sectionTitleStyle: NiceTextStyle
 
     /// Default is: x:0, y:4, blur: 4px, opacity: 0.15 (black)
     public var shadowStyle: ShadowStyle
@@ -58,57 +58,57 @@ public struct Config {
         // Set Button styles
         
         borderlessButtonStyle = NiceButtonStyle(
-            textStyle: self.typeTheme.button,
+            fontStyle: self.typeTheme.button,
             surfaceColor: Color.clear,
             onSurfaceColor: self.colorTheme.primary,
             border: NiceBorderStyle.none
         )
 
         destructiveButtonStyle = NiceButtonStyle(
-            textStyle: self.typeTheme.button,
+            fontStyle: self.typeTheme.button,
             surfaceColor: self.colorTheme.error,
             onSurfaceColor: self.colorTheme.onError
         )
 
         primaryButtonStyle = NiceButtonStyle(
-            textStyle: self.typeTheme.button,
+            fontStyle: self.typeTheme.button,
             surfaceColor: self.colorTheme.primary,
             onSurfaceColor: self.colorTheme.onPrimary
         )
 
         secondaryButtonStyle = NiceButtonStyle(
-            textStyle: self.typeTheme.button,
+            fontStyle: self.typeTheme.button,
             surfaceColor: self.colorTheme.secondary,
             onSurfaceColor: self.colorTheme.onSecondary
         )
 
         // Set Text styles
 
-        bodyTextStyle = TypeStyle(
+        bodyTextStyle = NiceTextStyle(
             color: self.colorTheme.onSurface,
-            theme: self.typeTheme.body1
+            fontStyle: self.typeTheme.body1
         )
 
-        detailTextStyle = TypeStyle(
+        detailTextStyle = NiceTextStyle(
             color: self.colorTheme.onSurface,
-            theme: self.typeTheme.caption // body2?
+            fontStyle: self.typeTheme.caption // body2?
         )
 
         // Set Title styles
 
-        itemTitleStyle = TypeStyle(
+        itemTitleStyle = NiceTextStyle(
             color: self.colorTheme.onSurface,
-            theme: self.typeTheme.headline4
+            fontStyle: self.typeTheme.itemTitle
         )
 
-        screenTitleStyle = TypeStyle(
+        screenTitleStyle = NiceTextStyle(
             color: self.colorTheme.onSurface,
-            theme: self.typeTheme.headline1
+            fontStyle: self.typeTheme.screenTitle
         )
 
-        sectionTitleStyle = TypeStyle(
+        sectionTitleStyle = NiceTextStyle(
             color: self.colorTheme.onSurface,
-            theme: self.typeTheme.headline2
+            fontStyle: self.typeTheme.sectionTitle
         )
 
         // Set Shadow style

@@ -7,15 +7,24 @@
 
 import SwiftUI
 
+/// Text styled to represent a main heading or top of page title.
 public struct ScreenTitle: NiceText {
     public let text: AttributedString
-    public let style: TypeStyle
+    public let style: NiceTextStyle
 
-    public static var defaultStyle: TypeStyle {
+    public static var defaultStyle: NiceTextStyle {
         Config.current.screenTitleStyle
     }
 
-    public init(_ text: AttributedString, style: TypeStyle? = nil) {
+    /**
+     * Create a new screen title
+     * A screen title should be used to represent a main heading, roughly equivalent to <h1>.
+     *
+     * - Parameters:
+     *  - text: The text to display.
+     *  - style: Any customizations to the style that should be applied. By default your config's `screenTitleStyle` is used.
+     */
+    public init(_ text: AttributedString, style: NiceTextStyle? = nil) {
         self.text = text
         self.style = style ?? Self.defaultStyle
     }
@@ -24,10 +33,10 @@ public struct ScreenTitle: NiceText {
         Text(text)
             .foregroundColor(style.color)
             .scaledFont(
-                name: style.theme.name,
-                size: style.theme.size,
-                weight: style.theme.weight,
-                maxSize: style.theme.dynamicTypeMaxSize
+                name: style.fontStyle.name,
+                size: style.fontStyle.size,
+                weight: style.fontStyle.weight,
+                maxSize: style.fontStyle.dynamicTypeMaxSize
             )
             .fixedSize(horizontal: false, vertical: true)
             .lineLimit(style.lineLimit)

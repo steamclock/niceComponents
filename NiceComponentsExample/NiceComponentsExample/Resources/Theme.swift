@@ -14,12 +14,12 @@ enum Theme {
         newConfig.primaryButtonStyle = NiceComponents.NiceButtonStyle(
             surfaceColor: Color.orange,
             onSurfaceColor: .black,
-            border: .capsule(borderWidth: 1, borderColor: .clear)
+            border: .capsule(color: .clear, width: 1)
         )
         newConfig.secondaryButtonStyle = NiceComponents.NiceButtonStyle(
             surfaceColor: Color.yellow,
             onSurfaceColor: .black,
-            border: .rounded(radius: 12, borderWidth: 1.5, borderColor: .black)
+            border: .rounded(color: .black, cornerRadius: 12, width: 1.5)
         )
         return newConfig
     }

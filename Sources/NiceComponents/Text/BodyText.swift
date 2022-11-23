@@ -9,13 +9,13 @@ import SwiftUI
 
 public struct BodyText: NiceText {
     public let text: AttributedString
-    public let style: TypeStyle
+    public let style: NiceTextStyle
 
-    public static var defaultStyle: TypeStyle {
+    public static var defaultStyle: NiceTextStyle {
         Config.current.bodyTextStyle
     }
 
-    public init(_ text: AttributedString, style: TypeStyle? = nil) {
+    public init(_ text: AttributedString, style: NiceTextStyle? = nil) {
         self.text = text
         self.style = style ?? Self.defaultStyle
     }
@@ -24,10 +24,10 @@ public struct BodyText: NiceText {
         Text(text)
             .foregroundColor(style.color)
             .scaledFont(
-                name: style.theme.name,
-                size: style.theme.size,
-                weight: style.theme.weight,
-                maxSize: style.theme.dynamicTypeMaxSize
+                name: style.fontStyle.name,
+                size: style.fontStyle.size,
+                weight: style.fontStyle.weight,
+                maxSize: style.fontStyle.dynamicTypeMaxSize
             )
             .fixedSize(horizontal: false, vertical: true)
             .lineLimit(style.lineLimit)

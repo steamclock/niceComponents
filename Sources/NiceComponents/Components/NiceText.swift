@@ -8,14 +8,13 @@
 import SwiftUI
 
 public protocol NiceText: View {
-
     var text: AttributedString { get }
-    var style: TypeStyle { get }
-    static var defaultStyle: TypeStyle { get }
+    var style: NiceTextStyle { get }
+    static var defaultStyle: NiceTextStyle { get }
 
-    init(_ attributedText: AttributedString, style: TypeStyle?)
+    init(_ attributedText: AttributedString, style: NiceTextStyle?)
 
-    init(_ text: String, style: TypeStyle?)
+    init(_ text: String, style: NiceTextStyle?)
 
     init(_ text: String, color: Color?, size: CGFloat?, lineLimit: Int?, dynamicMaxSize: DynamicTypeSize?)
 
@@ -42,7 +41,7 @@ public extension NiceText {
         )
     }
 
-    init(_ text: String, style: TypeStyle?) {
+    init(_ text: String, style: NiceTextStyle?) {
         self.init(AttributedString(text), style: style)
     }
 

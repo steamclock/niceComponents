@@ -1,5 +1,5 @@
 //
-//  ResizableImage.swift
+//  NiceImage.swift
 //  
 //
 //  Created by Brendan on 2021-03-12.
@@ -9,7 +9,9 @@ import SwiftUI
 import UIKit
 import Kingfisher
 
-public struct ResizableImage: View {
+/// Image View that allows for creating an image through a variety of sources, including
+///    bundleString, systemIcon or URL.
+public struct NiceImage: View {
     public let bundleString: String?
     public let systemIcon: String?
     public let url: URL?
@@ -22,6 +24,16 @@ public struct ResizableImage: View {
 
     @State private var didErrorWithNoFallback: Bool = false
 
+    /**
+     * Create a new image from an asset located in the bundle.
+     *
+     * - Parameters:
+     *      - bundleString: The name of the image asset.
+     *      - width: The width of the image.
+     *      - height: The height of the image.
+     *      - tintColor: Optional color to tint the image. Default is `nil`.
+     *      - contentMode: Content mode for the image. Default is `.fill`.
+     */
     public init(
         _ bundleString: String,
         width: CGFloat,
@@ -40,6 +52,16 @@ public struct ResizableImage: View {
         self.fallbackImage = nil
     }
 
+    /**
+     * Create a new image from a system icon.
+     *
+     * - Parameters:
+     *      - systemIcon: The name of the icon to use.
+     *      - width: The width of the image.
+     *      - height: The height of the image.
+     *      - tintColor: Optional color to tint the image. Default is `nil`.
+     *      - contentMode: Content mode for the image. Default is `.fill`.
+     */
     public init(
         systemIcon: String,
         width: CGFloat,
@@ -58,6 +80,19 @@ public struct ResizableImage: View {
         self.fallbackImage = nil
     }
 
+    /**
+     * Create a new image from an URL.
+     * Under the hood, we use Kingfisher to fetch and cache the image.
+     *
+     * - Parameters:
+     *      - url: The URL of the image to fetch.
+     *      - width: The width of the image.
+     *      - height: The height of the image.
+     *      - tintColor: Optional color to tint the image. Default is `nil`.
+     *      - fallbackImage: The bundle string for a fallback image to show if something goes wrong. Default is `nil`.
+     *      - contentMode: Content mode for the image. Default is `.fill`.
+     *      - loadingStyle: The UIActivityIndicatorView.Style to use while loading. Default is `nil`.
+     */
     public init(
         _ url: URL?,
         width: CGFloat,

@@ -17,27 +17,27 @@ struct NiceButtonExampleView: View {
                     PrimaryButton("Primary") {
                         print("Tapped")
                     }.withRightImage(
-                        ResizableImage.init(systemIcon: "heart.fill", width: 14, height: 14, tintColor: .red)
+                        NiceImage(systemIcon: "heart.fill", width: 14, height: 14, tintColor: .red)
                     )
 
                     PrimaryButton("Bigger Primary", height: 56) { }
 
-                    PrimaryButton("Disabled Primary", disabled: true) { }
+                    PrimaryButton("Inactive Primary", inactive: true) { }
 
                     PrimaryButton(
                         "Like Button",
                         surfaceColor: .white,
                         border: .rounded(
-                            radius: 4,
-                            borderWidth: 1.5,
-                            borderColor: .black
+                            color: .black,
+                            cornerRadius: 4,
+                            width: 1.5
                         )
                     ) { }.withRightImage(
-                        ResizableImage.init(systemIcon: "heart.fill", width: 14, height: 14, tintColor: .red)
+                        NiceImage(systemIcon: "heart.fill", width: 14, height: 14, tintColor: .red)
                     )
 
                     SecondaryButton("Left Image Button") { }.withLeftImage(
-                        ResizableImage.init(systemIcon: "pencil", width: 14, height: 14, tintColor: .black)
+                        NiceImage(systemIcon: "pencil", width: 14, height: 14, tintColor: .black)
                     )
 
                     BorderlessButton("Borderless Button") { }

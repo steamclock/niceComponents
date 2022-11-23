@@ -8,8 +8,14 @@
 import SwiftUI
 
 public extension DynamicTypeSize {
-
-    /// Based off of iOS scaling logic https://developer.apple.com/design/human-interface-guidelines/foundations/typography/#dynamic-type-sizes
+    /**
+     * Gets the max font size for a given base size, based on the given dynamic type size.
+     * Max size was determined based off the iOS scaling logic given [here](https://developer.apple.com/design/human-interface-guidelines/foundations/typography/#dynamic-type-sizes)
+     *
+     * - parameter baseSize: The original size of the font to be scaled
+     *
+     * - returns: The new scaled font size.
+     */
     func getMaxFontSize(for baseSize: CGFloat) -> CGFloat? {
         var resultSize: CGFloat = baseSize
 

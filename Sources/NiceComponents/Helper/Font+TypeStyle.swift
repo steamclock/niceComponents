@@ -7,12 +7,17 @@
 
 import SwiftUI
 
+// TODO: What do you even do with this 
 public extension Font {
-    static func custom(_ typeStyle: TypeStyle) -> Font {
-        if let fontName = typeStyle.theme.name {
-            return .custom(fontName, size: typeStyle.theme.size)
+    static func custom(_ fontStyle: FontStyle) -> Font {
+        if let fontName = fontStyle.name {
+            return .custom(fontName, size: fontStyle.size)
         } else {
-            return .system(size: typeStyle.theme.size, weight: typeStyle.theme.weight ?? .regular)
+            return .system(size: fontStyle.size, weight: fontStyle.weight ?? .regular)
         }
+    }
+
+    static func custom(_ textStyle: NiceTextStyle) -> Font {
+        custom(textStyle.fontStyle)
     }
 }
