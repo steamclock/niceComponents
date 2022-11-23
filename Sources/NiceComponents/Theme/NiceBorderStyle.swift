@@ -1,28 +1,28 @@
 //
 //  NiceBorderStyle.swift
-//  
+//  NiceComponents
 //
 //  Created by Alejandro Zielinsky on 2022-07-18.
 //
 
 import SwiftUI
 
-/// Defines the border style for a component
+/// Defines the border style for a component.
 public enum NiceBorderStyle {
-    /// No border
+    /// No border is shown.
     case none
 
     /// A standard, square border.
     case border(color: Color, width: CGFloat)
 
     /// A rounded, pill-style, border.
-    /// TODO: Figure out how to set corner radius here
+    /// TODO: Figure out how to set corner radius here.
     case capsule(color: Color?, width: CGFloat?)
 
-    /// A rounded border with customizable corner radius
+    /// A rounded border with customizable corner radius.
     case rounded(color: Color?, cornerRadius: CGFloat, width: CGFloat?)
 
-    /// Set a custom border with the built-in StrokeStyle
+    /// Set a custom border with the built-in StrokeStyle.
     case stroke(strokeStyle: StrokeStyle)
 
     var color: Color {

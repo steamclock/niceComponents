@@ -1,13 +1,13 @@
 //
-//  ButtonStyle.swift
-//  
+//  NiceButtonStyle.swift
+//  NiceComponents
 //
 //  Created by Brendan on 2021-01-29.
 //
 
 import SwiftUI
 
-/// A button style to be applied to a button component
+/// A style to be applied to a button component.
 public struct NiceButtonStyle {
     /// The text style will be applied to the text inside the button.
     public var fontStyle: FontStyle
@@ -24,10 +24,10 @@ public struct NiceButtonStyle {
     /// Background color when set to inactive.
     public var inactiveSurfaceColor: Color
 
-    /// Content color when set to inactive
+    /// Content color when set to inactive.
     public var inactiveOnSurfaceColor: Color
 
-    /// The style of the border applied to your button
+    /// The style of the border applied to your button.
     public var borderStyle: NiceBorderStyle
 
     /**
@@ -38,8 +38,8 @@ public struct NiceButtonStyle {
      *  - height: Height of the button. Default is 44.
      *  - surfaceColor: Surface color of the button.
      *  - onSurfaceColor: Color of any assets on top of your button.
-     *  - inactiveSurfaceColor: Surface color when set to inactive.  Default is your background color.
-     *  - inactiveOnSurfaceColor: Color of any assets on top of your button when inactive. Default is your secondary color.
+     *  - inactiveSurfaceColor: Surface color when set to inactive.  Default is your surface color.
+     *  - inactiveOnSurfaceColor: Color of any assets on top of your button when inactive. Default is your onSurface color.
      *  - border: Border style for the button. Default is none.
      *
      * - Returns: the newly modified button style.

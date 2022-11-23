@@ -1,6 +1,6 @@
 //
 //  NiceTextStyle.swift
-//  
+//  NiceComponents
 //
 //  Created by Brendan on 2021-03-05.
 //

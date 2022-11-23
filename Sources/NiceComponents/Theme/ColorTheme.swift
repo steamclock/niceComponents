@@ -1,6 +1,6 @@
 //
-//  Colors.swift
-//
+//  ColorTheme.swift
+//  NiceComponents
 //
 //  Created by Brendan on 2021-02-05.
 //
@@ -100,6 +100,6 @@ public struct ColorTheme {
         self.surface = surface ?? Color("surface", bundle: Bundle.module)
         self.onSurface = onSurface ?? Color("onSurface", bundle: Bundle.module)
 
-        self.shadow = shadow ?? Color.black.opacity(0.15)
+        self.shadow = shadow ?? Color("onSurface", bundle: Bundle.module)
     }
 }

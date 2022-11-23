@@ -1,15 +1,13 @@
 //
 //  Color+Hex.swift
-//  
+//  NiceComponents
 //
 //  Created by Brendan on 2021-02-05.
 //
 
 import SwiftUI
 
-// https://stackoverflow.com/a/56874327
 extension Color {
-
     /**
      * Create a new color from a hex string
      * From https://stackoverflow.com/a/56874327

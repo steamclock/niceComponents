@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-/// A themed button that appears borderless.
+/// A themed button with no border.
 public struct BorderlessButton: NiceButton {
     public let text: String
+    public let inactive: Bool
     public let style: NiceButtonStyle
     public let action: () -> Void
-    public let inactive: Bool
-
+    
     public var leftImage: NiceImage?
     public var rightImage: NiceImage?
 
@@ -24,7 +24,7 @@ public struct BorderlessButton: NiceButton {
         Config.current.borderlessButtonStyle
     }
 
-    /*
+    /**
      * Create a new borderless button.
      *
      * - Parameters:

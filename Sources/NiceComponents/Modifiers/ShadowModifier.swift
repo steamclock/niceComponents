@@ -1,12 +1,13 @@
 //
 //  ShadowModifier.swift
-//  
+//  NiceComponents
 //
 //  Created by Alejandro Zielinsky on 2022-06-09.
 //
 
 import SwiftUI
 
+/// Styling settings for drop shadows.
 public struct ShadowStyle {
     public let color: Color
     public let radius: CGFloat
@@ -14,8 +15,8 @@ public struct ShadowStyle {
     public let y: CGFloat
 }
 
+/// Attach a drop shadow to the given View.
 struct ShadowModifier: ViewModifier {
-
     let style: ShadowStyle
 
     func body(content: Content) -> some View {
@@ -25,6 +26,11 @@ struct ShadowModifier: ViewModifier {
 }
 
 public extension View {
+    /**
+     * Attach a drop shadow to the provided View.
+     *
+     * - Parameter style: The style to use for the drop shadow. Defaults to your config's `shadowStyle`.
+     */
     func shadow(_ style: ShadowStyle = Config.current.shadowStyle) -> some View {
         modifier(ShadowModifier(style: style))
     }
