@@ -1,6 +1,6 @@
 //
 //  NiceButton.swift
-//  
+//  NiceComponents
 //
 //  Created by Alejandro Zielinsky on 2022-07-18.
 //
@@ -10,7 +10,6 @@ import SwiftUI
 /// Defines a structure for buttons presented and managed with NiceComponents.
 public protocol NiceButton: View {
     associatedtype DefaultBody: View
-
 
     /// Text shown inside the button.
     var text: String { get }
@@ -42,10 +41,10 @@ public protocol NiceButton: View {
     var rightImageOffset: CGFloat? { get set }
 
     /// Add an image to the left of any text.
-    mutating func addLeftImage(_ image: NiceImage?, spacing: CGFloat)
+    mutating func addLeftImage(_ image: NiceImage?, offset: CGFloat)
 
     /// Add an image to the right of any text.
-    mutating func addRightImage(_ image: NiceImage?, spacing: CGFloat)
+    mutating func addRightImage(_ image: NiceImage?, offset: CGFloat)
 
     /**
      * Create a new button with the given content and style

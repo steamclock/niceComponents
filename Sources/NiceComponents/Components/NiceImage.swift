@@ -1,6 +1,6 @@
 //
 //  NiceImage.swift
-//  
+//  NiceComponents
 //
 //  Created by Brendan on 2021-03-12.
 //
@@ -9,8 +9,7 @@ import SwiftUI
 import UIKit
 import Kingfisher
 
-/// Image View that allows for creating an image through a variety of sources, including
-///    bundleString, systemIcon or URL.
+/// Image View that allows for creating an image through a variety of sources, including bundleString, systemIcon or URL.
 public struct NiceImage: View {
     public let bundleString: String?
     public let systemIcon: String?
@@ -136,7 +135,7 @@ public struct NiceImage: View {
                     .renderingMode(tintColor == nil ? .original : .template)
                     .resizable()
                     .placeholder {
-                        LoadingView(loadingStyle ?? .large)
+                        ProgressView()
                     }
                     .onFailure { _ in
                         if fallbackImage == nil {

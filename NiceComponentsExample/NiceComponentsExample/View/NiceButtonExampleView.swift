@@ -44,7 +44,7 @@ struct NiceButtonExampleView: View {
 
                     BorderlessButton("Stroked Button", border: .stroke(strokeStyle: StrokeStyle(lineWidth: 1.5, lineCap: .round, lineJoin: .round, dash: [8]))) { }
                 }
-            }.padding(Layout.Spacing.standard)
+            }.padding(NiceSpacing.standard)
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("Nice Button Examples")
     }

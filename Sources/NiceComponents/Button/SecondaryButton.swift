@@ -1,6 +1,6 @@
 //
 //  SecondaryButton.swift
-//  
+//  NiceComponents
 //
 //  Created by Brendan on 2021-01-29.
 //
@@ -9,11 +9,10 @@ import SwiftUI
 
 /// A button themed to indicate a secondary action.
 public struct SecondaryButton: NiceButton {
-
     public let text: String
+    public let inactive: Bool
     public let style: NiceButtonStyle
     public let action: () -> Void
-    public let inactive: Bool
 
     public var leftImage: NiceImage?
     public var rightImage: NiceImage?
@@ -29,19 +28,19 @@ public struct SecondaryButton: NiceButton {
      *
      * - Parameters:
      *  - text: The body text of the button.
-     *  - style: The styling to apply to the button. Defaults to the current `secondaryButtonStyle` in your config.
      *  - inactive: Whether the button should be interactable or not. Default is `false`.
+     *  - style: The styling to apply to the button. Defaults to the current `secondaryButtonStyle` in your config.
      *  - action: The action to be performed when the button is tapped.
      */
     public init(
         _ text: String,
-        style: NiceButtonStyle? = nil,
         inactive: Bool = false,
+        style: NiceButtonStyle? = nil,
         action: @escaping () -> Void
     ) {
         self.text = text
-        self.style = style ?? Config.current.secondaryButtonStyle
         self.inactive = inactive
+        self.style = style ?? Config.current.secondaryButtonStyle
         self.action = action
     }
 }

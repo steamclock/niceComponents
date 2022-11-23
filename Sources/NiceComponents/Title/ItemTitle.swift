@@ -1,6 +1,6 @@
 //
 //  ItemTitle.swift
-//
+//  NiceComponents
 //
 //  Created by Brendan on 2021-01-29.
 //
@@ -46,7 +46,7 @@ public struct ItemTitle: NiceText {
 
 struct ItemTitle_Previews: PreviewProvider {
     static var previews: some View {
-        VStack(spacing: Layout.Spacing.large) {
+        VStack(spacing: NiceSpacing.large) {
             ItemTitle("Item Title")
             ItemTitle("Item Title", color: .red)
             ItemTitle("Item Title", size: 64)

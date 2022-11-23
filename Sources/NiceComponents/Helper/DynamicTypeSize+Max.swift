@@ -1,6 +1,6 @@
 //
 //  DynamicTypeSize.swift
-//  
+//  NiceComponents
 //
 //  Created by Alejandro Zielinsky on 2022-08-18.
 //

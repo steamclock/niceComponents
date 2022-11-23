@@ -1,6 +1,6 @@
 //
 //  ErrorView.swift
-//  
+//  NiceComponents
 //
 //  Created by Brendan on 2022-07-15.
 //

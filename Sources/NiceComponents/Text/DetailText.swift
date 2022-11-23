@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// A text view that should be used for supplementary text accompanying body text.
 public struct DetailText: NiceText {
     public let text: AttributedString
     public let style: NiceTextStyle
@@ -15,6 +16,13 @@ public struct DetailText: NiceText {
         Config.current.detailTextStyle
     }
 
+    /**
+     * Create a new detail text view.
+     *
+     * - Parameters:
+     *  - text: The text to display.
+     *  - style: The NiceTextStyle that should be applied to the text.
+     */
     public init(_ text: AttributedString, style: NiceTextStyle? = nil) {
         self.text = text
         self.style = style ?? Self.defaultStyle

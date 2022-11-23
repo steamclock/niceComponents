@@ -24,7 +24,6 @@
 		C614E74126E12DAB00F7F87C /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		C628F0D125C4A08B001331AB /* NotoSerif-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerif-Bold.ttf"; sourceTree = "<group>"; };
 		C628F0D225C4A08B001331AB /* NotoSerif-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerif-Regular.ttf"; sourceTree = "<group>"; };
-		C65289F226CF0DFF009D486B /* StatefulExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulExampleView.swift; sourceTree = "<group>"; };
 		C671309A25C4948800F75E44 /* NiceComponentsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NiceComponentsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C671309D25C4948800F75E44 /* NiceComponentsExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiceComponentsExampleApp.swift; sourceTree = "<group>"; };
 		C671309F25C4948800F75E44 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -111,7 +110,6 @@
 			children = (
 				C6CD255725D6F01C008026D5 /* AllComponentsView.swift */,
 				C6CD255C25D6F0B1008026D5 /* SampleSignInView.swift */,
-				C65289F226CF0DFF009D486B /* StatefulExampleView.swift */,
 				D204536F28860ABC00174C13 /* NiceButtonExampleView.swift */,
 			);
 			path = View;

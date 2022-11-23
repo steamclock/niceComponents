@@ -1,12 +1,13 @@
 //
 //  ScaledFont.swift
-//  
+//  NiceComponents
 //
 //  Created by Brendan on 2021-03-05.
 //
 
 import SwiftUI
 
+/// Set the Font for a view while respecting Dynamic Type sizing and styling.
 /// https://www.hackingwithswift.com/quick-start/swiftui/how-to-use-dynamic-type-with-a-custom-font
 public struct ScaledFont: ViewModifier {
     @Environment(\.sizeCategory) var sizeCategory

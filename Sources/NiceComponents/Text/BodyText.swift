@@ -1,12 +1,13 @@
 //
 //  BodyText.swift
-//  
+//  NiceComponents
 //
 //  Created by Brendan on 2021-01-29.
 //
 
 import SwiftUI
 
+/// A text view that should be used in most places as the primary body text in a view.
 public struct BodyText: NiceText {
     public let text: AttributedString
     public let style: NiceTextStyle
@@ -15,6 +16,13 @@ public struct BodyText: NiceText {
         Config.current.bodyTextStyle
     }
 
+    /**
+     * Create a new body text view.
+     *
+     * - Parameters:
+     *  - text: The text to display.
+     *  - style: The NiceTextStyle that should be applied to the text.
+     */
     public init(_ text: AttributedString, style: NiceTextStyle? = nil) {
         self.text = text
         self.style = style ?? Self.defaultStyle
