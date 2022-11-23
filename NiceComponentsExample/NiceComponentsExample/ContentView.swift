@@ -21,9 +21,6 @@ struct ContentView: View {
                 NavigationLink(destination: SampleSignInView()) {
                     Text("Sign In")
                 }
-                NavigationLink(destination: StatefulExampleView(viewModel: StatefulViewModel())) {
-                    Text("Stateful View Example")
-                }
             }
         }
     }
