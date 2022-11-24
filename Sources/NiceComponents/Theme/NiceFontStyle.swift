@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// Styling settings for a font.
-public struct FontStyle {
+public struct NiceFontStyle {
     /// The name of the font the text should use.
     public let name: String?
 

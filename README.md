@@ -1,4 +1,4 @@
-# Nice Components
+![Nice Components](nice_components.png)
 
 A simple library with some nice looking SwiftUI components to get your next project started 🚀
 
@@ -12,7 +12,9 @@ Help jump start your prototypes with some sensible default components, then come
 
 You can clone and run the example project to see examples of all the default components, plus a little sample of a more customized sign in screen.
 
-### Straight out of the Box
+### Straight Out of the Box
+
+When you're just starting out with your project, you should be able to get some reasonable results just dropping in our components straight out of the box.
 
 ```swift
 import NiceComponents
@@ -20,6 +22,10 @@ import NiceComponents
 struct DemoView: View {
     var body: some View {
         ScreenTitle("I'm a nice big title!")
+        
+        PrimaryButton("And I'm a nice little button") {
+            doTheThing()
+        }
     }
 }
 
@@ -31,7 +37,7 @@ Once you're ready to start putting your own touch on components, you've got a co
 
 #### Setting a Global Config at Startup
 
-If you'd like to change _all_ instances of a component, we recommend creating a custom config that you can set when your app first starts. Note that you once you've set this config, you'll be unable to update it.
+If you'd like to change _all_ instances of a component, we recommend creating a custom config that you can set when your app first starts. Note that you once you've set this config once, you'll be unable to update it.
 
 
 In the case of multiple customizations applying to the same component, the _most specific_ one will take precedence.
@@ -51,7 +57,6 @@ import NiceComponents
 }
 ```
 
-
 #### Extending an Existing Component
 
 ```swift
@@ -62,9 +67,9 @@ public struct CustomPrimaryButton: View {
     var body: some View {
         PrimaryButton(
             text,
-            style: NiceComponents.ButtonStyle(
-                textStyle: Config.current.typeTheme.body1,
-                surfaceColor: Color.red,
+            style: NiceButtonStyle(
+                fontStyle: FontStyle(size: 16),
+                surfaceColor: .red,
                 onSurfaceColor: .black
             )
             onClick: onClick
@@ -82,9 +87,9 @@ var body: some View {
    PrimaryButton(
       "Tap me!",
        style: NiceComponents.ButtonStyle(
-           textStyle: Config.current.typeTheme.body1,
-           surfaceColor: Color.red,
-           onSurfaceColor: .black
+            fontStyle: FontStyle(size: 16),
+            surfaceColor: .red,
+            onSurfaceColor: .black
        )
    ) {
       print("I've been tapped!")
@@ -128,7 +133,7 @@ import NiceComponents
 
 #### Setting a Custom Font 
 
-Just like how you can set a `colorTheme`, you can also set a `typeTheme` that defines the default font, size and weight for all components.
+Just like how you can set a `colorTheme`, you can also set a `fontTheme` that defines the default font, size and weight for all components.
 
 | Component | Type Name |
 | ------------- | ------ | 
@@ -136,14 +141,14 @@ Just like how you can set a `colorTheme`, you can also set a `typeTheme` that de
 | Secondary Button |  button | 
 | Inactive Button | button | 
 | Destructive Button | button | 
-| Body Text | body1 | 
-| Detail Text | body1 | 
+| Body Text | body | 
+| Detail Text | detail | 
 
 ```swift
     var newConfig = Config()
-    newConfig.primaryButtonStyle.textStyle = TypeTheme.Text(
-        name: "Comic Sans MS", 
-        size: 16, 
+    newConfig.primaryButtonStyle.fontStyle = FontStyle(
+        name: "Comic Sans MS",
+        size: 16,
         weight: .semibold
     )
     Config.current = newConfig
