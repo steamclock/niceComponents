@@ -1,21 +1,30 @@
 //
 //  DetailText.swift
-//  
+//  NiceComponents
 //
 //  Created by Brendan on 2021-01-29.
+//  Copyright © 2022 Steamclock Software. All rights reserved.
 //
 
 import SwiftUI
 
+/// A text view that should be used for supplementary text accompanying body text.
 public struct DetailText: NiceText {
     public let text: AttributedString
-    public let style: TypeStyle
+    public let style: NiceTextStyle
 
-    public static var defaultStyle: TypeStyle {
+    public static var defaultStyle: NiceTextStyle {
         Config.current.detailTextStyle
     }
 
-    public init(_ text: AttributedString, style: TypeStyle? = nil) {
+    /**
+     * Create a new detail text view.
+     *
+     * - Parameters:
+     *  - text: The text to display.
+     *  - style: The NiceTextStyle that should be applied to the text.
+     */
+    public init(_ text: AttributedString, style: NiceTextStyle? = nil) {
         self.text = text
         self.style = style ?? Self.defaultStyle
     }
@@ -24,10 +33,10 @@ public struct DetailText: NiceText {
         Text(text)
             .foregroundColor(style.color)
             .scaledFont(
-                name: style.theme.name,
-                size: style.theme.size,
-                weight: style.theme.weight,
-                maxSize: style.theme.dynamicTypeMaxSize
+                name: style.fontStyle.name,
+                size: style.fontStyle.size,
+                weight: style.fontStyle.weight,
+                maxSize: style.fontStyle.dynamicTypeMaxSize
             )
             .fixedSize(horizontal: false, vertical: true)
             .lineLimit(style.lineLimit)

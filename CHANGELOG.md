@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0]
+- Lots of prep for initial public release!
+- Added a bunch of documentation, comments and clarification.
+- Removed some unused, or outdated components that have SwiftUI equivalents now.
+- Renamed a handful of components and helpers to be more clear or avoid potential collisions.
+
 ## [0.6.0]
 - Removed stateful view and view+if helpers, to be moved into a separate utils library.
 

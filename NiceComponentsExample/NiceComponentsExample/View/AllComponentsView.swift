@@ -1,8 +1,9 @@
 //
 //  AllComponentsView.swift
-//  
+//  NiceComponentsExample
 //
 //  Created by Brendan on 2021-02-12.
+//  Copyright © 2022 Steamclock Software. All rights reserved.
 //
 
 import NiceComponents
@@ -25,14 +26,14 @@ struct AllComponentsView: View {
                     }
                 }
 
-                ThemedDivider()
+                NiceDivider()
 
                 VStack(alignment: .leading, spacing: 2) {
                     BodyText("Body Text")
                     DetailText("Detail Text")
                 }
 
-                ThemedDivider()
+                NiceDivider()
 
                 VStack(alignment: .leading, spacing: 2) {
                     PrimaryButton("Primary Button") { }
@@ -41,18 +42,10 @@ struct AllComponentsView: View {
                     DestructiveButton("Destructive Button") { }
                 }
 
-                ThemedDivider()
+                NiceDivider()
 
-                HStack {
-                    Spacer()
-
-                    LoadingView()
-
-                    Spacer()
-                }
-
-                ResizableImage(URL(string: "https://placekitten.com/200/300"), width: 200, height: 300)
+                NiceImage(URL(string: "https://placekitten.com/200/300"), width: 200, height: 300)
             }
-        }.padding(Layout.Spacing.standard)
+        }.padding(NiceSpacing.standard)
     }
 }

@@ -1,22 +1,31 @@
 //
 //  SectionTitle.swift
-//
+//  NiceComponents
 //
 //  Created by Brendan on 2021-01-29.
+//  Copyright © 2022 Steamclock Software. All rights reserved.
 //
 
 import SwiftUI
 
+/// A section title should be used to break up content, usually in-line.
 public struct SectionTitle: NiceText {
-
     public var text: AttributedString
-    public let style: TypeStyle
+    public let style: NiceTextStyle
 
-    public static var defaultStyle: TypeStyle {
+    public static var defaultStyle: NiceTextStyle {
         Config.current.sectionTitleStyle
     }
 
-    public init(_ text: AttributedString, style: TypeStyle? = nil) {
+    /**
+     * Create a new section title.
+     * Section titles should be used to break up content, roughly equivalent to <h2>.
+     *
+     * - Parameters:
+     *  - text: The text to display.
+     *  - style: Any customizations to the style that should be applied. By default your config's `sectionTitleStyle` is used.
+     */
+    public init(_ text: AttributedString, style: NiceTextStyle? = nil) {
         self.text = text
         self.style = style ?? Self.defaultStyle
     }
@@ -25,10 +34,10 @@ public struct SectionTitle: NiceText {
         Text(text)
             .foregroundColor(style.color)
             .scaledFont(
-                name: style.theme.name,
-                size: style.theme.size,
-                weight: style.theme.weight,
-                maxSize: style.theme.dynamicTypeMaxSize
+                name: style.fontStyle.name,
+                size: style.fontStyle.size,
+                weight: style.fontStyle.weight,
+                maxSize: style.fontStyle.dynamicTypeMaxSize
             )
             .fixedSize(horizontal: false, vertical: true)
             .lineLimit(style.lineLimit)

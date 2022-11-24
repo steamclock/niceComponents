@@ -2,7 +2,8 @@
 //  ContentView.swift
 //  NiceComponentsExample
 //
-//  Created by Brendan on 2021-01-29.
+//  Created by Brendan on 2021-02-12.
+//  Copyright © 2022 Steamclock Software. All rights reserved.
 //
 
 import NiceComponents
