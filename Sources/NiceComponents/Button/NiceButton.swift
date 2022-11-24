@@ -140,7 +140,7 @@ extension NiceButton {
         .frame(height: style.height)
         .fixedSize(horizontal: false, vertical: true)
         .background(inactive ? style.inactiveSurfaceColor : style.surfaceColor)
-        .cornerRadius(style.borderStyle.cornerRadius)
+        .cornerRadius(style.border.cornerRadius)
         .overlay(
             borderOverlay
         )
@@ -149,23 +149,31 @@ extension NiceButton {
     }
 
     private var paddingToAdd: CGFloat {
-        if let strokeWidth = style.borderStyle.strokeStyle?.lineWidth, strokeWidth > 0.0 {
+        if let strokeWidth = style.border.strokeStyle?.lineWidth, strokeWidth > 0.0 {
             return strokeWidth / 2
-        } else if style.borderStyle.width > 0.0 {
-            return style.borderStyle.width / 2
+        } else if style.border.width > 0.0 {
+            return style.border.width / 2
         }
         return 0.0
     }
 
     @ViewBuilder
     private var borderOverlay: some View {
-        if let strokeStyle = style.borderStyle.strokeStyle {
-            RoundedRectangle(cornerRadius: style.borderStyle.cornerRadius)
+        if let strokeStyle = style.border.strokeStyle {
+            RoundedRectangle(cornerRadius: cornerRadius)
                 .stroke(style: strokeStyle)
         } else {
-            RoundedRectangle(cornerRadius: style.borderStyle.cornerRadius)
-                .stroke(style.borderStyle.color, lineWidth: style.borderStyle.width)
+            RoundedRectangle(cornerRadius: cornerRadius)
+                .stroke(style.border.color, lineWidth: style.border.width)
         }
+    }
+
+    private var cornerRadius: CGFloat {
+        if case .capsule = style.border {
+            return style.height / 2
+        }
+
+        return style.border.cornerRadius
     }
 }
 

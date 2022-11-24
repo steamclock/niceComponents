@@ -28,7 +28,7 @@ public struct NiceButtonStyle {
     public var inactiveOnSurfaceColor: Color
 
     /// The style of the border applied to your button.
-    public var borderStyle: NiceBorderStyle
+    public var border: NiceBorderStyle
 
     /**
      * Create a new button style to apply to a button component.
@@ -59,7 +59,7 @@ public struct NiceButtonStyle {
         self.onSurfaceColor = onSurfaceColor
         self.inactiveSurfaceColor = inactiveSurfaceColor ?? surfaceColor
         self.inactiveOnSurfaceColor = inactiveOnSurfaceColor ?? onSurfaceColor
-        self.borderStyle = border ?? .none
+        self.border = border ?? .none
     }
 }
 
@@ -94,7 +94,7 @@ public extension NiceButtonStyle {
             onSurfaceColor: onSurfaceColor ?? self.onSurfaceColor,
             inactiveSurfaceColor: inactiveSurfaceColor ?? self.inactiveSurfaceColor,
             inactiveOnSurfaceColor: inactiveOnSurfaceColor ?? self.inactiveOnSurfaceColor,
-            border: border ?? self.borderStyle
+            border: border ?? self.border
         )
     }
 }

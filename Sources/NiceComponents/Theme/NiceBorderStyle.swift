@@ -16,7 +16,6 @@ public enum NiceBorderStyle {
     case border(color: Color, width: CGFloat)
 
     /// A rounded, pill-style, border.
-    /// TODO: Figure out how to set corner radius here.
     case capsule(color: Color?, width: CGFloat?)
 
     /// A rounded border with customizable corner radius.

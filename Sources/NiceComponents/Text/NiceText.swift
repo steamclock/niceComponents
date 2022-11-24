@@ -15,7 +15,6 @@ public protocol NiceText: View {
     /// The styling to apply to the text.
     var style: NiceTextStyle { get }
 
-
     static var defaultStyle: NiceTextStyle { get }
 
     init(_ attributedText: AttributedString, style: NiceTextStyle?)

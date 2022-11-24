@@ -53,7 +53,7 @@ public struct Config {
     public var detailTextStyle: NiceTextStyle
 
     /// Default is: x:0, y:4, blur: 4px, opacity: 0.15 (black)
-    public var shadowStyle: ShadowStyle
+    public var shadowStyle: NiceShadowStyle
 
     /**
      * Create a new component configuration to use for all components in your project.
@@ -67,6 +67,18 @@ public struct Config {
         self.fontTheme = fontTheme ?? FontTheme()
 
         // Set Button styles
+
+        primaryButtonStyle = NiceButtonStyle(
+            fontStyle: self.fontTheme.button,
+            surfaceColor: self.colorTheme.primary,
+            onSurfaceColor: self.colorTheme.onPrimary
+        )
+
+        secondaryButtonStyle = NiceButtonStyle(
+            fontStyle: self.fontTheme.button,
+            surfaceColor: self.colorTheme.secondary,
+            onSurfaceColor: self.colorTheme.onSecondary
+        )
         
         borderlessButtonStyle = NiceButtonStyle(
             fontStyle: self.fontTheme.button,
@@ -79,18 +91,6 @@ public struct Config {
             fontStyle: self.fontTheme.button,
             surfaceColor: self.colorTheme.error,
             onSurfaceColor: self.colorTheme.onError
-        )
-
-        primaryButtonStyle = NiceButtonStyle(
-            fontStyle: self.fontTheme.button,
-            surfaceColor: self.colorTheme.primary,
-            onSurfaceColor: self.colorTheme.onPrimary
-        )
-
-        secondaryButtonStyle = NiceButtonStyle(
-            fontStyle: self.fontTheme.button,
-            surfaceColor: self.colorTheme.secondary,
-            onSurfaceColor: self.colorTheme.onSecondary
         )
 
         // Set Text styles
@@ -124,7 +124,7 @@ public struct Config {
 
         // Set Shadow style
 
-        shadowStyle = ShadowStyle(
+        shadowStyle = NiceShadowStyle(
             color: self.colorTheme.shadow,
             radius: 4.0,
             x: 0,

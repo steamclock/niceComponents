@@ -25,14 +25,14 @@ struct AllComponentsView: View {
                     }
                 }
 
-                ThemedDivider()
+                NiceDivider()
 
                 VStack(alignment: .leading, spacing: 2) {
                     BodyText("Body Text")
                     DetailText("Detail Text")
                 }
 
-                ThemedDivider()
+                NiceDivider()
 
                 VStack(alignment: .leading, spacing: 2) {
                     PrimaryButton("Primary Button") { }
@@ -41,18 +41,10 @@ struct AllComponentsView: View {
                     DestructiveButton("Destructive Button") { }
                 }
 
-                ThemedDivider()
-
-                HStack {
-                    Spacer()
-
-                    LoadingView()
-
-                    Spacer()
-                }
+                NiceDivider()
 
                 NiceImage(URL(string: "https://placekitten.com/200/300"), width: 200, height: 300)
             }
-        }.padding(Layout.Spacing.standard)
+        }.padding(NiceSpacing.standard)
     }
 }
