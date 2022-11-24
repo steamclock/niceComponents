@@ -1,7 +1,9 @@
 //
 //  NiceButtonExampleView.swift
+//  NiceComponentsExample
 //
-//  Created by Alejandro Zielinsky on 2022-07-18.
+//  Created by Brendan on 2021-02-12.
+//  Copyright © 2022 Steamclock Software. All rights reserved.
 //
 
 import NiceComponents

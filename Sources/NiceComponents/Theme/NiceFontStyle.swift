@@ -3,6 +3,7 @@
 //  NiceComponents
 //
 //  Created by Brendan on 2022-11-22.
+//  Copyright © 2022 Steamclock Software. All rights reserved.
 //
 
 import SwiftUI
