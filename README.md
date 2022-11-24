@@ -147,7 +147,7 @@ Just like how you can set a `colorTheme`, you can also set a `fontTheme` that de
 ```swift
     var newConfig = Config()
     newConfig.primaryButtonStyle.fontStyle = FontStyle(
-        name: "Comic Sans MS",
+        "Comic Sans MS",
         size: 16,
         weight: .semibold
     )
