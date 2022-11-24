@@ -96,12 +96,6 @@ var body: some View {
 
 ```
 
-### Using `StatefulView`
-
-We've found with SwiftUI it's very common to have a view whose state changes based on some content state defined in its ViewModel. With `StatefulView`, you can pass in your current state, and the desired loaded state and have things automatically update as your state changes. You can also update your error, loading and noData states to suit your needs.
-
-See [StatefulExampleView](https://github.com/steamclock/swiftui_components/blob/main/NiceComponentsExample/NiceComponentsExample/View/StatefulExampleView.swift) for a full example.
-
 ### Setting a Color Palette
 
 Components are colored using a theme inspired by the [Material Design color system](https://material.io/design/color/the-color-system.html#color-theme-creation).

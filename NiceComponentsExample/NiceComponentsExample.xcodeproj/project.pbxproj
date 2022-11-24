@@ -10,7 +10,6 @@
 		C614E74226E12DAB00F7F87C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C614E74126E12DAB00F7F87C /* Theme.swift */; };
 		C628F0D325C4A08B001331AB /* NotoSerif-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C628F0D125C4A08B001331AB /* NotoSerif-Bold.ttf */; };
 		C628F0D425C4A08B001331AB /* NotoSerif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C628F0D225C4A08B001331AB /* NotoSerif-Regular.ttf */; };
-		C65289F326CF0DFF009D486B /* StatefulExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C65289F226CF0DFF009D486B /* StatefulExampleView.swift */; };
 		C671309E25C4948800F75E44 /* NiceComponentsExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C671309D25C4948800F75E44 /* NiceComponentsExampleApp.swift */; };
 		C67130A025C4948800F75E44 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C671309F25C4948800F75E44 /* ContentView.swift */; };
 		C67130A225C4948900F75E44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C67130A125C4948900F75E44 /* Assets.xcassets */; };
@@ -194,7 +193,6 @@
 			files = (
 				C67130A025C4948800F75E44 /* ContentView.swift in Sources */,
 				C671309E25C4948800F75E44 /* NiceComponentsExampleApp.swift in Sources */,
-				C65289F326CF0DFF009D486B /* StatefulExampleView.swift in Sources */,
 				C614E74226E12DAB00F7F87C /* Theme.swift in Sources */,
 				C6CD255D25D6F0B1008026D5 /* SampleSignInView.swift in Sources */,
 				C6CD255825D6F01C008026D5 /* AllComponentsView.swift in Sources */,
