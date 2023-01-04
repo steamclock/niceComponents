@@ -11,13 +11,9 @@ import SwiftUI
 enum Theme {
     static var config: Config {
         var newConfig = Config()
-        newConfig.primaryButtonStyle = NiceButtonStyle(
-            surfaceColor: Color.orange,
-            onSurfaceColor: Color.black,
-            border: .capsule(color: .clear, width: 1)
-        )
+
         newConfig.secondaryButtonStyle = NiceButtonStyle(
-            surfaceColor: Color.yellow,
+            surfaceColor: Color.mint,
             onSurfaceColor: Color.black,
             border: .rounded(color: .black, cornerRadius: 12, width: 1.5)
         )

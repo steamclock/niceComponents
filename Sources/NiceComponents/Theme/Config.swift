@@ -72,13 +72,15 @@ public struct Config {
         primaryButtonStyle = NiceButtonStyle(
             fontStyle: self.fontTheme.button,
             surfaceColor: self.colorTheme.primary,
-            onSurfaceColor: self.colorTheme.onPrimary
+            onSurfaceColor: self.colorTheme.onPrimary,
+            border: .rounded(color: self.colorTheme.primary, cornerRadius: 8, width: 1)
         )
 
         secondaryButtonStyle = NiceButtonStyle(
             fontStyle: self.fontTheme.button,
             surfaceColor: self.colorTheme.secondary,
-            onSurfaceColor: self.colorTheme.onSecondary
+            onSurfaceColor: self.colorTheme.onSecondary,
+            border: .rounded(color: self.colorTheme.secondary, cornerRadius: 8, width: 1)
         )
         
         borderlessButtonStyle = NiceButtonStyle(
@@ -91,7 +93,8 @@ public struct Config {
         destructiveButtonStyle = NiceButtonStyle(
             fontStyle: self.fontTheme.button,
             surfaceColor: self.colorTheme.error,
-            onSurfaceColor: self.colorTheme.onError
+            onSurfaceColor: self.colorTheme.onError,
+            border: .rounded(color: self.colorTheme.error, cornerRadius: 8, width: 1)
         )
 
         // Set Text styles
