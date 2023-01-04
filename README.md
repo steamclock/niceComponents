@@ -133,7 +133,7 @@ import NiceComponents
 
 #### Setting a Custom Font 
 
-Just like how you can set a `colorTheme`, you can also set a `fontTheme` that defines the default font, size and weight for all components.
+Just like how you can set a `colorTheme`, you can also set a `fontStyle` that defines the default font, size and weight for all components.
 
 | Component | Type Name |
 | ------------- | ------ | 
