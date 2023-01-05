@@ -44,6 +44,10 @@ public struct Config {
     public var borderlessButtonStyle: NiceButtonStyle
     public var destructiveButtonStyle: NiceButtonStyle
 
+    // Even thouh the text field isn't really a button, it shares a lot of the same config options so we group them together
+    public var textFieldStyle: NiceButtonStyle
+    public var textFieldPlaceholderStyle: NiceTextStyle
+
     // Text and Title Styles
 
     public var itemTitleStyle: NiceTextStyle
@@ -95,6 +99,19 @@ public struct Config {
             surfaceColor: self.colorTheme.error,
             onSurfaceColor: self.colorTheme.onError,
             border: .rounded(color: self.colorTheme.error, cornerRadius: 8, width: 1)
+        )
+
+        textFieldStyle = NiceButtonStyle(
+            fontStyle: self.fontTheme.button,
+            height: 56,
+            surfaceColor: self.colorTheme.surface,
+            onSurfaceColor: self.colorTheme.onSurface,
+            border: .rounded(color: self.colorTheme.background, cornerRadius: 8, width: 2)
+        )
+
+        textFieldPlaceholderStyle = NiceTextStyle(
+            color: self.colorTheme.onSurface,
+            fontStyle: FontStyle(size: 10)
         )
 
         // Set Text styles

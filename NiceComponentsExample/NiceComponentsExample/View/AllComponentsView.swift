@@ -10,6 +10,10 @@ import NiceComponents
 import SwiftUI
 
 struct AllComponentsView: View {
+    @State var emailFieldText = "test@example.com"
+    @State var email2FieldText = ""
+    @State var nameFieldText = ""
+    @State var passwordFieldText = ""
     
     var body: some View {
         ScrollView {
@@ -36,6 +40,29 @@ struct AllComponentsView: View {
                 NiceDivider()
 
                 VStack(alignment: .leading, spacing: 2) {
+                    NiceTextField(placeholder: "Enter your email", text: $emailFieldText)
+
+                    NiceTextField(placeholder: "Enter your email", text: $email2FieldText)
+
+                    NiceTextField(
+                        isSecure: true,
+                        placeholder: "Password",
+                        style: NiceButtonStyle(surfaceColor: .clear, onSurfaceColor: .mint),
+                        text: $passwordFieldText
+                    )
+
+                    NiceTextField(
+                        placeholder: "Name",
+                        placeholderStyle: NiceTextStyle(color: .blue, fontStyle: Config.current.bodyTextStyle.fontStyle),
+                        style: NiceButtonStyle(surfaceColor: .clear, onSurfaceColor: .black),
+                        text: $nameFieldText
+                    )
+
+                }
+
+                NiceDivider()
+
+                VStack(alignment: .leading, spacing: 2) {
                     PrimaryButton("Primary Button") { }
                     SecondaryButton("Secondary Button") { }
                     BorderlessButton("Borderless Button") { }
@@ -44,7 +71,7 @@ struct AllComponentsView: View {
 
                 NiceDivider()
 
-                NiceImage(URL(string: "https://placekitten.com/200/300"), width: 200, height: 300)
+//                NiceImage(URL(string: "https://placekitten.com/200/300"), width: 200, height: 300)
             }
         }.padding(NiceSpacing.standard)
     }
