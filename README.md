@@ -160,4 +160,4 @@ Nice Components is available through **[Swift Package Manager](https://swift.org
 
 1. In Xcode, click **File**, then **Swift Package Manager**, then **Add Package Dependency**
 2. Choose your project
-3. Enter this URL in the search bar `https://github.com/steamclock/swiftui_components.git`
+3. Enter this URL in the search bar `git@github.com:steamclock/nice_components.git`
