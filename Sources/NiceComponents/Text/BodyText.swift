@@ -32,6 +32,7 @@ public struct BodyText: NiceText {
     public var body: some View {
         Text(text)
             .foregroundColor(style.color)
+            .tracking(style.tracking)
             .scaledFont(
                 name: style.fontStyle.name,
                 size: style.fontStyle.size,
@@ -40,5 +41,6 @@ public struct BodyText: NiceText {
             )
             .fixedSize(horizontal: false, vertical: true)
             .lineLimit(style.lineLimit)
+            .lineSpacing(style.lineSpacing)
     }
 }

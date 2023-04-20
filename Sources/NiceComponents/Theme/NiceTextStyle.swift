@@ -19,6 +19,12 @@ public struct NiceTextStyle {
     /// The number of lines to limit the text to.
     public var lineLimit: Int?
 
+    /// The space between the characters of the text.
+    public var tracking: CGFloat
+    
+    /// The space between lines of the text.
+    public var lineSpacing: CGFloat
+    
     /**
      * Create a new text style to apply to a text element.
      *
@@ -30,11 +36,15 @@ public struct NiceTextStyle {
     public init(
         color: Color,
         fontStyle: FontStyle,
-        lineLimit: Int? = nil
+        lineLimit: Int? = nil,
+        lineSpacing: CGFloat = 0,
+        tracking: CGFloat = 0
     ) {
         self.color = color
         self.fontStyle = fontStyle
         self.lineLimit = lineLimit
+        self.lineSpacing = lineSpacing
+        self.tracking = tracking
     }
 }
 
@@ -52,7 +62,9 @@ public extension NiceTextStyle {
         color: Color? = nil,
         size: CGFloat? = nil,
         lineLimit: Int? = nil,
-        dynamicTypeMaxSize: DynamicTypeSize? = nil
+        dynamicTypeMaxSize: DynamicTypeSize? = nil,
+        lineSpacing: CGFloat? = nil,
+        tracking: CGFloat? = nil
     ) -> NiceTextStyle {
         NiceTextStyle(
             color: color ?? self.color,
@@ -62,7 +74,9 @@ public extension NiceTextStyle {
                 weight: self.fontStyle.weight,
                 dynamicTypeMaxSize: dynamicTypeMaxSize ?? self.fontStyle.dynamicTypeMaxSize
             ),
-            lineLimit: lineLimit ?? self.lineLimit
+            lineLimit: lineLimit ?? self.lineLimit,
+            lineSpacing: lineSpacing ?? self.lineSpacing,
+            tracking: tracking ?? self.tracking
         )
     }
 }
