@@ -19,9 +19,6 @@ public struct NiceTextStyle {
     /// The number of lines to limit the text to.
     public var lineLimit: Int?
 
-    /// The space between the characters of the text.
-    public var tracking: CGFloat
-    
     /// The space between lines of the text.
     public var lineSpacing: CGFloat
     
@@ -37,14 +34,12 @@ public struct NiceTextStyle {
         color: Color,
         fontStyle: FontStyle,
         lineLimit: Int? = nil,
-        lineSpacing: CGFloat = 0,
-        tracking: CGFloat = 0
+        lineSpacing: CGFloat = 0
     ) {
         self.color = color
         self.fontStyle = fontStyle
         self.lineLimit = lineLimit
         self.lineSpacing = lineSpacing
-        self.tracking = tracking
     }
 }
 
@@ -57,14 +52,15 @@ public extension NiceTextStyle {
      *  - size: The font size to change.
      *  - fontStyle: The font style to apply to the text.
      *  - lineLimit: The number of lines to limit the text to.
+     *  - lineSpacing: The space between lines of the text.
      */
     func with(
         color: Color? = nil,
         size: CGFloat? = nil,
         lineLimit: Int? = nil,
-        dynamicTypeMaxSize: DynamicTypeSize? = nil,
         lineSpacing: CGFloat? = nil,
-        tracking: CGFloat? = nil
+        dynamicTypeMaxSize: DynamicTypeSize? = nil
+        
     ) -> NiceTextStyle {
         NiceTextStyle(
             color: color ?? self.color,
@@ -72,11 +68,11 @@ public extension NiceTextStyle {
                 self.fontStyle.name,
                 size: size ?? self.fontStyle.size,
                 weight: self.fontStyle.weight,
+                tracking: self.fontStyle.tracking,
                 dynamicTypeMaxSize: dynamicTypeMaxSize ?? self.fontStyle.dynamicTypeMaxSize
             ),
             lineLimit: lineLimit ?? self.lineLimit,
-            lineSpacing: lineSpacing ?? self.lineSpacing,
-            tracking: tracking ?? self.tracking
+            lineSpacing: lineSpacing ?? self.lineSpacing
         )
     }
 }

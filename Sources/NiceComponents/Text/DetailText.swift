@@ -32,7 +32,7 @@ public struct DetailText: NiceText {
     public var body: some View {
         Text(text)
             .foregroundColor(style.color)
-            .tracking(style.tracking)
+            .tracking(style.fontStyle.tracking)
             .scaledFont(
                 name: style.fontStyle.name,
                 size: style.fontStyle.size,
