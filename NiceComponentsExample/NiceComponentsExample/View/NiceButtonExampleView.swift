@@ -28,10 +28,20 @@ struct NiceButtonExampleView: View {
 
                     PrimaryButton(
                         "Like Button",
-                        surfaceColor: .white,
+                        surfaceColor: .orange,
                         border: .rounded(
                             color: .black,
                             cornerRadius: 4,
+                            width: 1.5
+                        )
+                    ) { }.withRightImage(
+                        NiceImage(systemIcon: "heart.fill", width: 14, height: 14, tintColor: .red)
+                    )
+
+                    PrimaryButton(
+                        "Capsule Button",
+                        border: .capsule(
+                            color: .black,
                             width: 1.5
                         )
                     ) { }.withRightImage(
