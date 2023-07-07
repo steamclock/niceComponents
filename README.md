@@ -1,6 +1,6 @@
-![Nice Components](nice_components.png)
+![NiceComponents](nice_components.png)
 
-Nice Components is a simple library with some nice looking SwiftUI components to get your next project started. 🚀
+NiceComponents is a simple library with some nice looking SwiftUI components to get your next project started. 🚀
 
 Jumpstart your prototypes with some sensible default components, then come back later and customize the look and feel of your app – all in one place.
 
@@ -156,8 +156,8 @@ Just like how you can set a `colorTheme`, you can also set a `fontStyle` that de
 
 ### Installation
 
-Nice Components is available through **[Swift Package Manager](https://swift.org/package-manager/)**. To install it, follow these steps:
+NiceComponents is available through **[Swift Package Manager](https://swift.org/package-manager/)**. To install it, follow these steps:
 
 1. In Xcode, click **File**, then **Swift Package Manager**, then **Add Package Dependency**
 2. Choose your project
-3. Enter this URL in the search bar `git@github.com:steamclock/nice_components.git`
+3. Enter this URL in the search bar `git@github.com:steamclock/niceComponents.git`
