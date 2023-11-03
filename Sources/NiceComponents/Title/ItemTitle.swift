@@ -42,6 +42,7 @@ public struct ItemTitle: NiceText {
             )
             .fixedSize(horizontal: false, vertical: true)
             .lineLimit(style.lineLimit)
+            .lineSpacing(style.lineSpacing)
     }
 }
 
