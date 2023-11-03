@@ -41,6 +41,7 @@ public struct ScreenTitle: NiceText {
             )
             .fixedSize(horizontal: false, vertical: true)
             .lineLimit(style.lineLimit)
+            .lineSpacing(style.lineSpacing)
     }
 }
 
