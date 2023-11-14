@@ -30,8 +30,8 @@ public struct NiceImage: View {
      *
      * - Parameters:
      *      - bundleString: The name of the image asset.
-     *      - width: The width of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions.
-     *      - height: The height of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions.
+     *      - width: The width of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions. Default is `nil`.
+     *      - height: The height of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions. Default is `nil`.
      *      - tintColor: Optional color to tint the image. Default is `nil`.
      *      - contentMode: Content mode for the image. Default is `.fill`.
      *      - imageAlignment: Image's frame alignment. Default is `.center`.
@@ -63,8 +63,8 @@ public struct NiceImage: View {
      *
      * - Parameters:
      *      - systemIcon: The name of the icon to use.
-     *      - width: The width of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions.
-     *      - height: The height of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions.
+     *      - width: The width of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions. Default is `nil`.
+     *      - height: The height of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions. Default is `nil`.
      *      - tintColor: Optional color to tint the image. Default is `nil`.
      *      - contentMode: Content mode for the image. Default is `.fill`.
      *      - imageAlignment: Image's frame alignment. Default is `.center`.
@@ -97,8 +97,8 @@ public struct NiceImage: View {
      *
      * - Parameters:
      *      - url: The URL of the image to fetch.
-     *      - width: The width of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions.
-     *      - height: The height of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions.
+     *      - width: The width of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions. Default is `nil`.
+     *      - height: The height of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions. Default is `nil`.
      *      - tintColor: Optional color to tint the image. Default is `nil`.
      *      - fallbackImage: The bundle string for a fallback image to show if something goes wrong. Default is `nil`.
      *      - contentMode: Content mode for the image. Default is `.fill`.
