@@ -129,8 +129,8 @@ extension NiceButton {
                         weight: style.fontStyle.weight,
                         maxSize: style.fontStyle.dynamicTypeMaxSize
                     )
-                    .padding(.leading, leftImageOffset)
-                    .padding(.trailing, rightImageOffset)
+                    .padding(.leading, leftImageOffset ?? 0)
+                    .padding(.trailing, rightImageOffset ?? 0)
                 if let rightImage = rightImage {
                     rightImage
                 }
@@ -141,7 +141,7 @@ extension NiceButton {
         .frame(height: style.height)
         .fixedSize(horizontal: false, vertical: true)
         .background(inactive ? style.inactiveSurfaceColor : style.surfaceColor)
-        .cornerRadius(style.border.cornerRadius)
+        .cornerRadius(cornerRadius)
         .overlay(
             style.borderOverlay
         )

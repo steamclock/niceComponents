@@ -15,12 +15,13 @@ public struct NiceImage: View {
     public let bundleString: String?
     public let systemIcon: String?
     public let url: URL?
-    public let width: CGFloat
-    public let height: CGFloat
+    public let width: CGFloat?
+    public let height: CGFloat?
     public let tintColor: Color?
     public let contentMode: SwiftUI.ContentMode
     public let loadingStyle: UIActivityIndicatorView.Style?
     public let fallbackImage: UIImage?
+    public let imageAlignment: Alignment
 
     @State private var didErrorWithNoFallback: Bool = false
 
@@ -29,27 +30,32 @@ public struct NiceImage: View {
      *
      * - Parameters:
      *      - bundleString: The name of the image asset.
-     *      - width: The width of the image.
-     *      - height: The height of the image.
+     *      - width: The width of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions. Default is `nil`.
+     *      - height: The height of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions. Default is `nil`.
      *      - tintColor: Optional color to tint the image. Default is `nil`.
      *      - contentMode: Content mode for the image. Default is `.fill`.
+     *      - imageAlignment: Image's frame alignment. Default is `.center`.
      */
     public init(
         _ bundleString: String,
-        width: CGFloat,
-        height: CGFloat,
+        width: CGFloat? = nil,
+        height: CGFloat? = nil,
         tintColor: Color? = nil,
-        contentMode: SwiftUI.ContentMode = .fill
+        contentMode: SwiftUI.ContentMode = .fill,
+        imageAlignment: Alignment = .center
     ) {
-        self.bundleString = bundleString
-        self.url = nil
-        self.systemIcon = nil
-        self.height = height
-        self.width = width
-        self.contentMode = contentMode
-        self.tintColor = tintColor
-        self.loadingStyle = nil
-        self.fallbackImage = nil
+        self.init(
+            bundleString: bundleString,
+            systemIcon: nil,
+            url: nil,
+            width: width,
+            height: height,
+            tintColor: tintColor,
+            fallbackImage: nil,
+            contentMode: contentMode,
+            loadingStyle: nil,
+            imageAlignment: imageAlignment
+        )
     }
 
     /**
@@ -57,27 +63,32 @@ public struct NiceImage: View {
      *
      * - Parameters:
      *      - systemIcon: The name of the icon to use.
-     *      - width: The width of the image.
-     *      - height: The height of the image.
+     *      - width: The width of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions. Default is `nil`.
+     *      - height: The height of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions. Default is `nil`.
      *      - tintColor: Optional color to tint the image. Default is `nil`.
      *      - contentMode: Content mode for the image. Default is `.fill`.
+     *      - imageAlignment: Image's frame alignment. Default is `.center`.
      */
     public init(
         systemIcon: String,
-        width: CGFloat,
-        height: CGFloat,
+        width: CGFloat? = nil,
+        height: CGFloat? = nil,
         tintColor: Color? = nil,
-        contentMode: SwiftUI.ContentMode = .fill
+        contentMode: SwiftUI.ContentMode = .fill,
+        imageAlignment: Alignment = .center
     ) {
-        self.bundleString = nil
-        self.url = nil
-        self.systemIcon = systemIcon
-        self.height = height
-        self.width = width
-        self.contentMode = contentMode
-        self.tintColor = tintColor
-        self.loadingStyle = nil
-        self.fallbackImage = nil
+        self.init(
+            bundleString: nil,
+            systemIcon: systemIcon, 
+            url: nil,
+            width: width,
+            height: height, 
+            tintColor: tintColor,
+            fallbackImage: nil,
+            contentMode: contentMode,
+            loadingStyle: nil,
+            imageAlignment: imageAlignment
+        )
     }
 
     /**
@@ -86,30 +97,60 @@ public struct NiceImage: View {
      *
      * - Parameters:
      *      - url: The URL of the image to fetch.
-     *      - width: The width of the image.
-     *      - height: The height of the image.
+     *      - width: The width of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions. Default is `nil`.
+     *      - height: The height of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions. Default is `nil`.
      *      - tintColor: Optional color to tint the image. Default is `nil`.
      *      - fallbackImage: The bundle string for a fallback image to show if something goes wrong. Default is `nil`.
      *      - contentMode: Content mode for the image. Default is `.fill`.
      *      - loadingStyle: The UIActivityIndicatorView.Style to use while loading. Default is `nil`.
+     *      - imageAlignment: Image's frame alignment. Default is `.center`.
      */
     public init(
         _ url: URL?,
-        width: CGFloat,
-        height: CGFloat,
+        width: CGFloat? = nil,
+        height: CGFloat? = nil,
         tintColor: Color? = nil,
         fallbackImage: String? = nil,
         contentMode: SwiftUI.ContentMode = .fill,
-        loadingStyle: UIActivityIndicatorView.Style? = nil
+        loadingStyle: UIActivityIndicatorView.Style? = nil,
+        imageAlignment: Alignment = .center
     ) {
-        self.bundleString = nil
-        self.systemIcon = nil
+        self.init(
+            bundleString: nil,
+            systemIcon: nil,
+            url: url,
+            width: width,
+            height: height,
+            tintColor: tintColor,
+            fallbackImage: fallbackImage,
+            contentMode: contentMode,
+            loadingStyle: loadingStyle,
+            imageAlignment: imageAlignment
+        )
+    }
+
+    private init(
+        bundleString: String?,
+        systemIcon: String?,
+        url: URL?,
+        width: CGFloat?,
+        height: CGFloat?,
+        tintColor: Color? = nil,
+        fallbackImage: String? = nil,
+        contentMode: SwiftUI.ContentMode,
+        loadingStyle: UIActivityIndicatorView.Style?,
+        imageAlignment: Alignment
+    ) {
+        self.bundleString = bundleString
+        self.systemIcon = systemIcon
         self.url = url
-        self.height = height
-        self.width = width
-        self.contentMode = contentMode
+        self.width = width == .infinity ? nil : width
+        self.height = height == .infinity ? nil : height
         self.tintColor = tintColor
+        self.contentMode = contentMode
         self.loadingStyle = loadingStyle
+        self.imageAlignment = imageAlignment
+
         if let imageName = fallbackImage {
             self.fallbackImage = UIImage(named: imageName)
         } else {
@@ -130,7 +171,7 @@ public struct NiceImage: View {
         if let url = url {
             if didErrorWithNoFallback {
                 Color.clear
-                    .frame(width: width, height: height)
+                    .frame(width: width, height: height, alignment: imageAlignment)
             } else {
                 KFImage(url)
                     .renderingMode(tintColor == nil ? .original : .template)
@@ -146,7 +187,7 @@ public struct NiceImage: View {
                     .onFailureImage(fallbackImage)
                     .foregroundColor(tintColor)
                     .aspectRatio(contentMode: contentMode)
-                    .frame(width: width, height: height)
+                    .frame(width: width, height: height, alignment: imageAlignment)
                     .clipped()
             }
         } else if let image = image {
@@ -154,7 +195,7 @@ public struct NiceImage: View {
                 .renderingMode(tintColor == nil ? .original : .template)
                 .resizable()
                 .aspectRatio(contentMode: contentMode)
-                .frame(width: width, height: height)
+                .frame(width: width, height: height, alignment: imageAlignment)
                 .foregroundColor(tintColor)
                 .clipped()
         } else {

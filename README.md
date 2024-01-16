@@ -1,8 +1,8 @@
-![Nice Components](nice_components.png)
+![NiceComponents](nice_components.png)
 
-A simple library with some nice looking SwiftUI components to get your next project started 🚀
+NiceComponents is a simple library with some nice looking SwiftUI components to get your next project started. 🚀
 
-Help jump start your prototypes with some sensible default components, then come back later and customize the look and feel of your app all in one place.
+Jumpstart your prototypes with some sensible default components, then come back later and customize the look and feel of your app – all in one place.
 
 ![](preview.png)
 
@@ -14,7 +14,7 @@ You can clone and run the example project to see examples of all the default com
 
 ### Straight Out of the Box
 
-When you're just starting out with your project, you should be able to get some reasonable results just dropping in our components straight out of the box.
+When you're just starting out with your project, you should be able to get some reasonable results by just dropping in our components straight out of the box.
 
 ```swift
 import NiceComponents
@@ -33,7 +33,7 @@ struct DemoView: View {
 
 ### Customizing Components
 
-Once you're ready to start putting your own touch on components, you've got a couple options, based on what you'd like to change...
+Once you're ready to start putting your own touch on components, you've got a couple options, based on what you'd like to change.
 
 #### Setting a Global Config at Startup
 
@@ -156,8 +156,8 @@ Just like how you can set a `colorTheme`, you can also set a `fontStyle` that de
 
 ### Installation
 
-Nice Components is available through **[Swift Package Manager](https://swift.org/package-manager/)**. To install it, follow these steps:
+NiceComponents is available through **[Swift Package Manager](https://swift.org/package-manager/)**. To install it, follow these steps:
 
 1. In Xcode, click **File**, then **Swift Package Manager**, then **Add Package Dependency**
 2. Choose your project
-3. Enter this URL in the search bar `https://github.com/steamclock/swiftui_components.git`
+3. Enter this URL in the search bar `git@github.com:steamclock/niceComponents.git`

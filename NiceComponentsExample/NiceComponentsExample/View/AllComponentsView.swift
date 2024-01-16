@@ -71,7 +71,28 @@ struct AllComponentsView: View {
 
                 NiceDivider()
 
-//                NiceImage(URL(string: "https://placekitten.com/200/300"), width: 200, height: 300)
+                NiceImage(
+                    URL(string: "https://placekitten.com/200/300"),
+                    width: 200,
+                    height: 300
+                )
+
+                NiceImage(
+                    URL(string: "https://placekitten.com/100/150"),
+                    height: 200,
+                    contentMode: .fill
+                )
+
+                NiceImage(
+                    URL(string: "https://placekitten.com/100/150"),
+                    height: 200,
+                    contentMode: .fit
+                )
+
+                VStack {
+                    NiceImage(URL(string: "https://placekitten.com/100/150"))
+                }.background(Color.red)
+                .frame(width: 200, height: 200)
             }
         }.padding(NiceSpacing.standard)
     }
