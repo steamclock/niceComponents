@@ -99,3 +99,33 @@ public extension NiceButtonStyle {
         )
     }
 }
+
+internal extension NiceButtonStyle {
+    var paddingToAdd: CGFloat {
+        if let strokeWidth = border.strokeStyle?.lineWidth, strokeWidth > 0.0 {
+            return strokeWidth / 2
+        } else if border.width > 0.0 {
+            return border.width / 2
+        }
+        return 0.0
+    }
+
+    @ViewBuilder
+    var borderOverlay: some View {
+        if let strokeStyle = border.strokeStyle {
+            RoundedRectangle(cornerRadius: cornerRadius)
+                .stroke(style: strokeStyle)
+        } else {
+            RoundedRectangle(cornerRadius: cornerRadius)
+                .stroke(border.color, lineWidth: border.width)
+        }
+    }
+
+    var cornerRadius: CGFloat {
+        if case .capsule = border {
+            return height / 2
+        }
+
+        return border.cornerRadius
+    }
+}

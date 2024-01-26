@@ -143,38 +143,10 @@ extension NiceButton {
         .background(inactive ? style.inactiveSurfaceColor : style.surfaceColor)
         .cornerRadius(cornerRadius)
         .overlay(
-            borderOverlay
+            style.borderOverlay
         )
-        .padding(paddingToAdd)
+        .padding(style.paddingToAdd)
 
-    }
-
-    private var paddingToAdd: CGFloat {
-        if let strokeWidth = style.border.strokeStyle?.lineWidth, strokeWidth > 0.0 {
-            return strokeWidth / 2
-        } else if style.border.width > 0.0 {
-            return style.border.width / 2
-        }
-        return 0.0
-    }
-
-    @ViewBuilder
-    private var borderOverlay: some View {
-        if let strokeStyle = style.border.strokeStyle {
-            RoundedRectangle(cornerRadius: cornerRadius)
-                .stroke(style: strokeStyle)
-        } else {
-            RoundedRectangle(cornerRadius: cornerRadius)
-                .stroke(style.border.color, lineWidth: style.border.width)
-        }
-    }
-
-    private var cornerRadius: CGFloat {
-        if case .capsule = style.border {
-            return style.height / 2
-        }
-
-        return style.border.cornerRadius
     }
 }
 
