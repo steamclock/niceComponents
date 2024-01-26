@@ -105,8 +105,7 @@ public struct NiceTextField: View {
                     }
                 }
             }.padding(.horizontal, 16)
-            .padding(.top, text.isEmpty ? 16 : 8)
-            .padding(.bottom, text.isEmpty ? 16 : 8)
+            .padding(.vertical, text.isEmpty ? 16 : 8)
         }.frame(maxWidth: .infinity)
         .frame(height: style.height)
         .fixedSize(horizontal: false, vertical: true)
