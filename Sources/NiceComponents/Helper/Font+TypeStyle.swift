@@ -14,11 +14,11 @@ public extension Font {
      *
      * - Parameter fontStyle: The styling to use when creating a Font.
      */
-    static func custom(_ fontStyle: FontStyle) -> Font {
-        if let fontName = fontStyle.name {
-            return .custom(fontName, size: fontStyle.size)
+    static func custom(_ fontTheme: FontTheme) -> Font {
+        if let fontName = fontTheme.name {
+            return .custom(fontName, size: fontTheme.size)
         } else {
-            return .system(size: fontStyle.size, weight: fontStyle.weight ?? .regular)
+            return .system(size: fontTheme.size, weight: fontTheme.weight ?? .regular)
         }
     }
 
@@ -28,6 +28,6 @@ public extension Font {
      * - Parameter textStyle: The styling to use when creating a Font.
      */
     static func custom(_ textStyle: NiceTextStyle) -> Font {
-        custom(textStyle.fontStyle)
+        custom(textStyle.fontTheme)
     }
 }

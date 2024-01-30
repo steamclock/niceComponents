@@ -13,15 +13,16 @@ public struct SampleSignInView: View {
     @State private var emailField: String = ""
     @State private var passwordField: String = ""
 
+    // TODO: Can I do the thing with view modifiers? Is that weirder?
     public var body: some View {
         VStack(alignment: .leading, spacing: NiceSpacing.standard) {
-            ScreenTitle("Sign In")
+            NiceText("Sign In", style: .screenTitle)
 
-            DetailText("Email")
+            NiceText("Email", style: .detail)
             TextField("", text: $emailField)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
 
-            DetailText("Password")
+            NiceText("Password", style: .detail)
             TextField("", text: $passwordField)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             PrimaryButton("Sign In") {}

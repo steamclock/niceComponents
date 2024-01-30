@@ -11,7 +11,7 @@ import SwiftUI
 /// A style to be applied to a button component.
 public struct NiceButtonStyle {
     /// The text style will be applied to the text inside the button.
-    public var fontStyle: FontStyle
+    public var fontStyle: FontTheme
 
     /// The height of the button.
     public var height: CGFloat
@@ -46,7 +46,7 @@ public struct NiceButtonStyle {
      * - Returns: the newly modified button style.
      */
     public init(
-        fontStyle: FontStyle? = nil,
+        fontStyle: FontTheme? = nil,
         height: CGFloat = 44,
         surfaceColor: Color,
         onSurfaceColor: Color,
@@ -80,7 +80,7 @@ public extension NiceButtonStyle {
      * - Returns: the newly modified button style.
      */
     func with(
-        fontStyle: FontStyle? = nil,
+        fontStyle: FontTheme? = nil,
         height: CGFloat? = nil,
         surfaceColor: Color? = nil,
         onSurfaceColor: Color? = nil,

@@ -17,8 +17,8 @@ public struct ErrorView: View {
 
     public var body: some View {
         VStack(alignment: .center) {
-            BodyText("Error:")
-            BodyText(error.localizedDescription)
+            NiceText("Error:", style: .body)
+            NiceText(error.localizedDescription, style: .body)
         }
     }
 }

@@ -18,6 +18,14 @@ enum Theme {
             border: .rounded(color: .black, cornerRadius: 12, width: 1.5)
         )
 
+        newConfig.sectionTitleStyle = NiceTextStyle(
+            fontTheme: FontTheme("Avenir Roman", size: 30),
+            textTheme: TextTheme(color: .brown)
+        )
+
+        newConfig.screenTitleStyle = NiceTextStyle.screenTitle
+            .with(weight: .black)
+
         return newConfig
     }
 }

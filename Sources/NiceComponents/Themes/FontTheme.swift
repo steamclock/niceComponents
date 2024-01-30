@@ -1,5 +1,5 @@
 //
-//  FontStyle.swift
+//  FontTheme.swift
 //  NiceComponents
 //
 //  Created by Brendan on 2022-11-22.
@@ -8,8 +8,8 @@
 
 import SwiftUI
 
-/// Styling settings for a font.
-public struct FontStyle {
+/// Specifies a set of attributes for a font to be styled.
+public struct FontTheme {
     /// The name of the font the text should use.
     public let name: String?
 
@@ -26,7 +26,7 @@ public struct FontStyle {
     public var dynamicTypeMaxSize: DynamicTypeSize?
 
     /**
-     * Create a new font style.
+     * Create a new font theme.
      *
      * - Parameters:
      *  - name: The name of the font to use.

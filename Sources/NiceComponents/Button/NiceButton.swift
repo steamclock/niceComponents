@@ -82,7 +82,7 @@ public extension NiceButton {
      */
     init(
         _ text: String,
-        fontStyle: FontStyle? = nil,
+        fontTheme: FontTheme? = nil,
         height: CGFloat? = nil,
         inactive: Bool = false,
         surfaceColor: Color? = nil,
@@ -97,7 +97,6 @@ public extension NiceButton {
             inactive: inactive,
             style:
                 Self.defaultStyle.with(
-                    fontStyle: fontStyle,
                     height: height,
                     surfaceColor: surfaceColor,
                     onSurfaceColor: onSurfaceColor,
@@ -141,7 +140,7 @@ extension NiceButton {
         .frame(height: style.height)
         .fixedSize(horizontal: false, vertical: true)
         .background(inactive ? style.inactiveSurfaceColor : style.surfaceColor)
-        .cornerRadius(cornerRadius)
+//        .cornerRadius(cornerRadius)
         .overlay(
             style.borderOverlay
         )

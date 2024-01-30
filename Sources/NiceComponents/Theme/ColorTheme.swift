@@ -1,5 +1,5 @@
 //
-//  ColorTheme.swift
+//  NiceColorStyle.swift
 //  NiceComponents
 //
 //  Created by Brendan on 2021-02-05.
@@ -8,46 +8,32 @@
 
 import SwiftUI
 
-/// A collection of styling settings for colors, used across components
-/// The language and structure used here is heavily influenced by the [Material Design color system](https://m2.material.io/design/color/the-color-system.html).
-public struct ColorTheme {
-    /// The color most frequently displayed across components.
+/// A nice default color theme. If you don't set a color style, we'll use this instead.
+public struct NiceColorStyle: ColorTheme {
     public var primary: Color
 
-    /// An optional variant, or shade, of your primary color.
     public var primaryVariant: Color
 
-    /// The color elements presented on top of primary colors should use.
     public var onPrimary: Color
 
-    /// An alternate theme color, complimentary to the primary color.
     public var secondary: Color
 
-    /// An optional variant of the secondary theme color.
     public var secondaryVariant: Color
 
-    /// The color elements presented on top of secondary colors should use.
     public var onSecondary: Color
 
-    /// The color that should appear behind scrollable content within the app.
     public var background: Color
 
-    /// The color elements presented on top of a background should use.
     public var onBackground: Color
 
-    /// The color used to indicate errors in components.
     public var error: Color
 
-    /// The color elements presented on top of errors should use.
     public var onError: Color
 
-    /// The color used for background colors in components, such as sheets, cards and menus.
     public var surface: Color
 
-    /// The color elements presented on top of a surfaces should use.
     public var onSurface: Color
 
-    /// The color used for drop shadows.
     public var shadow: Color
 
     /**
@@ -102,5 +88,39 @@ public struct ColorTheme {
         self.onSurface = onSurface ?? Color("onSurface", bundle: Bundle.module)
 
         self.shadow = shadow ?? Color("onSurface", bundle: Bundle.module)
+    }
+}
+
+public extension NiceColorStyle {
+    func with(
+        primary: Color? = nil,
+        primaryVariant: Color? = nil,
+        onPrimary: Color? = nil,
+        secondary: Color? = nil,
+        secondaryVariant: Color? = nil,
+        onSecondary: Color? = nil,
+        background: Color? = nil,
+        onBackground: Color? = nil,
+        error: Color? = nil,
+        onError: Color? = nil,
+        surface: Color? = nil,
+        onSurface: Color? = nil,
+        shadow: Color? = nil
+    ) -> NiceColorStyle {
+        NiceColorStyle(
+            primary: primary,
+            primaryVariant: primaryVariant,
+            onPrimary: onPrimary,
+            secondary: secondary,
+            secondaryVariant: secondaryVariant,
+            onSecondary: onSecondary,
+            background: background,
+            onBackground: onBackground,
+            error: error,
+            onError: onError,
+            surface: surface,
+            onSurface: onSurface,
+            shadow: shadow
+        )
     }
 }

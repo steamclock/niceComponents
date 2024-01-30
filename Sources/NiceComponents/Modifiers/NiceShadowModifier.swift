@@ -9,12 +9,33 @@
 import SwiftUI
 
 /// Styling settings for drop shadows.
-public struct NiceShadowStyle {
-    public let color: Color
-    public let radius: CGFloat
-    public let x: CGFloat
-    public let y: CGFloat
+public protocol NiceShadowTheme {
+    var color: Color { get }
+    var radius: CGFloat { get }
+    var x: CGFloat { get }
+    var y: CGFloat { get }
 }
+
+public struct NiceShadowStyle {
+    let color: Color
+    let radius: CGFloat
+    let x: CGFloat
+    let y: CGFloat
+
+    public init(
+        color: Color? = nil,
+        radius: CGFloat? = nil,
+        x: CGFloat? = nil,
+        y: CGFloat? = nil
+    ) {
+        self.color = color ?? .black
+        self.radius = radius ?? 4
+        self.x = x ?? 0
+        self.y = y ?? 4
+    }
+}
+
+// TODO: Figure out how to do NiceShadowStyle
 
 /// Attach a drop shadow to the given View.
 struct NiceShadowModifier: ViewModifier {

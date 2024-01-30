@@ -67,90 +67,62 @@ public struct Config {
      *  - colorTheme: The collection of color styles and settings used across components.
      *  - fontTheme: The collection of font styles used across components.
      */
-    public init(colorTheme: ColorTheme? = nil, fontTheme: FontTheme? = nil) {
-        self.colorTheme = colorTheme ?? ColorTheme()
-        self.fontTheme = fontTheme ?? FontTheme()
+    public init(colorStyle: ColorTheme? = nil) {
+        self.colorTheme = colorStyle ?? NiceColorStyle()
+        self.fontTheme = FontTheme(size: 12)
 
         // Set Button styles
 
         primaryButtonStyle = NiceButtonStyle(
-            fontStyle: self.fontTheme.button,
+            fontStyle: fontTheme,
             surfaceColor: self.colorTheme.primary,
-            onSurfaceColor: self.colorTheme.onPrimary,
-            border: .rounded(color: self.colorTheme.primary, cornerRadius: 8, width: 1)
+            onSurfaceColor: self.colorTheme.onPrimary
+//            border: .rounded(color: self.colorTheme.primary, cornerRadius: 8, width: 1)
         )
 
         secondaryButtonStyle = NiceButtonStyle(
-            fontStyle: self.fontTheme.button,
+            fontStyle: fontTheme,
             surfaceColor: self.colorTheme.secondary,
-            onSurfaceColor: self.colorTheme.onSecondary,
-            border: .rounded(color: self.colorTheme.secondary, cornerRadius: 8, width: 1)
+            onSurfaceColor: self.colorTheme.onSecondary
+//            border: .rounded(color: self.colorTheme.secondary, cornerRadius: 8, width: 1)
         )
-        
+
         borderlessButtonStyle = NiceButtonStyle(
-            fontStyle: self.fontTheme.button,
+            fontStyle: fontTheme,
             surfaceColor: Color.clear,
             onSurfaceColor: self.colorTheme.primary,
             border: NiceBorderStyle.none
         )
 
         destructiveButtonStyle = NiceButtonStyle(
-            fontStyle: self.fontTheme.button,
+            fontStyle: fontTheme,
             surfaceColor: self.colorTheme.error,
-            onSurfaceColor: self.colorTheme.onError,
-            border: .rounded(color: self.colorTheme.error, cornerRadius: 8, width: 1)
+            onSurfaceColor: self.colorTheme.onError
+//            border: .rounded(color: self.colorTheme.error, cornerRadius: 8, width: 1)
         )
 
         textFieldStyle = NiceButtonStyle(
-            fontStyle: self.fontTheme.button,
+            fontStyle: fontTheme ,
             height: 56,
             surfaceColor: self.colorTheme.surface,
-            onSurfaceColor: self.colorTheme.onSurface,
-            border: .rounded(color: self.colorTheme.background, cornerRadius: 8, width: 2)
+            onSurfaceColor: self.colorTheme.onSurface
+//            border: .rounded(color: self.colorTheme.background, cornerRadius: 8, width: 2)
         )
 
         textFieldPlaceholderStyle = NiceTextStyle(
-            color: self.colorTheme.onSurface,
-            fontStyle: FontStyle(size: 10)
+            fontTheme: FontTheme(size: 12),
+            textTheme: TextTheme(color: colorTheme.onSurface)
         )
 
         // Set Text styles
 
-        bodyTextStyle = NiceTextStyle(
-            color: self.colorTheme.onSurface,
-            fontStyle: self.fontTheme.body
-        )
+        screenTitleStyle = NiceTextStyle.defaultScreenTitleStyle
+        sectionTitleStyle = NiceTextStyle.defaultSectionTitleStyle
+        itemTitleStyle = NiceTextStyle.defaultItemTitleStyle
 
-        detailTextStyle = NiceTextStyle(
-            color: self.colorTheme.onSurface,
-            fontStyle: self.fontTheme.detail
-        )
+        bodyTextStyle = NiceTextStyle.defaultBody
+        detailTextStyle = NiceTextStyle.defaultDetail
 
-        // Set Title styles
-
-        itemTitleStyle = NiceTextStyle(
-            color: self.colorTheme.onSurface,
-            fontStyle: self.fontTheme.itemTitle
-        )
-
-        screenTitleStyle = NiceTextStyle(
-            color: self.colorTheme.onSurface,
-            fontStyle: self.fontTheme.screenTitle
-        )
-
-        sectionTitleStyle = NiceTextStyle(
-            color: self.colorTheme.onSurface,
-            fontStyle: self.fontTheme.sectionTitle
-        )
-
-        // Set Shadow style
-
-        shadowStyle = NiceShadowStyle(
-            color: self.colorTheme.shadow,
-            radius: 4.0,
-            x: 0,
-            y: 4
-        )
+        shadowStyle = NiceShadowStyle()
     }
-
 }

@@ -77,12 +77,12 @@ public struct NiceTextField: View {
             VStack(alignment: .leading, spacing: 0) {
                 if !text.isEmpty {
                     Text(placeholder)
-                        .foregroundColor(placeholderStyle.color)
+                        .foregroundColor(placeholderStyle.textTheme.color)
                         .scaledFont(
-                            name: placeholderStyle.fontStyle.name,
-                            size: placeholderStyle.fontStyle.size,
-                            weight: placeholderStyle.fontStyle.weight,
-                            maxSize: placeholderStyle.fontStyle.dynamicTypeMaxSize
+                            name: placeholderStyle.fontTheme.name,
+                            size: placeholderStyle.fontTheme.size,
+                            weight: placeholderStyle.fontTheme.weight,
+                            maxSize: placeholderStyle.fontTheme.dynamicTypeMaxSize
                         )
                 }
 

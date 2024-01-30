@@ -19,10 +19,15 @@ struct AllComponentsView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 5) {
                 VStack(alignment: .leading, spacing: 2) {
-                    ScreenTitle("Screen Title", dynamicMaxSize: .xxxLarge)
-                    SectionTitle("Section Title")
-                    ItemTitle("Item Title")
-                    ItemTitle("Attributed Item Title", dynamicMaxSize: .xxxLarge) { string  in
+                    NiceText("Screen Title", style: .screenTitle)
+
+                    NiceText("Section Title", style: .sectionTitle)
+
+                    NiceText("Item Title", style: .itemTitle)
+
+                    NiceText("Item Title", style: .itemTitle.with(color: .blue))
+
+                    NiceText("Attributed Item Title", style: .itemTitle) { string  in
                         if let range = string.range(of: "Attributed") {
                             string[range].foregroundColor = .red
                             string[range].underlineStyle = .single
@@ -33,8 +38,13 @@ struct AllComponentsView: View {
                 NiceDivider()
 
                 VStack(alignment: .leading, spacing: 2) {
-                    BodyText("Body Text")
-                    DetailText("Detail Text")
+                    NiceText("Body Text", style: .body)
+
+                    Text("Body Text")
+                        .niceText(.body)
+
+                    NiceText("Detail Text", style: .detail)
+                        .shadow()
                 }
 
                 NiceDivider()
@@ -44,19 +54,19 @@ struct AllComponentsView: View {
 
                     NiceTextField(placeholder: "Enter your email", text: $email2FieldText)
 
-                    NiceTextField(
-                        isSecure: true,
-                        placeholder: "Password",
-                        style: NiceButtonStyle(surfaceColor: .clear, onSurfaceColor: .mint),
-                        text: $passwordFieldText
-                    )
-
-                    NiceTextField(
-                        placeholder: "Name",
-                        placeholderStyle: NiceTextStyle(color: .blue, fontStyle: Config.current.bodyTextStyle.fontStyle),
-                        style: NiceButtonStyle(surfaceColor: .clear, onSurfaceColor: .black),
-                        text: $nameFieldText
-                    )
+//                    NiceTextField(
+//                        isSecure: true,
+//                        placeholder: "Password",
+//                        style: NiceButtonStyle(surfaceColor: .clear, onSurfaceColor: .mint),
+//                        text: $passwordFieldText
+//                    )
+//
+//                    NiceTextField(
+//                        placeholder: "Name",
+//                        placeholderStyle: NiceTextStyle(color: .blue, fontStyle: Config.current.bodyTextStyle.fontStyle),
+//                        style: NiceButtonStyle(surfaceColor: .clear, onSurfaceColor: .black),
+//                        text: $nameFieldText
+//                    )
 
                 }
 
