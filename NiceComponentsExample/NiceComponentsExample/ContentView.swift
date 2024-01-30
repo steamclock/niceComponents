@@ -32,3 +32,11 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+
+extension NiceTextStyle {
+    static var customBodyText = NiceTextStyle(
+        fontTheme: FontTheme("Impact", size: 16),
+        textTheme: TextTheme(color: .green)
+    )
+}

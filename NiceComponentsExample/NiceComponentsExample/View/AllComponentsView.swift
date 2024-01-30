@@ -40,6 +40,8 @@ struct AllComponentsView: View {
                 VStack(alignment: .leading, spacing: 2) {
                     NiceText("Body Text", style: .body)
 
+                    NiceText("Body Text", style: .customBodyText)
+
                     Text("Body Text")
                         .niceText(.body)
 
