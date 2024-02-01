@@ -10,7 +10,8 @@ import SwiftUI
 import UIKit
 import Kingfisher
 
-/// Image View that allows for creating an image through a variety of sources, including bundleString, systemIcon or URL.
+/// Image View that allows for creating an image through a variety of sources,
+/// including bundleString, systemIcon, or URL.
 public struct NiceImage: View {
     public let bundleString: String?
     public let systemIcon: String?

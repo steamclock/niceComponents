@@ -9,7 +9,8 @@
 import SwiftUI
 
 /// Defines the border style for a component.
-public enum NiceBorderStyle {
+/// TODO: Is this a style? A theme? This is hard
+public enum BorderTheme {
     /// No border is shown.
     case none
 
@@ -17,10 +18,10 @@ public enum NiceBorderStyle {
     case border(color: Color, width: CGFloat)
 
     /// A rounded, pill-style, border.
-    case capsule(color: Color?, width: CGFloat?)
+    case capsule(color: Color? = nil, width: CGFloat? = nil)
 
     /// A rounded border with customizable corner radius.
-    case rounded(color: Color?, cornerRadius: CGFloat, width: CGFloat?)
+    case rounded(color: Color? = nil, cornerRadius: CGFloat, width: CGFloat? = nil)
 
     /// Set a custom border with the built-in StrokeStyle.
     case stroke(strokeStyle: StrokeStyle)

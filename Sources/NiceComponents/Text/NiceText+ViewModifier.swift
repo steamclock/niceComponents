@@ -9,23 +9,23 @@
 import SwiftUI
 
 struct NiceTextModifier: ViewModifier {
-    let style: NiceTextStyle
+    let style: TextTheme
 
     func body(content: Content) -> some View {
         content
-            .foregroundStyle(style.textTheme.color)
+            .foregroundStyle(style.color)
             .scaledFont(
-                name: style.fontTheme.name,
-                size: style.fontTheme.size,
-                weight: style.fontTheme.weight,
-                maxSize: style.fontTheme.dynamicTypeMaxSize
+                name: style.font,
+                size: style.size,
+                weight: style.weight,
+                maxSize: style.dynamicTypeMaxSize
             )
             .fixedSize(horizontal: false, vertical: true)
     }
 }
 
 public extension View {
-    func niceText(_ style: NiceTextStyle) -> some View {
+    func niceText(_ style: TextTheme) -> some View {
         modifier(NiceTextModifier(style: style))
     }
 }

@@ -1,5 +1,5 @@
 //
-//  NiceButtonStyle.swift
+//  ButtonTheme.swift
 //  NiceComponents
 //
 //  Created by Brendan on 2021-01-29.
@@ -9,62 +9,42 @@
 import SwiftUI
 
 /// A style to be applied to a button component.
-public struct NiceButtonStyle {
-    /// The text style will be applied to the text inside the button.
-    public var fontStyle: FontTheme
-
-    /// The height of the button.
+public struct ButtonTheme {
+    public var textStyle: TextTheme
     public var height: CGFloat
-
-    /// The background color of the button.
     public var surfaceColor: Color
-
-    /// The color the content on top of the background.
     public var onSurfaceColor: Color
-
-    /// Background color when set to inactive.
     public var inactiveSurfaceColor: Color
-
-    /// Content color when set to inactive.
     public var inactiveOnSurfaceColor: Color
-
-    /// The style of the border applied to your button.
-    public var border: NiceBorderStyle
+    public var border: BorderTheme
 
     /**
+     * TODO: Add what the defaults are here
      * Create a new button style to apply to a button component.
      *
      * - Parameters:
-     *  - fontStyle: Font style to apply to any text in the button. Default is systemFont size 16
-     *  - height: Height of the button. Default is 44.
-     *  - surfaceColor: Surface color of the button.
-     *  - onSurfaceColor: Color of any assets on top of your button.
-     *  - inactiveSurfaceColor: Surface color when set to inactive.  Default is your surface color.
-     *  - inactiveOnSurfaceColor: Color of any assets on top of your button when inactive. Default is your onSurface color.
-     *  - border: Border style for the button. Default is none.
      *
-     * - Returns: the newly modified button style.
      */
     public init(
-        fontStyle: FontTheme? = nil,
-        height: CGFloat = 44,
-        surfaceColor: Color,
-        onSurfaceColor: Color,
+        textStyle: TextTheme? = nil,
+        height: CGFloat? = nil,
+        surfaceColor: Color? = nil,
+        onSurfaceColor: Color? = nil,
         inactiveSurfaceColor: Color? = nil,
         inactiveOnSurfaceColor: Color? = nil,
-        border: NiceBorderStyle? = nil
+        border: BorderTheme? = nil
     ) {
-        self.fontStyle = fontStyle ?? .init(size: 16)
-        self.height = height
-        self.surfaceColor = surfaceColor
-        self.onSurfaceColor = onSurfaceColor
-        self.inactiveSurfaceColor = inactiveSurfaceColor ?? surfaceColor
-        self.inactiveOnSurfaceColor = inactiveOnSurfaceColor ?? onSurfaceColor
+        self.textStyle = textStyle ?? .defaultBody // TODO: should this use its own default? Or NiceTextStyle.body? Or NiceTextStyle.button?
+        self.height = height ?? 44
+        self.surfaceColor = surfaceColor ?? .black // TODO: update to correct defaults
+        self.onSurfaceColor = onSurfaceColor ?? .black
+        self.inactiveSurfaceColor = inactiveSurfaceColor ?? surfaceColor ?? .red
+        self.inactiveOnSurfaceColor = inactiveOnSurfaceColor ?? onSurfaceColor ?? .red
         self.border = border ?? .none
     }
 }
 
-public extension NiceButtonStyle {
+public extension ButtonTheme {
     /**
      * Modify a button style with the given properties.
      *
@@ -80,16 +60,16 @@ public extension NiceButtonStyle {
      * - Returns: the newly modified button style.
      */
     func with(
-        fontStyle: FontTheme? = nil,
+        textStyle: TextTheme? = nil,
         height: CGFloat? = nil,
         surfaceColor: Color? = nil,
         onSurfaceColor: Color? = nil,
         inactiveSurfaceColor: Color? = nil,
         inactiveOnSurfaceColor: Color? = nil,
-        border: NiceBorderStyle? = nil
-    ) -> NiceButtonStyle {
-        NiceButtonStyle(
-            fontStyle: fontStyle ?? self.fontStyle,
+        border: BorderTheme? = nil
+    ) -> ButtonTheme {
+        ButtonTheme(
+            textStyle: textStyle ?? self.textStyle,
             height: height ?? self.height,
             surfaceColor: surfaceColor ?? self.surfaceColor,
             onSurfaceColor: onSurfaceColor ?? self.onSurfaceColor,
@@ -100,7 +80,7 @@ public extension NiceButtonStyle {
     }
 }
 
-internal extension NiceButtonStyle {
+internal extension ButtonTheme {
     var paddingToAdd: CGFloat {
         if let strokeWidth = border.strokeStyle?.lineWidth, strokeWidth > 0.0 {
             return strokeWidth / 2

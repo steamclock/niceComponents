@@ -35,8 +35,6 @@ public struct NiceShadowStyle {
     }
 }
 
-// TODO: Figure out how to do NiceShadowStyle
-
 /// Attach a drop shadow to the given View.
 struct NiceShadowModifier: ViewModifier {
     let style: NiceShadowStyle

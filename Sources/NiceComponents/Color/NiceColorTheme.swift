@@ -1,5 +1,5 @@
 //
-//  NiceColorStyle.swift
+//  NiceColorTheme.swift
 //  NiceComponents
 //
 //  Created by Brendan on 2021-02-05.
@@ -9,7 +9,7 @@
 import SwiftUI
 
 /// A nice default color theme. If you don't set a color style, we'll use this instead.
-public struct NiceColorStyle: ColorTheme {
+public struct NiceColorTheme: ColorTheme {
     public var primary: Color
 
     public var primaryVariant: Color
@@ -91,7 +91,7 @@ public struct NiceColorStyle: ColorTheme {
     }
 }
 
-public extension NiceColorStyle {
+public extension NiceColorTheme {
     func with(
         primary: Color? = nil,
         primaryVariant: Color? = nil,
@@ -106,8 +106,8 @@ public extension NiceColorStyle {
         surface: Color? = nil,
         onSurface: Color? = nil,
         shadow: Color? = nil
-    ) -> NiceColorStyle {
-        NiceColorStyle(
+    ) -> NiceColorTheme {
+        NiceColorTheme(
             primary: primary,
             primaryVariant: primaryVariant,
             onPrimary: onPrimary,

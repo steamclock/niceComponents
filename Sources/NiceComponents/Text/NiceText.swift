@@ -9,35 +9,35 @@
 import SwiftUI
 
 public struct NiceText: View {
-    let style: NiceTextStyle
+    let style: TextTheme
     let text: AttributedString
 
-    public init( _ text: AttributedString, style: NiceTextStyle) {
+    public init( _ text: AttributedString, style: TextTheme) {
         self.style = style
         self.text = text
     }
 
     public var body: some View {
         Text(text)
-            .foregroundStyle(style.textTheme.color)
+            .foregroundStyle(style.color)
             .scaledFont(
-                name: style.fontTheme.name,
-                size: style.fontTheme.size,
-                weight: style.fontTheme.weight,
-                maxSize: style.fontTheme.dynamicTypeMaxSize
+                name: style.font,
+                size: style.size,
+                weight: style.weight,
+                maxSize: style.dynamicTypeMaxSize
             )
             .fixedSize(horizontal: false, vertical: true)
     }
 }
 
 public extension NiceText {
-    init(_ text: String, style: NiceTextStyle) {
+    init(_ text: String, style: TextTheme) {
         self.init(AttributedString(text), style: style)
     }
 
     init(
         _ text: String,
-        style: NiceTextStyle,
+        style: TextTheme,
         configure: (inout AttributedString) -> Void
     ) {
         var attributedString = AttributedString(text)

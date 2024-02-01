@@ -1,5 +1,5 @@
 //
-//  NiceColorTheme.swift
+// ColorTheme.swift
 //
 //
 //  Created by Brendan Lensink on 2024-01-29.
@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-/// A collection of styling settings for colors, used across components
+/// A collection of colors available to be used by developers, used across different components.
+/// A color theme provides primitive values for the colors available to developers, abstracting away the need to keep track of actual color names and values.
+/// The colors described here should be assigned a semantic meaning through assignment to a ColorStyle for use in components.
 /// The language and structure used here is heavily influenced by the [Material Design color system](https://m2.material.io/design/color/the-color-system.html).
 public protocol ColorTheme {
     /// The color most frequently displayed across components.

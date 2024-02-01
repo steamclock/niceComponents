@@ -20,7 +20,7 @@ public struct NiceDivider: View {
      * - parameter opacity: The opacity to use for the divider. Default is 0.6.
      */
     public init(color: Color? = nil, opacity: CGFloat? = nil) {
-        self.color = color ?? Config.current.colorTheme.onPrimary
+        self.color = Config.current.colorStyle.divider
         self.opacity = opacity ?? 0.6
     }
 

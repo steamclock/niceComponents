@@ -8,24 +8,24 @@
 
 import SwiftUI
 
-public extension NiceTextStyle {
-    static var screenTitle: NiceTextStyle {
+public extension TextTheme {
+    static var screenTitle: TextTheme {
         Config.current.screenTitleStyle
     }
 
-    static var sectionTitle: NiceTextStyle {
+    static var sectionTitle: TextTheme {
         Config.current.sectionTitleStyle
     }
 
-    static var itemTitle: NiceTextStyle {
+    static var itemTitle: TextTheme {
         Config.current.itemTitleStyle
     }
 
-    static var body: NiceTextStyle {
+    static var body: TextTheme {
         Config.current.bodyTextStyle
     }
 
-    static var detail: NiceTextStyle {
+    static var detail: TextTheme {
         Config.current.detailTextStyle
     }
 }

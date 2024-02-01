@@ -40,10 +40,10 @@ struct AllComponentsView: View {
                 VStack(alignment: .leading, spacing: 2) {
                     NiceText("Body Text", style: .body)
 
-                    NiceText("Body Text", style: .customBodyText)
+//                    NiceText("Body Text", style: .customBodyText)
 
                     Text("Body Text")
-                        .niceText(.body)
+//                        .niceText(.body)
 
                     NiceText("Detail Text", style: .detail)
                         .shadow()
@@ -52,9 +52,9 @@ struct AllComponentsView: View {
                 NiceDivider()
 
                 VStack(alignment: .leading, spacing: 2) {
-                    NiceTextField(placeholder: "Enter your email", text: $emailFieldText)
-
-                    NiceTextField(placeholder: "Enter your email", text: $email2FieldText)
+//                    NiceTextField(placeholder: "Enter your email", text: $emailFieldText)
+//
+//                    NiceTextField(placeholder: "Enter your email", text: $email2FieldText)
 
 //                    NiceTextField(
 //                        isSecure: true,
@@ -75,10 +75,13 @@ struct AllComponentsView: View {
                 NiceDivider()
 
                 VStack(alignment: .leading, spacing: 2) {
-                    PrimaryButton("Primary Button") { }
-                    SecondaryButton("Secondary Button") { }
-                    BorderlessButton("Borderless Button") { }
-                    DestructiveButton("Destructive Button") { }
+                    NiceButton("Primary Button", style: .primary) {}
+
+                    NiceButton("Secondary Button", style: .secondary) {}
+
+                    NiceButton("Borderless Button", style: .borderless) {}
+
+                    NiceButton("Destructive Button", style: .destructive) {}
                 }
 
                 NiceDivider()
