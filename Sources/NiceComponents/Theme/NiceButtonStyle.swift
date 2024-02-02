@@ -7,9 +7,10 @@
 //
 
 import SwiftUI
+import NiceInit
 
 /// A style to be applied to a button component.
-public struct NiceButtonStyle {
+@NiceInit public struct NiceButtonStyle {
     /// The text style will be applied to the text inside the button.
     public var fontStyle: FontStyle
 
