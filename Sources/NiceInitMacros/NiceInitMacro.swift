@@ -17,6 +17,7 @@ struct Property {
     var isOptional: Bool
     var hasDefault: Bool
     var attributeDefault: String?
+    var isColorAsset: Bool
 
     var optType: String {
         return isOptional ? type.description : type.description + "?"
@@ -40,7 +41,7 @@ public struct NiceInitMacro: MemberMacro {
         }
 
         // Extract the list of properties to initialize
-        let properties = memberList.compactMap { member -> Property? in
+        let properties = try memberList.compactMap { member -> Property? in
             // is a property
             guard
                 let decl = member.decl.as(VariableDeclSyntax.self),
@@ -54,6 +55,7 @@ public struct NiceInitMacro: MemberMacro {
             let defaultValue = binding.initializer?.value
             var hasDefault = defaultValue != nil
             var optional = propertyType.description.last == "?" // TODO: should handle Optional<T> as well
+            var isColorAsset = false
 
             var attributeDefault: String? = nil
             for element in decl.attributes {
@@ -63,10 +65,15 @@ public struct NiceInitMacro: MemberMacro {
                         let arg = attribute.arguments?.as(LabeledExprListSyntax.self)?.first?.as(LabeledExprSyntax.self)?.expression.as(StringLiteralExprSyntax.self)?.representedLiteralValue
 
                         attributeDefault = arg
+                    } else if attribute.attributeName.trimmedDescription == "Asset" {
+                        if propertyType.description != "Color" {
+                            throw(MessageError("@Asset can only be attached to a property of type Color (\(propertyName))"))
+                        }
+                        isColorAsset = true
                     }
                 }
             }
-            return Property(identifier: propertyName, type: propertyType, isOptional: optional, hasDefault: hasDefault, attributeDefault: attributeDefault)
+            return Property(identifier: propertyName, type: propertyType, isOptional: optional, hasDefault: hasDefault, attributeDefault: attributeDefault, isColorAsset: isColorAsset)
         }
 
         var generated: [DeclSyntax] = []
@@ -76,7 +83,7 @@ public struct NiceInitMacro: MemberMacro {
             var baseInit: String = "public init(\n"
 
             baseInit += properties.map {
-                if $0.hasDefault || $0.isOptional {
+                if $0.isColorAsset || $0.hasDefault || $0.isOptional {
                    "    \($0.identifier): \($0.optType) = nil"
                 } else {
                    "    \($0.identifier): \($0.type)"
@@ -86,7 +93,9 @@ public struct NiceInitMacro: MemberMacro {
             baseInit += "\n) {\n"
 
             baseInit += properties.map {
-                if $0.hasDefault, let attributeDefault = $0.attributeDefault {
+                if $0.isColorAsset {
+                    "self.\($0.identifier) = \($0.identifier) ?? Color(\"\($0.identifier)\", bundle: Bundle.module)"
+                } else if $0.hasDefault, let attributeDefault = $0.attributeDefault {
                     "self.\($0.identifier) = \($0.identifier) ?? \(attributeDefault)\n"
                 } else if $0.hasDefault {
                     "if let _\($0.identifier) = \($0.identifier) { self.\($0.identifier) = _\($0.identifier) }\n"
@@ -140,7 +149,7 @@ public struct NiceInitMacro: MemberMacro {
     }
 }
 
-// Empty marker macro, doesn't actually generate any syntax, jsut there so it can be read by the main NiceInitMacro
+// Empty marker macro, doesn't actually generate any syntax, just there so it can be read by the main NiceInitMacro
 public struct DefaultMacro: AccessorMacro {
   public static func expansion<
     Context: MacroExpansionContext,
@@ -154,10 +163,26 @@ public struct DefaultMacro: AccessorMacro {
   }
 }
 
+// Empty marker macro, doesn't actually generate any syntax, just there so it can be read by the main NiceInitMacro
+public struct AssetMacro: AccessorMacro {
+  public static func expansion<
+    Context: MacroExpansionContext,
+    Declaration: DeclSyntaxProtocol
+  >(
+    of node: AttributeSyntax,
+    providingAccessorsOf declaration: Declaration,
+    in context: Context
+  ) throws -> [AccessorDeclSyntax] {
+    return []
+  }
+}
+
+
 @main
 struct NiceInitPlugin: CompilerPlugin {
     let providingMacros: [Macro.Type] = [
         NiceInitMacro.self,
-        DefaultMacro.self
+        DefaultMacro.self,
+        AssetMacro.self
     ]
 }
