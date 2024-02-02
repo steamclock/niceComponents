@@ -54,18 +54,18 @@ public struct NiceInitMacro: MemberMacro {
 
             let defaultValue = binding.initializer?.value
             var hasDefault = defaultValue != nil
-            var optional = propertyType.description.last == "?" // TODO: should handle Optional<T> as well
+            let optional = propertyType.description.last == "?" // TODO: should handle Optional<T> as well
             var isColorAsset = false
 
             var attributeDefault: String? = nil
             for element in decl.attributes {
                 if case .attribute(let attribute) = element {
-                    if attribute.attributeName.trimmedDescription == "Default" {
+                    if attribute.attributeName.trimmedDescription == "NiceDefault" {
                         hasDefault = true
                         let arg = attribute.arguments?.as(LabeledExprListSyntax.self)?.first?.as(LabeledExprSyntax.self)?.expression.as(StringLiteralExprSyntax.self)?.representedLiteralValue
 
                         attributeDefault = arg
-                    } else if attribute.attributeName.trimmedDescription == "Asset" {
+                    } else if attribute.attributeName.trimmedDescription == "NiceAsset" {
                         if propertyType.description != "Color" {
                             throw(MessageError("@Asset can only be attached to a property of type Color (\(propertyName))"))
                         }

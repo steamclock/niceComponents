@@ -24,10 +24,10 @@ import NiceInit
     public var onSurfaceColor: Color
 
     /// Background color when set to inactive.
-    @Default("surfaceColor") public var inactiveSurfaceColor: Color
+    @NiceDefault("surfaceColor") public var inactiveSurfaceColor: Color
 
     /// Content color when set to inactive.
-    @Default("onSurfaceColor") public var inactiveOnSurfaceColor: Color
+    @NiceDefault("onSurfaceColor") public var inactiveOnSurfaceColor: Color
 
     /// The style of the border applied to your button.
     public var border: NiceBorderStyle = .none

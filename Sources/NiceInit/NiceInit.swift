@@ -2,9 +2,9 @@
 public macro NiceInit() = #externalMacro(module: "NiceInitMacros", type: "NiceInitMacro")
 
 @attached(accessor, names: named(willSet))
-public macro Default(_ stringLiteral: String) =
+public macro NiceDefault(_ stringLiteral: String) =
   #externalMacro(module: "NiceInitMacros", type: "DefaultMacro")
 
 @attached(accessor, names: named(willSet))
-public macro Asset() =
+public macro NiceAsset() =
   #externalMacro(module: "NiceInitMacros", type: "AssetMacro")
