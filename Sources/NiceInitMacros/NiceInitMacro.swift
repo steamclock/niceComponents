@@ -68,32 +68,27 @@ public struct NiceInitMacro: MemberMacro {
         // generate the basic memberwise initializer
         do {
             var baseInit: String = "public init(\n"
-            var first: Bool = true
-            for property in properties {
-                if !first {
-                    baseInit += ",\n"
-                } else {
-                    first = false
-                }
 
-                if property.hasDefault {
-                    baseInit += "    \(property.identifier): \(property.type)? = nil"
+            baseInit += properties.map {
+                if $0.hasDefault {
+                   "    \($0.identifier): \($0.type)? = nil"
                 } else {
-                    baseInit += "    \(property.identifier): \(property.type)"
+                   "    \($0.identifier): \($0.type)"
                 }
-            }
+            }.joined(separator: ",\n")
+
             baseInit += "\n) {\n"
-            for property in properties {
-                if property.hasDefault, let attributeDefault = property.attributeDefault {
-                    baseInit += "self.\(property.identifier) = \(property.identifier) ?? \(attributeDefault)\n"
 
-                } else if property.hasDefault {
-                    baseInit += "if let _\(property.identifier) = \(property.identifier) { self.\(property.identifier) = _\(property.identifier) }\n"
-
+            baseInit += properties.map {
+                if $0.hasDefault, let attributeDefault = $0.attributeDefault {
+                    "self.\($0.identifier) = \($0.identifier) ?? \(attributeDefault)\n"
+                } else if $0.hasDefault {
+                    "if let _\($0.identifier) = \($0.identifier) { self.\($0.identifier) = _\($0.identifier) }\n"
                 } else {
-                    baseInit += "self.\(property.identifier) = \(property.identifier)\n"
+                    "self.\($0.identifier) = \($0.identifier)\n"
                 }
-            }
+            }.joined()
+
             baseInit += "}"
             generated.append(DeclSyntax(stringLiteral: baseInit))
         }
@@ -102,14 +97,18 @@ public struct NiceInitMacro: MemberMacro {
         do {
             var copyInit: String = "public init(\nwith: \(type)"
 
-            for property in properties {
-                copyInit += ",\n\(property.identifier): \(property.type)? = nil"
-            }
+            copyInit += properties.map {
+                ",\n\($0.identifier): \($0.type)? = nil"
+            }.joined()
+
             copyInit += "\n) {\n"
-            for property in properties {
-                copyInit += "self.\(property.identifier) = \(property.identifier) ?? with.\(property.identifier)\n"
-            }
+
+            copyInit += properties.map {
+                "self.\($0.identifier) = \($0.identifier) ?? with.\($0.identifier)\n"
+            }.joined()
+
             copyInit += "}"
+            
             generated.append(DeclSyntax(stringLiteral: copyInit))
         }
 
