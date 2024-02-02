@@ -34,8 +34,6 @@ import NiceInit
 
 }
 
-
-
 internal extension NiceButtonStyle {
     var paddingToAdd: CGFloat {
         if let strokeWidth = border.strokeStyle?.lineWidth, strokeWidth > 0.0 {

@@ -49,9 +49,8 @@ public extension NiceText {
             text,
             style: Self.defaultStyle.with(
                 color: color,
-                size: size,
-                lineLimit: lineLimit,
-                dynamicTypeMaxSize: dynamicMaxSize
+                fontStyle: Self.defaultStyle.fontStyle.with(size: size, dynamicTypeMaxSize: dynamicMaxSize),
+                lineLimit: lineLimit
             )
         )
     }
@@ -90,10 +89,10 @@ public extension NiceText {
         configure(&attributedString)
         self.init(attributedString, style: Self.defaultStyle.with(
             color: color,
-            size: size,
-            lineLimit: lineLimit,
-            dynamicTypeMaxSize: dynamicMaxSize
-        ))
+            fontStyle: Self.defaultStyle.fontStyle.with(size: size, dynamicTypeMaxSize: dynamicMaxSize),
+            lineLimit: lineLimit
+        )
+)
     }
 }
 

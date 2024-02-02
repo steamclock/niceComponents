@@ -14,8 +14,13 @@ struct MessageError: Error, CustomStringConvertible {
 struct Property {
     var identifier: String
     var type: TypeSyntax
+    var isOptional: Bool
     var hasDefault: Bool
     var attributeDefault: String?
+
+    var optType: String {
+        return isOptional ? type.description : type.description + "?"
+    }
 }
 public struct NiceInitMacro: MemberMacro {
     public static func expansion(
@@ -48,6 +53,7 @@ public struct NiceInitMacro: MemberMacro {
 
             let defaultValue = binding.initializer?.value
             var hasDefault = defaultValue != nil
+            var optional = propertyType.description.last == "?" // TODO: should handle Optional<T> as well
 
             var attributeDefault: String? = nil
             for element in decl.attributes {
@@ -60,7 +66,7 @@ public struct NiceInitMacro: MemberMacro {
                     }
                 }
             }
-            return Property(identifier: propertyName, type: propertyType, hasDefault: hasDefault, attributeDefault: attributeDefault)
+            return Property(identifier: propertyName, type: propertyType, isOptional: optional, hasDefault: hasDefault, attributeDefault: attributeDefault)
         }
 
         var generated: [DeclSyntax] = []
@@ -70,8 +76,8 @@ public struct NiceInitMacro: MemberMacro {
             var baseInit: String = "public init(\n"
 
             baseInit += properties.map {
-                if $0.hasDefault {
-                   "    \($0.identifier): \($0.type)? = nil"
+                if $0.hasDefault || $0.isOptional {
+                   "    \($0.identifier): \($0.optType) = nil"
                 } else {
                    "    \($0.identifier): \($0.type)"
                 }
@@ -98,7 +104,7 @@ public struct NiceInitMacro: MemberMacro {
             var copyInit: String = "public init(\nwith: \(type)"
 
             copyInit += properties.map {
-                ",\n\($0.identifier): \($0.type)? = nil"
+                ",\n\($0.identifier): \($0.optType) = nil"
             }.joined()
 
             copyInit += "\n) {\n"
@@ -117,7 +123,7 @@ public struct NiceInitMacro: MemberMacro {
             var with: String = "public func with(\n"
 
             with += properties.map {
-                "\($0.identifier): \($0.type)? = nil"
+                "\($0.identifier): \($0.optType) = nil"
             }.joined(separator: ",\n")
 
             with += "\n) -> \(type) {\n\(type)("
