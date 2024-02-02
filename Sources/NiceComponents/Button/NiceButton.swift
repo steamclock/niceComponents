@@ -141,7 +141,7 @@ extension NiceButton {
         .frame(height: style.height)
         .fixedSize(horizontal: false, vertical: true)
         .background(inactive ? style.inactiveSurfaceColor : style.surfaceColor)
-        .cornerRadius(cornerRadius)
+        .cornerRadius(style.border.cornerRadius)
         .overlay(
             style.borderOverlay
         )
