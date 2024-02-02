@@ -23,6 +23,7 @@ struct Property {
         return isOptional ? type.description : type.description + "?"
     }
 }
+
 public struct NiceInitMacro: MemberMacro {
     public static func expansion(
         of node: AttributeSyntax,
@@ -42,14 +43,17 @@ public struct NiceInitMacro: MemberMacro {
 
         // Extract the list of properties to initialize
         let properties = try memberList.compactMap { member -> Property? in
-            // is a property
             guard
                 let decl = member.decl.as(VariableDeclSyntax.self),
                 let binding = decl.bindings.first,
-                let propertyName = binding.pattern.as(IdentifierPatternSyntax.self)?.identifier.text,
-                let propertyType = binding.typeAnnotation?.type.trimmed // TODO: wont work for declarations without explicit type i.e. ("var foo: Foo = Foo()" will work, but "var foo = Foo()" won't
+                let propertyName = binding.pattern.as(IdentifierPatternSyntax.self)?.identifier.text
             else {
                 return nil
+            }
+
+            // TODO: wont work for declarations without explicit type i.e. ("var foo: Foo = Foo()" will work, but "var foo = Foo()" won't
+            guard let propertyType = binding.typeAnnotation?.type.trimmed else {
+                throw(MessageError("@NiceInit currently only supports properties with explicit type annotations"))
             }
 
             let defaultValue = binding.initializer?.value
