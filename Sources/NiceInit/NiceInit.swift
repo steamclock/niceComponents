@@ -1,4 +1,4 @@
-@attached(member, names: named(init))
+@attached(member, names: named(init), named(with))
 public macro NiceInit() = #externalMacro(module: "NiceInitMacros", type: "NiceInitMacro")
 
 @attached(accessor, names: named(willSet))
