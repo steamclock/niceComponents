@@ -15,6 +15,7 @@ struct Property {
     var identifier: String
     var type: TypeSyntax
     var hasDefault: Bool
+    var attributeDefault: String?
 }
 public struct NiceInitMacro: MemberMacro {
     public static func expansion(
@@ -27,7 +28,8 @@ public struct NiceInitMacro: MemberMacro {
         let properties = memberList.compactMap { member -> Property? in
             // is a property
             guard
-                let binding = member.decl.as(VariableDeclSyntax.self)?.bindings.first,
+                let decl = member.decl.as(VariableDeclSyntax.self),
+                let binding = decl.bindings.first,
                 let propertyName = binding.pattern.as(IdentifierPatternSyntax.self)?.identifier.text,
                 let propertyType = binding.typeAnnotation?.type
             else {
@@ -35,7 +37,20 @@ public struct NiceInitMacro: MemberMacro {
             }
 
             let defaultValue = binding.initializer?.value
-            return Property(identifier: propertyName, type: propertyType, hasDefault: defaultValue != nil)
+            var hasDefault = defaultValue != nil
+
+            var attributeDefault: String? = nil
+            for element in decl.attributes {
+                if case .attribute(let attribute) = element {
+                    if attribute.attributeName.trimmedDescription == "Default" {
+                        hasDefault = true
+                        let arg = attribute.arguments?.as(LabeledExprListSyntax.self)?.first?.as(LabeledExprSyntax.self)?.expression.as(StringLiteralExprSyntax.self)?.representedLiteralValue
+
+                        attributeDefault = arg
+                    }
+                }
+            }
+            return Property(identifier: propertyName, type: propertyType, hasDefault: hasDefault, attributeDefault: attributeDefault)
         }
 
         var baseInit: String = "public init(\n"
@@ -55,7 +70,10 @@ public struct NiceInitMacro: MemberMacro {
         }
         baseInit += "\n) {\n"
         for property in properties {
-            if property.hasDefault {
+            if property.hasDefault, let attributeDefault = property.attributeDefault {
+                baseInit += "self.\(property.identifier) = \(property.identifier) ?? \(attributeDefault)\n"
+
+            } else if property.hasDefault {
                 baseInit += "if let _\(property.identifier) = \(property.identifier) { self.\(property.identifier) = _\(property.identifier) }\n"
 
             } else {
@@ -68,9 +86,23 @@ public struct NiceInitMacro: MemberMacro {
     }
 }
 
+public struct DefaultMacro: AccessorMacro {
+  public static func expansion<
+    Context: MacroExpansionContext,
+    Declaration: DeclSyntaxProtocol
+  >(
+    of node: AttributeSyntax,
+    providingAccessorsOf declaration: Declaration,
+    in context: Context
+  ) throws -> [AccessorDeclSyntax] {
+    return []
+  }
+}
+
 @main
 struct NiceInitPlugin: CompilerPlugin {
     let providingMacros: [Macro.Type] = [
         NiceInitMacro.self,
+        DefaultMacro.self
     ]
 }
