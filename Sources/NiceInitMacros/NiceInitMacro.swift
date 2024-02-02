@@ -11,6 +11,11 @@ struct MessageError: Error, CustomStringConvertible {
     }
 }
 
+struct Property {
+    var identifier: String
+    var type: TypeSyntax
+    var hasDefault: Bool
+}
 public struct NiceInitMacro: MemberMacro {
     public static func expansion(
         of node: AttributeSyntax,
@@ -19,7 +24,7 @@ public struct NiceInitMacro: MemberMacro {
     ) throws -> [DeclSyntax] {
         let memberList = declaration.memberBlock.members
 
-        let properties = memberList.compactMap { member -> (String, TypeSyntax)? in
+        let properties = memberList.compactMap { member -> Property? in
             // is a property
             guard
                 let binding = member.decl.as(VariableDeclSyntax.self)?.bindings.first,
@@ -29,7 +34,8 @@ public struct NiceInitMacro: MemberMacro {
                 return nil
             }
 
-            return (propertyName, propertyType)
+            let defaultValue = binding.initializer?.value
+            return Property(identifier: propertyName, type: propertyType, hasDefault: defaultValue != nil)
         }
 
         var baseInit: String = "public init(\n"
@@ -40,12 +46,21 @@ public struct NiceInitMacro: MemberMacro {
             } else {
                 first = false
             }
-            
-            baseInit += "    \(property.0): \(property.1)"
+
+            if property.hasDefault {
+                baseInit += "    \(property.identifier): \(property.type.trimmed)? = nil"
+            } else {
+                baseInit += "    \(property.identifier): \(property.type.trimmed)"
+            }
         }
         baseInit += "\n) {\n"
         for property in properties {
-            baseInit += "    self.\(property.0) = \(property.0)"
+            if property.hasDefault {
+                baseInit += "if let _\(property.identifier) = \(property.identifier) { self.\(property.identifier) = _\(property.identifier) }\n"
+
+            } else {
+                baseInit += "self.\(property.identifier) = \(property.identifier)\n"
+            }
         }
         baseInit += "}"
 

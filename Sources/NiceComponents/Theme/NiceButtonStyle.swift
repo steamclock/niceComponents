@@ -12,10 +12,10 @@ import NiceInit
 /// A style to be applied to a button component.
 @NiceInit public struct NiceButtonStyle {
     /// The text style will be applied to the text inside the button.
-    public var fontStyle: FontStyle
+    public var fontStyle: FontStyle = FontStyle(size: 16)
 
     /// The height of the button.
-    public var height: CGFloat
+    public var height: CGFloat = 44
 
     /// The background color of the button.
     public var surfaceColor: Color
@@ -30,7 +30,7 @@ import NiceInit
     public var inactiveOnSurfaceColor: Color
 
     /// The style of the border applied to your button.
-    public var border: NiceBorderStyle
+    public var border: NiceBorderStyle = .none
 
     /**
      * Create a new button style to apply to a button component.
@@ -46,6 +46,7 @@ import NiceInit
      *
      * - Returns: the newly modified button style.
      */
+    /*
     public init(
         fontStyle: FontStyle? = nil,
         height: CGFloat = 44,
@@ -63,6 +64,8 @@ import NiceInit
         self.inactiveOnSurfaceColor = inactiveOnSurfaceColor ?? onSurfaceColor
         self.border = border ?? .none
     }
+    */
+
 }
 
 public extension NiceButtonStyle {
