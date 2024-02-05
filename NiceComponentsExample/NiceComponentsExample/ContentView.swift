@@ -16,6 +16,9 @@ struct ContentView: View {
                 NavigationLink(destination: AllComponentsView()) {
                     Text("All Components")
                 }
+                NavigationLink(destination: CustomizingComponentsView()) {
+                    Text("Customizing Components")
+                }
                 NavigationLink(destination: NiceButtonExampleView()) {
                     Text("Nice Button")
                 }
@@ -32,11 +35,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
-// TODO: this needs to change to first declare CustomTextStyle: TextTheme
-//extension NiceTextStyle {
-//    static var customBodyText = NiceTextStyle(
-//        fontTheme: FontTheme("Impact", size: 16),
-//        textTheme: TextTheme(color: .green)
-//    )
-//}

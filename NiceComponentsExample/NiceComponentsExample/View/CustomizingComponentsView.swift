@@ -1,31 +1,26 @@
 //
-//  AllComponentsView.swift
+//  CustomizingComponentsView.swift
 //  NiceComponentsExample
 //
-//  Created by Brendan on 2021-02-12.
-//  Copyright © 2022 Steamclock Software. All rights reserved.
+//  Created by Brendan Lensink on 2024-02-05.
 //
 
 import NiceComponents
 import SwiftUI
 
-struct AllComponentsView: View {
+struct CustomizingComponentsView: View {
     @State var emailFieldText = "test@example.com"
     @State var email2FieldText = ""
     @State var nameFieldText = ""
     @State var passwordFieldText = ""
-    
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 5) {
                 VStack(alignment: .leading, spacing: 2) {
-                    NiceText("Screen Title", style: .screenTitle)
+                    NiceText("Normal body text", style: .body)
 
-                    NiceText("Section Title", style: .sectionTitle)
-
-                    NiceText("Item Title", style: .itemTitle)
-
-                    NiceText("Item Title", style: .itemTitle)
+                    NiceText("Normal body text", style: .body.with(weight: .semibold))
 
                     NiceText("Attributed Item Title", style: .itemTitle) { string  in
                         if let range = string.range(of: "Attributed") {

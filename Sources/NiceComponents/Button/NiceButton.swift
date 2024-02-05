@@ -40,7 +40,7 @@ public struct NiceButton: View {
                 }
 
                 Text(text)
-                    .foregroundColor(inactive ? style.inactiveOnSurfaceColor : style.onSurfaceColor)
+                    .foregroundColor(inactive ? style.colorStyle.inactiveOnSurface : style.colorStyle.onSurface)
                     .scaledFont(
                         name: style.textStyle.font,
                         size: style.textStyle.size,
@@ -59,11 +59,11 @@ public struct NiceButton: View {
         .disabled(inactive)
         .frame(height: style.height)
         .fixedSize(horizontal: false, vertical: true)
-        .background(inactive ? style.inactiveSurfaceColor : style.surfaceColor)
+        .background(inactive ? style.colorStyle.inactiveSurface : style.colorStyle.surface)
         .cornerRadius(style.border.cornerRadius)
-        .overlay(
-            style.borderOverlay
-        )
-        .padding(style.paddingToAdd)
+//        .overlay(
+//            style.borderOverlay
+//        )
+//        .padding(style.paddingToAdd)
     }
 }

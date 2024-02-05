@@ -35,14 +35,12 @@ public struct Config {
     public var colorTheme: ColorTheme
     public var colorStyle: ColorStyle
 
-    public var textTheme: TextTheme
-
     public var primaryButtonStyle: ButtonTheme
     public var secondaryButtonStyle: ButtonTheme
     public var borderlessButtonStyle: ButtonTheme
     public var destructiveButtonStyle: ButtonTheme
 
-    // Even thouh the text field isn't really a button, it shares a lot of the same config options so we group them together
+    // Even though the text field isn't really a button, it shares a lot of the same config options so we group them together
     public var textFieldStyle: ButtonTheme
     public var textFieldPlaceholderStyle: TextTheme
 
@@ -53,7 +51,6 @@ public struct Config {
     public var bodyTextStyle: TextTheme
     public var detailTextStyle: TextTheme
 
-    /// Default is: x:0, y:4, blur: 4px, opacity: 0.15 (black)
     public var shadowStyle: NiceShadowStyle
 
     /**
@@ -61,68 +58,94 @@ public struct Config {
      *
      * - Parameters:
      */
-    public init(colorTheme: ColorTheme? = nil, colorStyle: ColorStyle? = nil, textStyle: TextTheme? = nil) {
+    public init(colorTheme: ColorTheme? = nil, colorStyle: ColorStyle? = nil) {
         self.colorTheme = colorTheme ?? NiceColorTheme()
-        self.colorStyle = colorStyle ?? NiceColorStyle()
-        self.textTheme = textStyle ?? TextTheme()
+        self.colorStyle = colorStyle ?? NiceColorStyle(theme: self.colorTheme)
 
         // Set Text styles
 
-        screenTitleStyle = TextTheme.defaultScreenTitleStyle
-        sectionTitleStyle = TextTheme.defaultSectionTitleStyle
-        itemTitleStyle = TextTheme.defaultItemTitleStyle
+        screenTitleStyle = NiceTextStyle(
+            color: self.colorStyle.screenTitle,
+            size: 48,
+            weight: .semibold
+        )
 
-        bodyTextStyle = TextTheme.defaultBody
-        detailTextStyle = TextTheme.defaultDetail
+        sectionTitleStyle = NiceTextStyle(
+            color: self.colorStyle.sectionTitle,
+            size: 34,
+            weight: .semibold
+        )
+
+        itemTitleStyle = NiceTextStyle(
+            color: self.colorStyle.itemTitle,
+            size: 20,
+            weight: .semibold
+        )
+
+        bodyTextStyle = NiceTextStyle(
+            color: self.colorStyle.bodyText
+        )
+
+        detailTextStyle = NiceTextStyle(
+            color: self.colorStyle.detailText,
+            size: 14
+        )
 
         // Set Button styles
 
-        primaryButtonStyle = ButtonTheme(
-            textStyle: TextTheme.defaultBody,
+        primaryButtonStyle = NiceButtonStyle(
+            textStyle: self.bodyTextStyle,
             height: 44,
-            surfaceColor: self.colorTheme.primary,
-            onSurfaceColor: self.colorTheme.onPrimary,
-            border: .rounded(cornerRadius: NiceSpacing.small) // TODO: use config width here
-        )
-
-        secondaryButtonStyle = ButtonTheme(
-            textStyle: TextTheme.defaultBody,
-            height: 44,
-            surfaceColor: self.colorTheme.secondary,
-            onSurfaceColor: self.colorTheme.onSecondary,
+            colorStyle: NiceButtonColorStyle(
+                surface: self.colorStyle.primaryButton.surface,
+                onSurface: self.colorStyle.primaryButton.onSurface
+            ),
             border: .rounded(cornerRadius: NiceSpacing.small)
         )
 
-        borderlessButtonStyle = ButtonTheme(
-            textStyle: TextTheme.defaultBody,
+        secondaryButtonStyle = NiceButtonStyle(
+            textStyle: self.bodyTextStyle,
             height: 44,
-            surfaceColor: Color.clear,
-            onSurfaceColor: self.colorTheme.primary
-        )
-
-        destructiveButtonStyle = ButtonTheme(
-            textStyle: TextTheme.defaultBody,
-            height: 44,
-            surfaceColor: self.colorTheme.error,
-            onSurfaceColor: self.colorTheme.onError,
+            colorStyle: NiceButtonColorStyle(
+                surface: self.colorStyle.secondaryButton.surface,
+                onSurface: self.colorStyle.secondaryButton.onSurface
+            ),
             border: .rounded(cornerRadius: NiceSpacing.small)
         )
 
-        /// OLD STUFF
-//        textFieldStyle = NiceButtonStyle(
-//            fontStyle: fontTheme ,
-//            height: 56,
-//            surfaceColor: self.colorTheme.surface,
-//            onSurfaceColor: self.colorTheme.onSurface
-////            border: .rounded(color: self.colorTheme.background, cornerRadius: 8, width: 2)
-//        )
-//
-//        textFieldPlaceholderStyle = NiceTextStyle(
-//            fontTheme: FontTheme(size: 12),
-//            textTheme: TextTheme(color: colorTheme.onSurface)
-//        )
+        borderlessButtonStyle = NiceButtonStyle(
+            textStyle: self.bodyTextStyle,
+            height: 44,
+            colorStyle: NiceButtonColorStyle(
+                surface: self.colorStyle.borderlessButton.surface,
+                onSurface: self.colorStyle.borderlessButton.onSurface
+            )
+        )
 
+        destructiveButtonStyle = NiceButtonStyle(
+            textStyle: self.bodyTextStyle,
+            height: 44,
+            colorStyle: NiceButtonColorStyle(
+                surface: self.colorStyle.destructiveButton.surface,
+                onSurface: self.colorStyle.destructiveButton.onSurface
+            ),
+            border: .rounded(cornerRadius: NiceSpacing.small)
+        )
 
+        textFieldStyle = NiceButtonStyle(
+            textStyle: self.bodyTextStyle,
+            height: 44,
+            colorStyle: NiceButtonColorStyle(
+                surface: self.colorStyle.textField.surface,
+                onSurface: self.colorStyle.textField.onSurface
+            ),
+            border: .rounded(color: self.colorTheme.background, cornerRadius: 8, width: 2)
+        )
+
+        textFieldPlaceholderStyle = NiceTextStyle(
+            color: self.colorStyle.bodyText.opacity(0.8),
+            size: 14
+        )
 
         shadowStyle = NiceShadowStyle()
     }

@@ -8,10 +8,12 @@
 import SwiftUI
 
 public struct NiceColorStyle: ColorStyle {
-    public let primaryButton: ButtonColorStyle
-    public let secondaryButton: ButtonColorStyle
-    public let destructiveButton: ButtonColorStyle
-    public let borderlessButton: ButtonColorStyle
+    public var primaryButton: ButtonColorTheme
+    public var secondaryButton: ButtonColorTheme
+    public var destructiveButton: ButtonColorTheme
+    public var borderlessButton: ButtonColorTheme
+
+    public var textField: ButtonColorTheme
 
     public var screenTitle: Color
     public var sectionTitle: Color
@@ -24,61 +26,23 @@ public struct NiceColorStyle: ColorStyle {
     public var shadow: Color
 
     init(
-        primaryButton: ButtonColorStyle? = nil,
-        secondaryButton: ButtonColorStyle? = nil,
-        destructiveButton: ButtonColorStyle? = nil,
-        borderlessButton: ButtonColorStyle? = nil,
-        screenTitle: Color? = nil,
-        sectionTitle: Color? = nil,
-        itemTitle: Color? = nil,
-        bodyText: Color? = nil,
-        detailText: Color? = nil,
-        divider: Color? = nil,
-        shadow: Color? = nil
+        theme colorTheme: ColorTheme
     ) {
-        let defaultTheme = NiceColorTheme()
+        self.primaryButton = NiceButtonColorStyle(surface: colorTheme.primary, onSurface: colorTheme.onPrimary)
+        self.secondaryButton = NiceButtonColorStyle(surface: colorTheme.secondary, onSurface: colorTheme.onSecondary)
+        self.destructiveButton = NiceButtonColorStyle(surface: colorTheme.error, onSurface: colorTheme.onPrimary)
+        self.borderlessButton = NiceButtonColorStyle(surface: .clear, onSurface: colorTheme.primary)
 
-        self.primaryButton = primaryButton ?? ButtonColorStyle(surface: defaultTheme.primary, onSurface: defaultTheme.onPrimary)
-        self.secondaryButton = secondaryButton ?? ButtonColorStyle(surface: defaultTheme.secondary, onSurface: defaultTheme.onSecondary)
-        self.destructiveButton = destructiveButton ?? ButtonColorStyle(surface: defaultTheme.error, onSurface: defaultTheme.onPrimary)
-        self.borderlessButton = borderlessButton ?? ButtonColorStyle(surface: .clear, onSurface: defaultTheme.primary)
+        self.textField = NiceButtonColorStyle(surface: colorTheme.surface, onSurface: colorTheme.onSurface) // TODO: this wrong?
 
-        self.screenTitle = defaultTheme.onBackground
-        self.sectionTitle = defaultTheme.onBackground
-        self.itemTitle = defaultTheme.onBackground
+        self.screenTitle = colorTheme.onBackground
+        self.sectionTitle = colorTheme.onBackground
+        self.itemTitle = colorTheme.onBackground
 
-        self.bodyText = defaultTheme.onSurface
-        self.detailText = defaultTheme.onSurface
+        self.bodyText = colorTheme.onSurface
+        self.detailText = colorTheme.onSurface
 
-        self.divider = defaultTheme.onSurface
-        self.shadow = defaultTheme.shadow
-    }
-}
-
-public extension NiceColorStyle {
-    func with(
-        primaryButton: ButtonColorStyle? = nil,
-        secondaryButton: ButtonColorStyle? = nil,
-        destructiveButton: ButtonColorStyle? = nil,
-        borderlessButton: ButtonColorStyle? = nil,
-        screenTitle: Color? = nil,
-        sectionTitle: Color? = nil,
-        itemTitle: Color? = nil,
-        bodyText: Color? = nil,
-        detailText: Color? = nil,
-        shadow: Color? = nil
-    ) -> NiceColorStyle {
-        NiceColorStyle(
-            primaryButton: primaryButton,
-            secondaryButton: secondaryButton,
-            destructiveButton: destructiveButton,
-            borderlessButton: borderlessButton,
-            screenTitle: screenTitle,
-            sectionTitle: sectionTitle,
-            itemTitle: itemTitle,
-            bodyText: bodyText,
-            detailText: detailText,
-            shadow: shadow
-        )
+        self.divider = colorTheme.onSurface
+        self.shadow = colorTheme.shadow
     }
 }

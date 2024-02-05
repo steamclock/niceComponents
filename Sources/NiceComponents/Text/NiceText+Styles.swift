@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-public extension TextTheme {
+public extension TextTheme where Self == NiceTextStyle {
     static var screenTitle: TextTheme {
         Config.current.screenTitleStyle
     }

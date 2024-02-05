@@ -73,12 +73,12 @@ public struct NiceTextField: View {
             VStack(alignment: .leading, spacing: 0) {
                 if !text.isEmpty {
                     Text(placeholder)
-                        .foregroundColor(placeholderStyle.textTheme.color)
+                        .foregroundColor(placeholderStyle.color)
                         .scaledFont(
-                            name: placeholderStyle.fontTheme.name,
-                            size: placeholderStyle.fontTheme.size,
-                            weight: placeholderStyle.fontTheme.weight,
-                            maxSize: placeholderStyle.fontTheme.dynamicTypeMaxSize
+                            name: placeholderStyle.font,
+                            size: placeholderStyle.size,
+                            weight: placeholderStyle.weight,
+                            maxSize: placeholderStyle.dynamicTypeMaxSize
                         )
                 }
 
@@ -90,12 +90,12 @@ public struct NiceTextField: View {
 
                     if isSecure {
                         SecureField(placeholder, text: $text)
-                            .foregroundColor(text.isEmpty ? style.inactiveOnSurfaceColor : style.onSurfaceColor)
+                            .foregroundColor(text.isEmpty ? style.colorStyle.inactiveSurface : style.colorStyle.surface)
                             .keyboardType(keyboardType)
                             .textContentType(contentType)
                     } else {
                         TextField(placeholder, text: $text)
-                            .foregroundColor(text.isEmpty ? style.inactiveOnSurfaceColor : style.onSurfaceColor)
+                            .foregroundColor(text.isEmpty ? style.colorStyle.inactiveOnSurface : style.colorStyle.onSurface)
                             .keyboardType(keyboardType)
                             .textContentType(contentType)
                     }
@@ -105,11 +105,11 @@ public struct NiceTextField: View {
         }.frame(maxWidth: .infinity)
         .frame(height: style.height)
         .fixedSize(horizontal: false, vertical: true)
-        .background(style.surfaceColor)
+        .background(style.colorStyle.surface)
         .cornerRadius(style.border.cornerRadius)
-        .overlay(
-            style.borderOverlay
-        )
-        .padding(style.paddingToAdd)
+//        .overlay(
+//            style.borderOverlay
+//        )
+//        .padding(style.paddingToAdd)
     }
 }
