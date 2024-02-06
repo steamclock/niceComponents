@@ -8,29 +8,26 @@
 
 import SwiftUI
 
-public struct NiceButtonStyle: ButtonTheme {   
-    public var textStyle: TextTheme
+public struct NiceButtonStyle {
+    public var textStyle: NiceTextStyle
     public var height: CGFloat
-    public var colorStyle: ButtonColorTheme
+    public var colorStyle: NiceButtonColorStyle
     public var border: BorderStyle // TODO: add theme?
 
     public init(
-        textStyle: TextTheme,
+        textStyle: NiceTextStyle? = nil,
         height: CGFloat? = nil,
-        colorStyle: ButtonColorTheme? = nil,
+        colorStyle: NiceButtonColorStyle? = nil,
         border: BorderStyle? = nil
     ) {
-        self.textStyle = textStyle
+        self.textStyle = textStyle ?? Config.current.primaryButtonStyle.textStyle
         self.height = height ?? 44
-        self.colorStyle = colorStyle ?? NiceButtonColorStyle(
-            surface: .black,
-            onSurface: .black
-        ) // TODO: default init doesn't work here - maybe should be its own thing in config
+        self.colorStyle = colorStyle ?? Config.current.primaryButtonStyle.colorStyle
         self.border = border ?? .none
     }
 }
 
-internal extension ButtonTheme {
+internal extension NiceButtonStyle {
     var paddingToAdd: CGFloat {
         if let strokeWidth = border.strokeStyle?.lineWidth, strokeWidth > 0.0 {
             return strokeWidth / 2

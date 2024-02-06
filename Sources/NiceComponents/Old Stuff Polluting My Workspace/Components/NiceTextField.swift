@@ -27,10 +27,10 @@ public struct NiceTextField: View {
 
     /// The `NiceTextStyle` to apply to the placeholder text when it is shown.
     /// Note that if no text has been entered the placeholder will be shown using the main text's size and font, but its own coloring
-    public let placeholderStyle: TextTheme
+    public let placeholderStyle: NiceTextStyle
 
     /// The styling to apply to the text field, including the user-entered text.
-    public let style: ButtonTheme
+    public let style: NiceButtonStyle
 
     /// An optional image, shown to the left of the entry field.
     public var leftImage: NiceImage?
@@ -55,8 +55,8 @@ public struct NiceTextField: View {
         isSecure: Bool = false,
         keyboardType: UIKeyboardType = .default,
         placeholder: String = "",
-        placeholderStyle: TextTheme? = nil,
-        style: ButtonTheme? = nil,
+        placeholderStyle: NiceTextStyle? = nil,
+        style: NiceButtonStyle? = nil,
         text: Binding<String>
     ) {
         self.contentType = contentType

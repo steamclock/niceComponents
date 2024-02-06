@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct NiceButtonColorStyle: ButtonColorTheme {
+public struct NiceButtonColorStyle {
     public var surface: Color
     public var onSurface: Color
     

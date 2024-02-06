@@ -35,21 +35,21 @@ public struct Config {
     public var colorTheme: ColorTheme
     public var colorStyle: ColorStyle
 
-    public var primaryButtonStyle: ButtonTheme
-    public var secondaryButtonStyle: ButtonTheme
-    public var borderlessButtonStyle: ButtonTheme
-    public var destructiveButtonStyle: ButtonTheme
+    public var primaryButtonStyle: NiceButtonStyle
+    public var secondaryButtonStyle: NiceButtonStyle
+    public var borderlessButtonStyle: NiceButtonStyle
+    public var destructiveButtonStyle: NiceButtonStyle
 
     // Even though the text field isn't really a button, it shares a lot of the same config options so we group them together
-    public var textFieldStyle: ButtonTheme
-    public var textFieldPlaceholderStyle: TextTheme
+    public var textFieldStyle: NiceButtonStyle
+    public var textFieldPlaceholderStyle: NiceTextStyle
 
-    public var screenTitleStyle: TextTheme
-    public var sectionTitleStyle: TextTheme
-    public var itemTitleStyle: TextTheme
+    public var screenTitleStyle: NiceTextStyle
+    public var sectionTitleStyle: NiceTextStyle
+    public var itemTitleStyle: NiceTextStyle
 
-    public var bodyTextStyle: TextTheme
-    public var detailTextStyle: TextTheme
+    public var bodyTextStyle: NiceTextStyle
+    public var detailTextStyle: NiceTextStyle
 
     public var shadowStyle: NiceShadowStyle
 

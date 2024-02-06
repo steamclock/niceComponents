@@ -9,7 +9,7 @@
 
 import SwiftUI
 
-public struct NiceTextStyle: TextTheme {
+public struct NiceTextStyle {
     public var color: Color
     public let font: String?
     public let weight: Font.Weight?
@@ -48,7 +48,7 @@ public struct NiceTextStyle: TextTheme {
         dynamicTypeMaxSize: DynamicTypeSize? = nil,
         lineLimit: Int? = nil,
         lineSpacing: CGFloat? = nil
-    ) -> TextTheme {
+    ) -> NiceTextStyle {
         NiceTextStyle(
             color: color ?? self.color,
             font: font ?? self.font,

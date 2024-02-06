@@ -14,7 +14,7 @@ public extension Font {
      *
      * - Parameter fontStyle: The styling to use when creating a Font.
      */
-    static func custom(_ style: TextTheme) -> Font {
+    static func custom(_ style: NiceTextStyle) -> Font {
         if let fontName = style.font {
             return .custom(fontName, size: style.size)
         } else {

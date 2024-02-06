@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct NiceTextModifier: ViewModifier {
-    let style: TextTheme
+    let style: NiceTextStyle
 
     func body(content: Content) -> some View {
         content
@@ -25,7 +25,7 @@ struct NiceTextModifier: ViewModifier {
 }
 
 public extension View {
-    func niceText(_ style: TextTheme) -> some View {
+    func niceText(_ style: NiceTextStyle) -> some View {
         modifier(NiceTextModifier(style: style))
     }
 }

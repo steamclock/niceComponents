@@ -7,20 +7,20 @@
 
 import SwiftUI
 
-public extension ButtonTheme where Self == NiceButtonStyle {
-    static var primary:  ButtonTheme {
+public extension NiceButtonStyle {
+    static var primary: NiceButtonStyle {
         Config.current.primaryButtonStyle
     }
 
-    static var secondary:  ButtonTheme {
+    static var secondary: NiceButtonStyle {
         Config.current.secondaryButtonStyle
     }
 
-    static var borderless:  ButtonTheme {
+    static var borderless: NiceButtonStyle {
         Config.current.borderlessButtonStyle
     }
 
-    static var destructive:  ButtonTheme {
+    static var destructive: NiceButtonStyle {
         Config.current.destructiveButtonStyle
     }
 }

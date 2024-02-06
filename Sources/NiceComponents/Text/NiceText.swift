@@ -9,10 +9,10 @@
 import SwiftUI
 
 public struct NiceText: View {
-    let style: TextTheme
+    let style: NiceTextStyle
     let text: AttributedString
 
-    public init( _ text: AttributedString, style: TextTheme) {
+    public init( _ text: AttributedString, style: NiceTextStyle) {
         self.style = style
         self.text = text
     }
@@ -31,13 +31,13 @@ public struct NiceText: View {
 }
 
 public extension NiceText {
-    init(_ text: String, style: TextTheme) {
+    init(_ text: String, style: NiceTextStyle) {
         self.init(AttributedString(text), style: style)
     }
 
     init(
         _ text: String,
-        style: TextTheme,
+        style: NiceTextStyle,
         configure: (inout AttributedString) -> Void
     ) {
         var attributedString = AttributedString(text)

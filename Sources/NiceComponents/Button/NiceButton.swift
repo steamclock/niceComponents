@@ -9,7 +9,7 @@ import SwiftUI
 
 public struct NiceButton: View {
     let text: String
-    let style: ButtonTheme
+    let style: NiceButtonStyle
     let leftImage: NiceButtonImage?
     let rightImage: NiceButtonImage?
     let action: () -> Void
@@ -18,7 +18,7 @@ public struct NiceButton: View {
 
     public init(
         _ text: String,
-        style: ButtonTheme,
+        style: NiceButtonStyle,
         inactive: Bool = false,
         leftImage: NiceButtonImage? = nil,
         rightImage: NiceButtonImage? = nil,

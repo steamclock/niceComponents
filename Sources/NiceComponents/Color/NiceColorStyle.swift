@@ -8,12 +8,12 @@
 import SwiftUI
 
 public struct NiceColorStyle: ColorStyle {
-    public var primaryButton: ButtonColorTheme
-    public var secondaryButton: ButtonColorTheme
-    public var destructiveButton: ButtonColorTheme
-    public var borderlessButton: ButtonColorTheme
-
-    public var textField: ButtonColorTheme
+    public var primaryButton: NiceButtonColorStyle
+    public var secondaryButton: NiceButtonColorStyle
+    public var destructiveButton: NiceButtonColorStyle
+    public var borderlessButton: NiceButtonColorStyle
+    
+    public var textField: NiceButtonColorStyle
 
     public var screenTitle: Color
     public var sectionTitle: Color
