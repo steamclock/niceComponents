@@ -32,8 +32,8 @@ public struct Config {
     private static var _current = Config()
     private static var hasSetConfig: Bool = false
 
-    public var colorTheme: ColorTheme
-    public var colorStyle: ColorStyle
+    public var colorTheme: NiceColorTheme
+    public var colorStyle: NiceColorStyle
 
     public var primaryButtonStyle: NiceButtonStyle
     public var secondaryButtonStyle: NiceButtonStyle
@@ -58,7 +58,7 @@ public struct Config {
      *
      * - Parameters:
      */
-    public init(colorTheme: ColorTheme? = nil, colorStyle: ColorStyle? = nil) {
+    public init(colorTheme: NiceColorTheme? = nil, colorStyle: NiceColorStyle? = nil) {
         self.colorTheme = colorTheme ?? NiceColorTheme()
         self.colorStyle = colorStyle ?? NiceColorStyle(theme: self.colorTheme)
 

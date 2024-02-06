@@ -16,8 +16,8 @@ struct CustomizingComponentsView: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 5) {
-                VStack(alignment: .leading, spacing: 2) {
+            VStack(alignment: .leading, spacing: NiceSpacing.small) {
+                VStack(alignment: .leading, spacing: NiceSpacing.xSmall) {
                     NiceText("Use a default style", style: .body)
 
                     NiceText("Customize it with `with`", style: .body.with(weight: .semibold))
@@ -50,6 +50,19 @@ struct CustomizingComponentsView: View {
 
                 VStack(alignment: .leading, spacing: 2) {
                     NiceButton("Buttons too!", style: .primary) {}
+
+                    NiceButton("and buttons with images", style: .primary, balanceImages: false) {}
+                        .withLeftImage(
+                            NiceImage(systemIcon: "fireworks", width: 25, height: 25),
+                            offset: 25
+                        )
+
+                    NiceButton("and images that don't offset your text", style: .primary) {}
+                        .withLeftImage(
+                            NiceImage(systemIcon: "fireworks", width: 25, height: 25),
+                            offset: 25
+                        )
+
                 }
 
                 NiceDivider()

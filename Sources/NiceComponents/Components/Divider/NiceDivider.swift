@@ -11,10 +11,10 @@ import SwiftUI
 
 
 public struct NiceDivider: View {
-    let style: DividerTheme
+    let style: NiceDividerStyle
 
-    public init(style: DividerTheme = NiceDividerStyle()) {
-        self.style = style
+    public init(style: NiceDividerStyle? = nil) {
+        self.style = style ?? NiceDividerStyle()
     }
 
     public var body: some View {

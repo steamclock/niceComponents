@@ -1,5 +1,5 @@
 //
-//  BorderStyle.swift
+//  NiceBorderStyle.swift
 //  NiceComponents
 //
 //  Created by Alejandro Zielinsky on 2022-07-18.
@@ -9,8 +9,7 @@
 import SwiftUI
 
 /// Defines the border style for a component.
-/// TODO: Is this a style? A theme? This is hard
-public enum BorderStyle {
+public enum NiceBorderStyle {
     /// No border is shown.
     case none
 

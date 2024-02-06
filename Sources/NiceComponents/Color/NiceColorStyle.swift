@@ -5,9 +5,12 @@
 //  Created by Brendan Lensink on 2024-01-30.
 //
 
+import NiceInit
 import SwiftUI
 
-public struct NiceColorStyle: ColorStyle {
+/// While a ColorTheme describes _what_ colors you'll use in an app,
+/// a ColorStyle should describe _how_ they're used.
+@NiceInit public struct NiceColorStyle {
     public var primaryButton: NiceButtonColorStyle
     public var secondaryButton: NiceButtonColorStyle
     public var destructiveButton: NiceButtonColorStyle
@@ -26,23 +29,23 @@ public struct NiceColorStyle: ColorStyle {
     public var shadow: Color
 
     init(
-        theme colorTheme: ColorTheme
+        theme: NiceColorTheme
     ) {
-        self.primaryButton = NiceButtonColorStyle(surface: colorTheme.primary, onSurface: colorTheme.onPrimary)
-        self.secondaryButton = NiceButtonColorStyle(surface: colorTheme.secondary, onSurface: colorTheme.onSecondary)
-        self.destructiveButton = NiceButtonColorStyle(surface: colorTheme.error, onSurface: colorTheme.onPrimary)
-        self.borderlessButton = NiceButtonColorStyle(surface: .clear, onSurface: colorTheme.primary)
+        self.primaryButton = NiceButtonColorStyle(surface: theme.primary, onSurface: theme.onPrimary)
+        self.secondaryButton = NiceButtonColorStyle(surface: theme.secondary, onSurface: theme.onSecondary)
+        self.destructiveButton = NiceButtonColorStyle(surface: theme.error, onSurface: theme.onPrimary)
+        self.borderlessButton = NiceButtonColorStyle(surface: .clear, onSurface: theme.primary)
 
-        self.textField = NiceButtonColorStyle(surface: colorTheme.surface, onSurface: colorTheme.onSurface) // TODO: this wrong?
+        self.textField = NiceButtonColorStyle(surface: theme.surface, onSurface: theme.onSurface) // TODO: this wrong?
 
-        self.screenTitle = colorTheme.onBackground
-        self.sectionTitle = colorTheme.onBackground
-        self.itemTitle = colorTheme.onBackground
+        self.screenTitle = theme.onBackground
+        self.sectionTitle = theme.onBackground
+        self.itemTitle = theme.onBackground
 
-        self.bodyText = colorTheme.onSurface
-        self.detailText = colorTheme.onSurface
+        self.bodyText = theme.onSurface
+        self.detailText = theme.onSurface
 
-        self.divider = colorTheme.onSurface
-        self.shadow = colorTheme.shadow
+        self.divider = theme.onSurface
+        self.shadow = theme.shadow
     }
 }

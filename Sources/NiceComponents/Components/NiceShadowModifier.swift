@@ -8,14 +8,6 @@
 
 import SwiftUI
 
-/// Styling settings for drop shadows.
-public protocol NiceShadowTheme {
-    var color: Color { get }
-    var radius: CGFloat { get }
-    var x: CGFloat { get }
-    var y: CGFloat { get }
-}
-
 public struct NiceShadowStyle {
     let color: Color
     let radius: CGFloat

@@ -12,13 +12,13 @@ public struct NiceButtonStyle {
     public var textStyle: NiceTextStyle
     public var height: CGFloat
     public var colorStyle: NiceButtonColorStyle
-    public var border: BorderStyle // TODO: add theme?
+    public var border: NiceBorderStyle // TODO: add theme?
 
     public init(
         textStyle: NiceTextStyle? = nil,
         height: CGFloat? = nil,
         colorStyle: NiceButtonColorStyle? = nil,
-        border: BorderStyle? = nil
+        border: NiceBorderStyle? = nil
     ) {
         self.textStyle = textStyle ?? Config.current.primaryButtonStyle.textStyle
         self.height = height ?? 44
