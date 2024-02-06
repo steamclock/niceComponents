@@ -1,8 +1,9 @@
 //
 //  NiceButtonImage.swift
-//  
+//  NiceComponents
 //
 //  Created by Brendan Lensink on 2024-01-30.
+//  Copyright © 2024 Steamclock Software. All rights reserved.
 //
 
 import SwiftUI

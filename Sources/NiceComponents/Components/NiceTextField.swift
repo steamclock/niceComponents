@@ -1,6 +1,6 @@
 //
 //  NiceTextField.swift
-//  
+//  NiceComponents
 //
 //  Created by Brendan on 2023-01-04.
 //  Copyright © 2022 Steamclock Software. All rights reserved.

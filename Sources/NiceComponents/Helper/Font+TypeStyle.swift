@@ -18,7 +18,7 @@ public extension Font {
         if let fontName = style.font {
             return .custom(fontName, size: style.size)
         } else {
-            return .system(size: style.size, weight: style.weight ?? .regular)
+            return .system(size: style.size, weight: style.weight)
         }
     }
 }
