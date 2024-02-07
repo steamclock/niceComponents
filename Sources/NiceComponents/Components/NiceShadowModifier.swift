@@ -9,11 +9,24 @@
 import SwiftUI
 
 public struct NiceShadowStyle {
+    /// The color of the shadow. Defaults to black.
     let color: Color
+
+    /// The blur radius of the shadow. Defaults to 4.
     let radius: CGFloat
+
+    /// The horizontal offset of the shadow. Defaults to 0.
     let x: CGFloat
+
+    /// The vertical offset of the shadow. Defaults to 4.
     let y: CGFloat
 
+    /// Initializes a new shadow style with customizable parameters.
+    /// - Parameters:
+    ///   - color: The color of the shadow. Defaults to `.black`.
+    ///   - radius: The blur radius of the shadow. Defaults to `4`.
+    ///   - x: The horizontal offset of the shadow. Defaults to `0`.
+    ///   - y: The vertical offset of the shadow. Defaults to `4`.
     public init(
         color: Color? = nil,
         radius: CGFloat? = nil,
@@ -38,11 +51,8 @@ struct NiceShadowModifier: ViewModifier {
 }
 
 public extension View {
-    /**
-     * Attach a drop shadow to the provided View.
-     *
-     * - Parameter style: The style to use for the drop shadow. Defaults to your config's `shadowStyle`.
-     */
+    /// Attach a drop shadow to the provided View.
+    /// - Parameter style: The style to use for the drop shadow. Defaults to your config's `shadowStyle`.
     func shadow(_ style: NiceShadowStyle = Config.current.shadowStyle) -> some View {
         modifier(NiceShadowModifier(style: style))
     }

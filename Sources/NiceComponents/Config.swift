@@ -10,7 +10,7 @@ import os
 import SwiftUI
 
 /// Global settings for all components.
-/// Themes here will be applied to any components that don't define their own theme.
+/// Styles defined here will be applied to any components that don't define their own.
 public struct Config {
     /// Your current component configuration.
     /// Note that you can only set this configuration once, ideally during app startup. Subsequent updates will be ignored.
@@ -32,32 +32,52 @@ public struct Config {
     private static var _current = Config()
     private static var hasSetConfig: Bool = false
 
+    /// The color theme for the application, influencing all components.
     public var colorTheme: NiceColorTheme
+
+    /// Defines the primary color style for components.
     public var colorStyle: NiceColorStyle
 
+    /// Style for primary buttons in the app.
     public var primaryButtonStyle: NiceButtonStyle
+
+    /// Style for secondary buttons in the app.
     public var secondaryButtonStyle: NiceButtonStyle
+
+    /// Style for buttons without borders.
     public var borderlessButtonStyle: NiceButtonStyle
+
+    /// Style for buttons that perform destructive actions.
     public var destructiveButtonStyle: NiceButtonStyle
 
-    // Even though the text field isn't really a button, it shares a lot of the same config options so we group them together
+    /// Style for text fields. Despite not being a button, shares many styling options with buttons.
     public var textFieldStyle: NiceButtonStyle
+
+    /// Style for placeholder text in text fields.
     public var textFieldPlaceholderStyle: NiceTextStyle
 
+    /// Style for screen titles.
     public var screenTitleStyle: NiceTextStyle
+
+    /// Style for section titles.
     public var sectionTitleStyle: NiceTextStyle
+
+    /// Style for item titles.
     public var itemTitleStyle: NiceTextStyle
 
+    /// Style for general body text.
     public var bodyTextStyle: NiceTextStyle
+
+    /// Style for detailed text, possibly smaller or less emphasized.
     public var detailTextStyle: NiceTextStyle
 
+    /// Global shadow style for components requiring depth or elevation.
     public var shadowStyle: NiceShadowStyle
 
-    /**
-     * Create a new component configuration to use for all components in your project.
-     *
-     * - Parameters:
-     */
+    /// Create a new component configuration to use for all components in your project.
+    /// - Parameters:
+    ///   - colorTheme: The color theme to apply to all the components. See the README for more info on how this works.
+    ///   - colorStyle: The color style to apply to specific components. Will fall back to colorTheme if unspecified.
     public init(colorTheme: NiceColorTheme? = nil, colorStyle: NiceColorStyle? = nil) {
         self.colorTheme = colorTheme ?? NiceColorTheme()
         self.colorStyle = colorStyle ?? NiceColorStyle(theme: self.colorTheme)
@@ -143,7 +163,7 @@ public struct Config {
         )
 
         textFieldPlaceholderStyle = NiceTextStyle(
-            color: self.colorStyle.bodyText.opacity(0.8),
+            color: self.colorStyle.textField.onSurface,
             size: 14
         )
 

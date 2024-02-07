@@ -8,16 +8,39 @@
 
 import SwiftUI
 
+/// A SwiftUI view that represents a customizable button component.
 public struct NiceButton: View {
+    /// The text displayed on the button.
     let text: String
+
+    /// The style configuration for the button.
     let style: NiceButtonStyle
+
+    /// An optional image to display on the left side of the button.
     var leftImage: NiceButtonImage?
+
+    /// An optional image to display on the right side of the button.
     var rightImage: NiceButtonImage?
+
+    /// A Boolean value indicating whether the images should be balanced or
+    ///     if adding an image should push your text off center.
     var balanceImages: Bool
+
+    /// The closure executed when the button is tapped.
     let action: () -> Void
 
+    /// Indicates whether the button is in an inactive state.
     var inactive: Bool
 
+    /// Initializes a new button with the provided parameters.
+    /// - Parameters:
+    ///   - text: The text to display on the button.
+    ///   - style: The style configuration for the button.
+    ///   - inactive: A Boolean value that determines whether the button is inactive. Defaults to `false`.
+    ///   - leftImage: An optional image to display on the left side of the button.
+    ///   - rightImage: An optional image to display on the right side of the button.
+    ///   - balanceImages: A Boolean value indicating whether the images should be balanced. Defaults to `true`.
+    ///   - action: The closure to execute when the button is tapped.
     public init(
         _ text: String,
         style: NiceButtonStyle,
@@ -43,7 +66,7 @@ public struct NiceButton: View {
                     leftImage.image
                 } else if let rightImage = rightImage, balanceImages {
                     Spacer()
-                         .frame(width: rightImage.image.width)
+                        .frame(width: rightImage.image.width)
                 }
 
                 Text(text)
@@ -55,73 +78,51 @@ public struct NiceButton: View {
                         maxSize: style.textStyle.dynamicTypeMaxSize
                     )
                     .padding(.leading, leftImage?.offset ?? 0)
-                    .padding(.trailing, leftImage?.offset ?? 0)
+                    .padding(.trailing, rightImage?.offset ?? 0)
 
                 if let rightImage = rightImage {
                     rightImage.image
-                } else if let leftImage = leftImage, balanceImages {
-                   Spacer()
+                } else if balanceImages, let leftImage = leftImage {
+                    Spacer()
                         .frame(width: leftImage.image.width)
                 }
             }
-            .frame(maxWidth: .infinity)
+            .padding(style.paddingToAdd)
         }
-        .disabled(inactive)
-        .frame(height: style.height)
-        .fixedSize(horizontal: false, vertical: true)
-        .background(inactive ? style.colorStyle.inactiveSurface : style.colorStyle.surface)
-        .cornerRadius(style.border.cornerRadius)
-        .overlay(
-            style.borderOverlay
-        )
-        .padding(style.paddingToAdd)
-
     }
 }
 
 public extension NiceButton {
-    /**
-     * Add an image to the left of the button.
-     *
-     * - Parameters:
-     *  - image: The image to display.
-     *  - offset: The offset to apply to the image. Default is 8.
-     */
+    /// Adds an image to the left side of the button.
+    /// - Parameters:
+    ///   - image: The `NiceImage` to be displayed on the left.
+    ///   - offset: The horizontal offset for the image. Defaults to a small predefined spacing.
     mutating func addLeftImage(_ image: NiceImage, offset: CGFloat = NiceSpacing.small) {
-        self.leftImage = NiceButtonImage(image: image, offset: offset)
+        self.leftImage = NiceButtonImage(image, offset: offset)
     }
 
-    /**
-     * Add an image to the right of the button.
-     *
-     * - Parameters:
-     *  - image: The image to display.
-     *  - offset: The offset to apply to the image. Default is 8.
-     */
+    /// Adds an image to the right side of the button.
+    /// - Parameters:
+    ///   - image: The `NiceImage` to be displayed on the right.
+    ///   - offset: The horizontal offset for the image. Defaults to a small predefined spacing.
     mutating func addRightImage(_ image: NiceImage, offset: CGFloat = NiceSpacing.small) {
-        self.rightImage = NiceButtonImage(image: image, offset: offset)
+        self.rightImage = NiceButtonImage(image, offset: offset)
     }
 
-    /**
-     * Add an image to the left of the given button.
-     *
-     * - Parameters:
-     *  - image: The image to display.
-     *  - offset: The offset to apply to the image. Default is 8.
-     */
+    /// Returns a new `NiceButton` instance with an image added to the left side.
+    /// - Parameters:
+    ///   - image: The `NiceImage` to be displayed on the left.
+    ///   - offset: The horizontal offset for the image. Defaults to 8.0.
     func withLeftImage(_ image: NiceImage, offset: CGFloat = 8.0) -> Self {
         var copy = self
         copy.addLeftImage(image, offset: offset)
         return copy
     }
 
-    /**
-     * Add an image to the right of the given button.
-     *
-     * - Parameters:
-     *  - image: The image to display.
-     *  - offset: The offset to apply to the image. Default is 8.
-     */
+    /// Returns a new `NiceButton` instance with an image added to the right side.
+    /// - Parameters:
+    ///   - image: The `NiceImage` to be displayed on the right.
+    ///   - offset: The horizontal offset for the image. Defaults to 8.0.
     func withRightImage(_ image: NiceImage, offset: CGFloat = 8.0) -> Self {
         var copy = self
         copy.addRightImage(image, offset: offset)

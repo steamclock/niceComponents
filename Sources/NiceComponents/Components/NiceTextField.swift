@@ -10,62 +10,58 @@ import SwiftUI
 
 /// Create a nice looking text entry field.
 public struct NiceTextField: View {
-    /// The published text entered in the TextField.
+    /// The text entered by the user, bound to a variable.
     @Binding public var text: String
 
-    /// The `UITextContentType` of the entered text, identifying the semantic meaning. Default is `nil`.
+    /// Identifies the semantic meaning of the text content, aiding in content-specific keyboard layout. Defaults to `nil`.
     public let contentType: UITextContentType?
 
-    /// The keyboard type to display when entering text. Default is `.default`.
+    /// Specifies the keyboard type that appears when the text field is in focus. Defaults to `.default`.
     public let keyboardType: UIKeyboardType
 
-    /// Toggles if the entered text should be shown in plain text or not. Default is `false`.
+    /// Determines whether the text field is for secure text entry. Defaults to `false`.
     public let isSecure: Bool
 
-    /// The placeholder text to be shown full size if no other text has been entered, or above the entered text if present.
+    /// Placeholder text displayed when there is no other text in the text field.
     public let placeholder: String
 
-    /// The `NiceTextStyle` to apply to the placeholder text when it is shown.
-    /// Note that if no text has been entered the placeholder will be shown using the main text's size and font, but its own coloring
+    /// The style applied to the placeholder text.
     public let placeholderStyle: NiceTextStyle
 
-    /// The styling to apply to the text field, including the user-entered text.
+    /// The overall style applied to the text field, affecting its visual appearance.
     public let style: NiceButtonStyle
 
-    /// An optional image, shown to the left of the entry field.
-    public var leftImage: NiceImage?
+    /// An optional image displayed to the left of the text field. Defaults to `nil`.
+    var leftImage: NiceButtonImage?
 
-    /// How far to offset the image from the entry field.
-    public var leftImageOffset: CGFloat?
-
-    /**
-     * Create a new NiceTextField.
-     *
-     * - Parameters:
-     *  - contentType: The `UITextContentType` of the entered text, identifying the semantic meaning. Default is `nil`.
-     *  - isSecure: Toggles if the entered text should be shown in plain text or not. Default is `false`.
-     *  - keyboardType: The keyboard type to display when entering text. Default is `.default`.
-     *  - placeholder: The placeholder text to be shown full size if no other text has been entered, or above the entered text if present.
-     *  - placeholderStyle: The `NiceTextStyle` to apply to the placeholder text when it is shown.
-     *  - style: The styling to apply to the text field, including the user-entered text.
-     *  - text:
-     */
+    /// Initializes a `NiceTextField` with customizable properties.
+    /// - Parameters:
+    ///   - text: A binding to the text entered by the user.
+    ///   - style: The overall style of the text field.
+    ///   - contentType: The content type for the text field, affecting keyboard type.
+    ///   - keyboardType: The keyboard type for the text field.
+    ///   - isSecure: Indicates whether the text field is for secure text entry.
+    ///   - placeholder: The placeholder text for the text field.
+    ///   - placeholderStyle: The style for the placeholder text.
+    ///   - leftImage: An optional image to display on the left side of the text field.
     public init(
+        _ text: Binding<String>,
+        style: NiceButtonStyle? = nil,
         contentType: UITextContentType? = nil,
         isSecure: Bool = false,
         keyboardType: UIKeyboardType = .default,
         placeholder: String = "",
         placeholderStyle: NiceTextStyle? = nil,
-        style: NiceButtonStyle? = nil,
-        text: Binding<String>
+        leftImage: NiceButtonImage? = nil
     ) {
+        self._text = text
+        self.style = style ?? Config.current.textFieldStyle
         self.contentType = contentType
         self.isSecure = isSecure
         self.keyboardType = keyboardType
         self.placeholder = placeholder
         self.placeholderStyle = placeholderStyle ?? Config.current.textFieldPlaceholderStyle
-        self.style = style ?? Config.current.textFieldStyle
-        self._text = text
+        self.leftImage = leftImage
     }
 
     public var body: some View {
@@ -84,8 +80,8 @@ public struct NiceTextField: View {
 
                 HStack(spacing: 0) {
                     if let leftImage = leftImage {
-                        leftImage
-                            .padding(.trailing, leftImageOffset)
+                        leftImage.image
+                            .padding(.trailing, leftImage.offset)
                     }
 
                     if isSecure {
@@ -107,9 +103,15 @@ public struct NiceTextField: View {
         .fixedSize(horizontal: false, vertical: true)
         .background(style.colorStyle.surface)
         .cornerRadius(style.border.cornerRadius)
-//        .overlay(
-//            style.borderOverlay
-//        )
-//        .padding(style.paddingToAdd)
+        .overlay(
+            style.borderOverlay
+        )
+        .padding(style.paddingToAdd)
+    }
+}
+
+struct NiceTextField_Previews: PreviewProvider {
+    static var previews: some View {
+        NiceTextField(.constant("Nice!"))
     }
 }

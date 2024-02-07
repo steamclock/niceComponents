@@ -8,15 +8,18 @@
 
 import SwiftUI
 
-
-
+/// A view that creates a line divider with customizable style.
 public struct NiceDivider: View {
+    /// The style applied to the divider.
     let style: NiceDividerStyle
 
+    /// Initializes the divider with an optional custom style.
+    /// - Parameter style: The style to apply to the divider. Uses a default style if not specified.
     public init(style: NiceDividerStyle? = nil) {
         self.style = style ?? NiceDividerStyle()
     }
 
+    /// The body of the `NiceDivider`, defining its appearance based on the specified style.
     public var body: some View {
         Divider()
             .background(style.color)

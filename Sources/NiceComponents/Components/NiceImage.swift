@@ -13,30 +13,46 @@ import Kingfisher
 /// Image View that allows for creating an image through a variety of sources,
 /// including bundleString, systemIcon, or URL.
 public struct NiceImage: View {
+    /// Optional: Name of the image in the asset catalog.
     public let bundleString: String?
+
+    /// Optional: Name of a system icon.
     public let systemIcon: String?
+
+    /// Optional: URL of an image.
     public let url: URL?
+
+    /// Optional: Custom width of the image.
     public let width: CGFloat?
+
+    /// Optional: Custom height of the image.
     public let height: CGFloat?
+
+    /// Optional: Tint color for the image.
     public let tintColor: Color?
+
+    /// The content mode for displaying the image. Defaults to .fill.
     public let contentMode: SwiftUI.ContentMode
+
+    /// Optional: Style of the loading indicator (for URL images).
     public let loadingStyle: UIActivityIndicatorView.Style?
+
+    /// Optional: A fallback image to display in case of an error or while loading.
     public let fallbackImage: UIImage?
+
+    /// The alignment of the image within its frame. Defaults to .center.
     public let imageAlignment: Alignment
 
     @State private var didErrorWithNoFallback: Bool = false
 
-    /**
-     * Create a new image from an asset located in the bundle.
-     *
-     * - Parameters:
-     *      - bundleString: The name of the image asset.
-     *      - width: The width of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions. Default is `nil`.
-     *      - height: The height of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions. Default is `nil`.
-     *      - tintColor: Optional color to tint the image. Default is `nil`.
-     *      - contentMode: Content mode for the image. Default is `.fill`.
-     *      - imageAlignment: Image's frame alignment. Default is `.center`.
-     */
+    /// Create a new image from an asset located in the bundle.
+    /// - Parameters:
+    ///     - bundleString: The name of the image asset.
+    ///     - width: The width of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions. Default is `nil`.
+    ///     - height: The height of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions. Default is `nil`.
+    ///     - tintColor: Optional color to tint the image. Default is `nil`.
+    ///     - contentMode: Content mode for the image. Default is `.fill`.
+    ///     - imageAlignment: Image's frame alignment. Default is `.center`.
     public init(
         _ bundleString: String,
         width: CGFloat? = nil,
@@ -59,17 +75,14 @@ public struct NiceImage: View {
         )
     }
 
-    /**
-     * Create a new image from a system icon.
-     *
-     * - Parameters:
-     *      - systemIcon: The name of the icon to use.
-     *      - width: The width of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions. Default is `nil`.
-     *      - height: The height of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions. Default is `nil`.
-     *      - tintColor: Optional color to tint the image. Default is `nil`.
-     *      - contentMode: Content mode for the image. Default is `.fill`.
-     *      - imageAlignment: Image's frame alignment. Default is `.center`.
-     */
+    /// Create a new image from a system icon.
+    /// - Parameters:
+    ///     - systemIcon: The name of the icon to use.
+    ///     - width: The width of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions. Default is `nil`.
+    ///     - height: The height of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions. Default is `nil`.
+    ///     - tintColor: Optional color to tint the image. Default is `nil`.
+    ///     - contentMode: Content mode for the image. Default is `.fill`.
+    ///     - imageAlignment: Image's frame alignment. Default is `.center`.
     public init(
         systemIcon: String,
         width: CGFloat? = nil,
@@ -92,20 +105,17 @@ public struct NiceImage: View {
         )
     }
 
-    /**
-     * Create a new image from an URL.
-     * Under the hood, we use Kingfisher to fetch and cache the image.
-     *
-     * - Parameters:
-     *      - url: The URL of the image to fetch.
-     *      - width: The width of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions. Default is `nil`.
-     *      - height: The height of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions. Default is `nil`.
-     *      - tintColor: Optional color to tint the image. Default is `nil`.
-     *      - fallbackImage: The bundle string for a fallback image to show if something goes wrong. Default is `nil`.
-     *      - contentMode: Content mode for the image. Default is `.fill`.
-     *      - loadingStyle: The UIActivityIndicatorView.Style to use while loading. Default is `nil`.
-     *      - imageAlignment: Image's frame alignment. Default is `.center`.
-     */
+    /// Create a new image from an URL.
+    /// Under the hood, we use Kingfisher to fetch and cache the image.
+    /// Parameters:
+    ///     - url: The URL of the image to fetch.
+    ///     - width: The width of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions. Default is `nil`.
+    ///     - height: The height of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions. Default is `nil`.
+    ///     - tintColor: Optional color to tint the image. Default is `nil`.
+    ///     - fallbackImage: The bundle string for a fallback image to show if something goes wrong. Default is `nil`.
+    ///     - contentMode: Content mode for the image. Default is `.fill`.
+    ///     - loadingStyle: The UIActivityIndicatorView.Style to use while loading. Default is `nil`.
+    ///     - imageAlignment: Image's frame alignment. Default is `.center`.
     public init(
         _ url: URL?,
         width: CGFloat? = nil,
@@ -202,5 +212,11 @@ public struct NiceImage: View {
         } else {
             EmptyView()
         }
+    }
+}
+
+struct NiceImage_Previews: PreviewProvider {
+    static var previews: some View {
+        NiceImage("gear", width: 44, height: 44)
     }
 }

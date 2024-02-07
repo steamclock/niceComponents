@@ -6,28 +6,26 @@
 //  Copyright © 2022 Steamclock Software. All rights reserved.
 //
 
+import NiceInit
 import SwiftUI
 
-public struct NiceButtonStyle {
+/// A customizable style for a Nice button.
+@NiceInit public struct NiceButtonStyle {
+    /// The text style to be applied to the button's label.
     public var textStyle: NiceTextStyle
-    public var height: CGFloat
-    public var colorStyle: NiceButtonColorStyle
-    public var border: NiceBorderStyle // TODO: add theme?
 
-    public init(
-        textStyle: NiceTextStyle? = nil,
-        height: CGFloat? = nil,
-        colorStyle: NiceButtonColorStyle? = nil,
-        border: NiceBorderStyle? = nil
-    ) {
-        self.textStyle = textStyle ?? Config.current.primaryButtonStyle.textStyle
-        self.height = height ?? 44
-        self.colorStyle = colorStyle ?? Config.current.primaryButtonStyle.colorStyle
-        self.border = border ?? .none
-    }
+    /// The fixed height of the button. Default is 44.
+    public var height: CGFloat = 44
+
+    /// The color style defining the button's background and foreground colors.
+    public var colorStyle: NiceButtonColorStyle
+
+    /// The border style applied to the button, including width, color, and corner radius. Default is none.
+    public var border: NiceBorderStyle = .none
 }
 
 internal extension NiceButtonStyle {
+    /// Calculates the additional padding needed based on the button's border width.
     var paddingToAdd: CGFloat {
         if let strokeWidth = border.strokeStyle?.lineWidth, strokeWidth > 0.0 {
             return strokeWidth / 2
@@ -37,6 +35,7 @@ internal extension NiceButtonStyle {
         return 0.0
     }
 
+    /// Provides a view modifier for creating the button's border overlay.
     @ViewBuilder
     var borderOverlay: some View {
         if let strokeStyle = border.strokeStyle {
@@ -48,6 +47,7 @@ internal extension NiceButtonStyle {
         }
     }
 
+    /// Calculates the corner radius for the button's border, supporting `.capsule` style.
     var cornerRadius: CGFloat {
         if case .capsule = border {
             return height / 2

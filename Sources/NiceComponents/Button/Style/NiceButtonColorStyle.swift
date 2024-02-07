@@ -6,24 +6,20 @@
 //  Copyright © 2024 Steamclock Software. All rights reserved.
 //
 
+import NiceInit
 import SwiftUI
 
-public struct NiceButtonColorStyle {
+/// Defines the color style for a `NiceButton`, including states for active and inactive.
+@NiceInit public struct NiceButtonColorStyle {
+    /// The button's background color in its active state.
     public var surface: Color
+
+    /// The button's text or icon color in its active state.
     public var onSurface: Color
-    
-    public var inactiveSurface: Color
-    public var inactiveOnSurface: Color
-    
-    public init(
-        surface: Color,
-        onSurface: Color,
-        inactiveSurface: Color? = nil,
-        inactiveOnSurface: Color? = nil
-    ) {
-        self.surface = surface
-        self.onSurface = onSurface
-        self.inactiveSurface = inactiveSurface ?? surface
-        self.inactiveOnSurface = inactiveOnSurface ?? onSurface
-    }
+
+    /// The button's background color in its inactive state.
+    @NiceDefault("surface") public var inactiveSurface: Color
+
+    /// The button's text or icon color in its inactive state.
+    @NiceDefault("onSurface") public var inactiveOnSurface: Color
 }
