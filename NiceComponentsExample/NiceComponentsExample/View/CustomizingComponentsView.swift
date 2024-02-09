@@ -18,6 +18,7 @@ struct CustomizingComponentsView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: NiceSpacing.small) {
                 VStack(alignment: .leading, spacing: NiceSpacing.xSmall) {
+
                     NiceText("Use a default style", style: .body)
 
                     NiceText("Customize it with `with`", style: .body.with(weight: .semibold))
@@ -42,7 +43,7 @@ struct CustomizingComponentsView: View {
                         )
                     )
 
-                    NiceText("maybe even add a Nice shadow", style: .body)
+                    NiceText("maybe even add a Nice little shadow", style: .body)
                         .shadow()
                 }
 
@@ -63,6 +64,20 @@ struct CustomizingComponentsView: View {
                             offset: 25
                         )
 
+                    NiceButton(
+                        "or fun premade borders",
+                        style: .primary.with(
+                            border: .capsule(color: .black, width: 2)
+                        )
+                    ) {}
+
+                    NiceButton(
+                        "or go full custom",
+                        style: .primary.with(
+                            height: 55,
+                            border: .stroke(strokeStyle: StrokeStyle(lineWidth: 1, lineCap: .butt, lineJoin: .bevel, miterLimit: 1, dash: [CGFloat](), dashPhase: 1))
+                        )
+                    ) {}
                 }
 
                 NiceDivider()

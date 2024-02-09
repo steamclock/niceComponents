@@ -164,7 +164,7 @@ public struct Config {
 
         textFieldPlaceholderStyle = NiceTextStyle(
             color: self.colorStyle.textField.onSurface,
-            size: 14
+            size: 10
         )
 
         shadowStyle = NiceShadowStyle()

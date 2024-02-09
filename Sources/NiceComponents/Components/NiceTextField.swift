@@ -86,7 +86,7 @@ public struct NiceTextField: View {
 
                     if isSecure {
                         SecureField(placeholder, text: $text)
-                            .foregroundColor(text.isEmpty ? style.colorStyle.inactiveSurface : style.colorStyle.surface)
+                            .foregroundColor(text.isEmpty ? style.colorStyle.inactiveOnSurface : style.colorStyle.onSurface)
                             .keyboardType(keyboardType)
                             .textContentType(contentType)
                     } else {

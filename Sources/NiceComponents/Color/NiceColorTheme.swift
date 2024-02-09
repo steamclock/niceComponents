@@ -12,7 +12,7 @@ import NiceInit
 /// A collection of styling settings for colors, used across components
 /// The language and structure used here is heavily influenced by the [Material Design color system](https://m2.material.io/design/color/the-color-system.html).
 @NiceInit public struct NiceColorTheme {
-    /// The color most frequently displayed across components.
+    /// The primary brand or theme color for your components.
     @NiceAsset public var primary: Color
 
     /// An optional variant, or shade, of your primary color.

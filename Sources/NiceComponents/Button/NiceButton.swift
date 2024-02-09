@@ -59,36 +59,41 @@ public struct NiceButton: View {
         self.action = action
     }
 
+    // TODO: I think it may be worth writing a bunch of convenience functions here
+    //       to make it easier for folks to get in and customize style options,
+    //       but want to hold off until APIs are settled.
+
     public var body: some View {
         Button(action: action) {
-            HStack(spacing: 0) {
-                if let leftImage = leftImage {
-                    leftImage.image
-                } else if let rightImage = rightImage, balanceImages {
-                    Spacer()
-                        .frame(width: rightImage.image.width)
-                }
-
-                Text(text)
-                    .foregroundColor(inactive ? style.colorStyle.inactiveOnSurface : style.colorStyle.onSurface)
-                    .scaledFont(
-                        name: style.textStyle.font,
-                        size: style.textStyle.size,
-                        weight: style.textStyle.weight,
-                        maxSize: style.textStyle.dynamicTypeMaxSize
-                    )
-                    .padding(.leading, leftImage?.offset ?? 0)
-                    .padding(.trailing, rightImage?.offset ?? 0)
-
-                if let rightImage = rightImage {
-                    rightImage.image
-                } else if balanceImages, let leftImage = leftImage {
-                    Spacer()
-                        .frame(width: leftImage.image.width)
-                }
-            }
-            .padding(style.paddingToAdd)
-        }
+           HStack(spacing: 0) {
+               if let leftImage = leftImage {
+                   leftImage.image
+               }
+               Text(text)
+                   .foregroundColor(inactive ? style.colorStyle.inactiveOnSurface : style.colorStyle.onSurface)
+                   .scaledFont(
+                       name: style.textStyle.font,
+                       size: style.textStyle.size,
+                       weight: style.textStyle.weight,
+                       maxSize: style.textStyle.dynamicTypeMaxSize
+                   )
+                   .padding(.leading, leftImage?.offset ?? 0)
+                   .padding(.trailing, rightImage?.offset ?? 0)
+               if let rightImage = rightImage {
+                   rightImage.image
+               }
+           }
+           .frame(maxWidth: .infinity)
+       }
+       .disabled(inactive)
+       .frame(height: style.height)
+       .fixedSize(horizontal: false, vertical: true)
+       .background(inactive ? style.colorStyle.inactiveSurface : style.colorStyle.surface)
+       .cornerRadius(style.cornerRadius)
+       .overlay(
+           style.borderOverlay
+       )
+       .padding(style.paddingToAdd)
     }
 }
 

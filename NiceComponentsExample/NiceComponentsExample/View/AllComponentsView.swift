@@ -25,7 +25,9 @@ struct AllComponentsView: View {
 
                     NiceText("Item Title", style: .itemTitle)
 
-                    NiceText("Item Title", style: .itemTitle)
+                    NiceText("Body Text", style: .body)
+
+                    NiceText("Detail Text", style: .detail)
 
                     NiceText("Attributed Item Title", style: .itemTitle) { string  in
                         if let range = string.range(of: "Attributed") {
@@ -40,48 +42,25 @@ struct AllComponentsView: View {
                 VStack(alignment: .leading, spacing: 2) {
                     NiceText("Body Text", style: .body)
 
-                    NiceText("Body Text", style: .customBodyText)
-
-                    Text("Body Text")
-                        .niceText(.body)
-
                     NiceText("Detail Text", style: .detail)
-                        .shadow()
                 }
 
                 NiceDivider()
 
                 VStack(alignment: .leading, spacing: 2) {
-//                    NiceTextField(placeholder: "Enter your email", text: $emailFieldText)
-//
-//                    NiceTextField(placeholder: "Enter your email", text: $email2FieldText)
+                    NiceTextField($emailFieldText, placeholder: "Normal Text Field")
 
-//                    NiceTextField(
-//                        isSecure: true,
-//                        placeholder: "Password",
-//                        style: NiceButtonStyle(surfaceColor: .clear, onSurfaceColor: .mint),
-//                        text: $passwordFieldText
-//                    )
-//
-//                    NiceTextField(
-//                        placeholder: "Name",
-//                        placeholderStyle: NiceTextStyle(color: .blue, fontStyle: Config.current.bodyTextStyle.fontStyle),
-//                        style: NiceButtonStyle(surfaceColor: .clear, onSurfaceColor: .black),
-//                        text: $nameFieldText
-//                    )
-
+                    NiceTextField(
+                        $passwordFieldText,
+                        isSecure: true,
+                        placeholder: "Secure text field"
+                    )
                 }
 
                 NiceDivider()
 
-                VStack(alignment: .leading, spacing: 2) {
+                VStack(alignment: .leading, spacing: 4) {
                     NiceButton("Primary Button", style: .primary) {}
-
-//                    NiceButton("Primary Button", style: CustomButtonStyle()) {}
-
-//                    NiceButton("Primary Button", style: ButtonTheme()(//....
-//                                                                     )) {}
-
 
                     NiceButton("Secondary Button", style: .secondary) {}
 
