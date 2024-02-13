@@ -25,10 +25,10 @@ public struct SampleSignInView: View {
             TextField("", text: $passwordField)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
 
-            NiceButton("Sign In", style: .primary)
+            NiceButton("Sign In", style: .primary) {}
 
-            NiceButton("Create an Account", style: .secondary)
-            
+            NiceButton("Create an Account", style: .secondary) {}
+
             Spacer()
         }.padding(NiceSpacing.standard)
     }
