@@ -12,14 +12,14 @@ Jumpstart your prototypes with some sensible default components, then come back 
 
 You can clone and run the example project to see examples of all the default components, plus a little sample of a more customized sign in screen, and demos of how to customize each component.
 
-### Straight Out of the Box
+### Prototyping
 
 When you're just starting out with your project, you should be able to get some reasonable results by just dropping in our components straight out of the box.
 
 NiceComponents are made up of a couple fundamental pieces:
-- *Components* are the Views you'll construct and the bits that your users will see, like `NiceButton` or `NiceText`.
-- *Styles* are the set of colors, fonts, etc that describe a specific components, like a Primary button or some Detail text.
-- *Themes* are interfaces that describe a set of colors, fonts, etc needed to describe a component.
+- **Components** are the Views you'll construct and the bits that your users will see, like `NiceButton` or `NiceText`.
+- **Styles** are the set of colors, fonts, etc that describe a specific components, like a Primary button or some Detail text.
+- **Themes** are interfaces that describe a set of colors, fonts, etc needed to describe a component.
 
 ```swift
 import NiceComponents
