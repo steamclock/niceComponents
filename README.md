@@ -137,3 +137,13 @@ NiceComponents is available through **[Swift Package Manager](https://swift.org/
 1. In Xcode, click **File**, then **Swift Package Manager**, then **Add Package Dependency**
 2. Choose your project
 3. Enter this URL in the search bar `git@github.com:steamclock/niceComponents.git`
+
+### Migrating from Nice Components 1.0
+
+Given the size and scope of changes from Nice Components 1 to 2, migrating may be a somewhat big process. The good news, a lot of that work can be done with good ol' Find and Replace.
+
+To migrate, you'll want to:
+1. Change any references to Components like PrimaryButton, BodyText, etc to use NiceText and NiceButton
+2. Change any custom Components you've created into custom styles, extending either NiceTextStyle or NiceButtonStyle
+3. Update your Config to use the new NiceButtonStyle and NiceTextStyles.
+
