@@ -38,6 +38,10 @@ public struct Config {
     /// Defines the primary color style for components.
     public var colorStyle: NiceColorStyle
 
+    /// The default font styling for your app
+    ///   Note that the preset styles other than bodyText will ignore the size and weight set here, but will respect the font name.
+    public var textStyle: NiceTextStyle?
+
     /// Style for primary buttons in the app.
     public var primaryButtonStyle: NiceButtonStyle
 
@@ -78,36 +82,47 @@ public struct Config {
     /// - Parameters:
     ///   - colorTheme: The color theme to apply to all the components. See the README for more info on how this works.
     ///   - colorStyle: The color style to apply to specific components. Will fall back to colorTheme if unspecified.
-    public init(colorTheme: NiceColorTheme? = nil, colorStyle: NiceColorStyle? = nil) {
+    public init(
+        colorTheme: NiceColorTheme? = nil,
+        colorStyle: NiceColorStyle? = nil,
+        textStyle: NiceTextStyle? = nil
+    ) {
         self.colorTheme = colorTheme ?? NiceColorTheme()
         self.colorStyle = colorStyle ?? NiceColorStyle(theme: self.colorTheme)
+        self.textStyle = textStyle
 
         // Set Text styles
 
         screenTitleStyle = NiceTextStyle(
             color: self.colorStyle.screenTitle,
+            font: textStyle?.font,
             size: 48,
             weight: .semibold
         )
 
         sectionTitleStyle = NiceTextStyle(
             color: self.colorStyle.sectionTitle,
+            font: textStyle?.font,
             size: 34,
             weight: .semibold
         )
 
         itemTitleStyle = NiceTextStyle(
             color: self.colorStyle.itemTitle,
+            font: textStyle?.font,
             size: 20,
             weight: .semibold
         )
 
         bodyTextStyle = NiceTextStyle(
-            color: self.colorStyle.bodyText
+            color: self.colorStyle.bodyText,
+            font: textStyle?.font,
+            size: textStyle?.size
         )
 
         detailTextStyle = NiceTextStyle(
             color: self.colorStyle.detailText,
+            font: textStyle?.font,
             size: 14
         )
 
