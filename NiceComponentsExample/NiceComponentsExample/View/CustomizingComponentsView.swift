@@ -52,6 +52,8 @@ struct CustomizingComponentsView: View {
                 VStack(alignment: .leading, spacing: 2) {
                     NiceButton("Buttons too!", style: .primary) {}
 
+                    NiceButton("Buttons too!", style: .primary.with(surface: .red)) {}
+
                     NiceButton("and buttons with images", style: .primary, balanceImages: false) {}
                         .withLeftImage(
                             NiceImage(systemIcon: "fireworks", width: 25, height: 25),

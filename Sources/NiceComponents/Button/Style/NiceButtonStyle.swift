@@ -22,6 +22,48 @@ import SwiftUI
 
     /// The border style applied to the button, including width, color, and corner radius. Default is none.
     public var border: NiceBorderStyle = .none
+
+    public func with(
+        textStyle: NiceTextStyle? = nil,
+        height: CGFloat? = nil,
+        colorStyle: NiceButtonColorStyle? = nil,
+        border: NiceBorderStyle? = nil,
+        surface: Color? = nil,
+        onSurface: Color? = nil,
+        inactiveSurface: Color? = nil,
+        inactiveOnSurface: Color? = nil,
+        font: String? = nil,
+        size: CGFloat? = nil,
+        weight: Font.Weight? = nil,
+        tracking: CGFloat? = nil,
+        dynamicTypeMaxSize: DynamicTypeSize? = nil,
+        lineLimit: Int? = nil,
+        lineSpacing: CGFloat? = nil
+    ) -> NiceButtonStyle {
+        let textStyle = textStyle ?? self.textStyle
+        let colorStyle = colorStyle ?? self.colorStyle
+
+        return NiceButtonStyle(
+            textStyle: NiceTextStyle(
+                color: onSurface ?? colorStyle.onSurface,
+                font: font ?? textStyle.font,
+                size: size ?? textStyle.size,
+                weight: weight ?? textStyle.weight,
+                tracking: tracking ?? textStyle.tracking,
+                dynamicTypeMaxSize: dynamicTypeMaxSize ?? textStyle.dynamicTypeMaxSize,
+                lineLimit: lineLimit ?? textStyle.lineLimit,
+                lineSpacing: lineSpacing ?? textStyle.lineSpacing
+            ),
+            height: height ?? self.height,
+            colorStyle: NiceButtonColorStyle(
+                surface: surface ?? colorStyle.surface,
+                onSurface: onSurface ?? colorStyle.onSurface,
+                inactiveSurface: inactiveSurface ?? colorStyle.inactiveSurface,
+                inactiveOnSurface: inactiveOnSurface ?? colorStyle.inactiveOnSurface
+            ),
+            border: border ?? self.border)
+    }
+
 }
 
 internal extension NiceButtonStyle {
