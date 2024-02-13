@@ -18,7 +18,6 @@
 		C67130B625C4966400F75E44 /* NiceComponents in Frameworks */ = {isa = PBXBuildFile; productRef = C67130B525C4966400F75E44 /* NiceComponents */; };
 		C6CD255825D6F01C008026D5 /* AllComponentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CD255725D6F01C008026D5 /* AllComponentsView.swift */; };
 		C6CD255D25D6F0B1008026D5 /* SampleSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CD255C25D6F0B1008026D5 /* SampleSignInView.swift */; };
-		D204537028860ABC00174C13 /* NiceButtonExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D204536F28860ABC00174C13 /* NiceButtonExampleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -197,7 +196,6 @@
 				C614E74226E12DAB00F7F87C /* Theme.swift in Sources */,
 				C6CD255D25D6F0B1008026D5 /* SampleSignInView.swift in Sources */,
 				C6CD255825D6F01C008026D5 /* AllComponentsView.swift in Sources */,
-				D204537028860ABC00174C13 /* NiceButtonExampleView.swift in Sources */,
 				B36D8F802B71A89D0095B13B /* CustomizingComponentsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

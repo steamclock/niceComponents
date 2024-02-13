@@ -19,9 +19,6 @@ struct ContentView: View {
                 NavigationLink(destination: CustomizingComponentsView()) {
                     Text("Customizing Components")
                 }
-                NavigationLink(destination: NiceButtonExampleView()) {
-                    Text("Nice Button")
-                }
                 NavigationLink(destination: SampleSignInView()) {
                     Text("Sign In")
                 }
