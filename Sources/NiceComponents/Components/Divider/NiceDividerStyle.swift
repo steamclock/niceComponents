@@ -12,8 +12,8 @@ import SwiftUI
 /// Defines the style for a divider, including its color, height, and opacity.
 @NiceInit public struct NiceDividerStyle {
     /// The color of the divider.
-    public var color: Color = Config.current.colorStyle.divider
-
+    public var color: Color?
+    
     /// The thickness (height) of the divider.
     public var height: CGFloat = 1
 

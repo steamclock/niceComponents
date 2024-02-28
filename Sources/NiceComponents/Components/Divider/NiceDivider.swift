@@ -22,7 +22,7 @@ public struct NiceDivider: View {
     /// The body of the `NiceDivider`, defining its appearance based on the specified style.
     public var body: some View {
         Divider()
-            .background(style.color)
+            .background(style.color ?? Config.current.colorStyle.divider)
             .opacity(style.opacity)
             .frame(height: style.height)
     }

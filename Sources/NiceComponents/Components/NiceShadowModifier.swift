@@ -11,7 +11,7 @@ import SwiftUI
 
 @NiceInit public struct NiceShadowStyle {
     /// The color of the shadow. Defaults to black.
-    public var color: Color = Config.current.colorStyle.shadow
+    public var color: Color?
 
     /// The blur radius of the shadow. Defaults to 4.
     public var radius: CGFloat = 4
@@ -29,7 +29,12 @@ public struct NiceShadowModifier: ViewModifier {
 
     public func body(content: Content) -> some View {
         content
-            .shadow(color: style.color, radius: style.radius, x: style.x, y: style.y)
+            .shadow(
+                color: style.color ?? Config.current.colorStyle.shadow,
+                radius: style.radius,
+                x: style.x,
+                y: style.y
+            )
     }
 }
 
