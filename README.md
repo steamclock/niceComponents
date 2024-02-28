@@ -26,7 +26,7 @@ import NiceComponents
 
 struct DemoView: View {
     var body: some View {
-        NiceText("I'm a nice big title!", .screenTitle)
+        NiceText("I'm a nice big title!", style: .screenTitle)
         
         NiceButton("And I'm a nice little button", style: .primary) {
             doTheThing()
