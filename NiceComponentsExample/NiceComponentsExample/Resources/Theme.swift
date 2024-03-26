@@ -10,14 +10,25 @@ import SwiftUI
 
 enum Theme {
     static var config: Config {
-        var newConfig = Config()
+        var newConfig = Config(
+            colorTheme: NiceColorTheme()
+                .with(
+                    primary: Color(hex: "FFA71A")
+                )
+        )
 
-        newConfig.secondaryButtonStyle = NiceButtonStyle(
-            surfaceColor: Color.mint,
-            onSurfaceColor: Color.black,
-            border: .rounded(color: .black, cornerRadius: 12, width: 1.5)
+        newConfig.bodyTextStyle = NiceTextStyle(
+            color: Color(hex: "FFA71A"),
+            size: 16
         )
 
         return newConfig
+    }
+}
+
+extension NiceTextStyle {
+    static var bodyBold: NiceTextStyle {
+        Config.current.bodyTextStyle
+            .with(weight: .bold)
     }
 }

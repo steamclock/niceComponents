@@ -15,18 +15,20 @@ public struct SampleSignInView: View {
 
     public var body: some View {
         VStack(alignment: .leading, spacing: NiceSpacing.standard) {
-            ScreenTitle("Sign In")
+            NiceText("Sign In", style: .screenTitle)
 
-            DetailText("Email")
+            NiceText("Email", style: .detail)
             TextField("", text: $emailField)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
 
-            DetailText("Password")
+            NiceText("Password", style: .detail)
             TextField("", text: $passwordField)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-            PrimaryButton("Sign In") {}
 
-            SecondaryButton("Create an Account") {}
+            NiceButton("Sign In", style: .primary) {}
+
+            NiceButton("Create an Account", style: .secondary) {}
+
             Spacer()
         }.padding(NiceSpacing.standard)
     }

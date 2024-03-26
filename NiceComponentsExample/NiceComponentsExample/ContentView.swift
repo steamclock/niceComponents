@@ -16,8 +16,8 @@ struct ContentView: View {
                 NavigationLink(destination: AllComponentsView()) {
                     Text("All Components")
                 }
-                NavigationLink(destination: NiceButtonExampleView()) {
-                    Text("Nice Button")
+                NavigationLink(destination: CustomizingComponentsView()) {
+                    Text("Customizing Components")
                 }
                 NavigationLink(destination: SampleSignInView()) {
                     Text("Sign In")

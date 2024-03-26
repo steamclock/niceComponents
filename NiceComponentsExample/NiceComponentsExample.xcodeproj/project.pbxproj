@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B36D8F802B71A89D0095B13B /* CustomizingComponentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36D8F7F2B71A89D0095B13B /* CustomizingComponentsView.swift */; };
 		C614E74226E12DAB00F7F87C /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = C614E74126E12DAB00F7F87C /* Theme.swift */; };
 		C628F0D325C4A08B001331AB /* NotoSerif-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C628F0D125C4A08B001331AB /* NotoSerif-Bold.ttf */; };
 		C628F0D425C4A08B001331AB /* NotoSerif-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C628F0D225C4A08B001331AB /* NotoSerif-Regular.ttf */; };
@@ -17,10 +18,10 @@
 		C67130B625C4966400F75E44 /* NiceComponents in Frameworks */ = {isa = PBXBuildFile; productRef = C67130B525C4966400F75E44 /* NiceComponents */; };
 		C6CD255825D6F01C008026D5 /* AllComponentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CD255725D6F01C008026D5 /* AllComponentsView.swift */; };
 		C6CD255D25D6F0B1008026D5 /* SampleSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CD255C25D6F0B1008026D5 /* SampleSignInView.swift */; };
-		D204537028860ABC00174C13 /* NiceButtonExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D204536F28860ABC00174C13 /* NiceButtonExampleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B36D8F7F2B71A89D0095B13B /* CustomizingComponentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizingComponentsView.swift; sourceTree = "<group>"; };
 		C614E74126E12DAB00F7F87C /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		C628F0D125C4A08B001331AB /* NotoSerif-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerif-Bold.ttf"; sourceTree = "<group>"; };
 		C628F0D225C4A08B001331AB /* NotoSerif-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSerif-Regular.ttf"; sourceTree = "<group>"; };
@@ -111,6 +112,7 @@
 				C6CD255725D6F01C008026D5 /* AllComponentsView.swift */,
 				C6CD255C25D6F0B1008026D5 /* SampleSignInView.swift */,
 				D204536F28860ABC00174C13 /* NiceButtonExampleView.swift */,
+				B36D8F7F2B71A89D0095B13B /* CustomizingComponentsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -194,7 +196,7 @@
 				C614E74226E12DAB00F7F87C /* Theme.swift in Sources */,
 				C6CD255D25D6F0B1008026D5 /* SampleSignInView.swift in Sources */,
 				C6CD255825D6F01C008026D5 /* AllComponentsView.swift in Sources */,
-				D204537028860ABC00174C13 /* NiceButtonExampleView.swift in Sources */,
+				B36D8F802B71A89D0095B13B /* CustomizingComponentsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
