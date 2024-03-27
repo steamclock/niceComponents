@@ -1,9 +1,9 @@
 //
 //  ScaledFont.swift
-//  NiceComponents
+//  NiceComponents: [https://github.com/steamclock/NiceComponents](https://github.com/steamclock/NiceComponents)
 //
-//  Created by Brendan on 2021-03-05.
-//  Copyright © 2022 Steamclock Software. All rights reserved.
+//  Copyright © 2024, Steamclock Software.
+//  Some rights reserved: [https://github.com/steamclock/NiceComponents/blob/main/LICENSE](https://github.com/steamclock/NiceComponents/blob/main/LICENSE)
 //
 
 import SwiftUI

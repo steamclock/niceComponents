@@ -34,7 +34,6 @@
 		C67130AD25C4949100F75E44 /* NiceComponents */ = {isa = PBXFileReference; lastKnownFileType = folder; name = NiceComponents; path = ..; sourceTree = "<group>"; };
 		C6CD255725D6F01C008026D5 /* AllComponentsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllComponentsView.swift; sourceTree = "<group>"; };
 		C6CD255C25D6F0B1008026D5 /* SampleSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleSignInView.swift; sourceTree = "<group>"; };
-		D204536F28860ABC00174C13 /* NiceButtonExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiceButtonExampleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +110,6 @@
 			children = (
 				C6CD255725D6F01C008026D5 /* AllComponentsView.swift */,
 				C6CD255C25D6F0B1008026D5 /* SampleSignInView.swift */,
-				D204536F28860ABC00174C13 /* NiceButtonExampleView.swift */,
 				B36D8F7F2B71A89D0095B13B /* CustomizingComponentsView.swift */,
 			);
 			path = View;

@@ -1,8 +1,9 @@
 //
 //  Theme.swift
-//  NiceComponentsExample
+//  NiceComponents: [https://github.com/steamclock/NiceComponents](https://github.com/steamclock/NiceComponents)
 //
-//  Created by Brendan on 2021-09-02.
+//  Copyright © 2024, Steamclock Software.
+//  Some rights reserved: [https://github.com/steamclock/NiceComponents/blob/main/LICENSE](https://github.com/steamclock/NiceComponents/blob/main/LICENSE)
 //
 
 import NiceComponents
