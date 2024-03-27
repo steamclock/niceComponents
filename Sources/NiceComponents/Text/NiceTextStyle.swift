@@ -23,7 +23,7 @@ import SwiftUI
     /// The weight of the text. Default is .regular.
     public var weight: Font.Weight = .regular
 
-    /// The tracking value of the text. Default is 0.
+    /// The tracking value of the text. Only applied if running on iOS 16+. Default is 0.
     public var tracking: CGFloat = 0
 
     /// The maximum size for dynamic type scaling.

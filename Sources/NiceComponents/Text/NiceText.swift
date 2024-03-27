@@ -27,15 +27,32 @@ public struct NiceText: View {
 
     /// The body of the `NiceText` view, configuring the text appearance based on the provided style.
     public var body: some View {
-        Text(text)
-            .foregroundStyle(style.color)
-            .scaledFont(
-                name: style.font,
-                size: style.size,
-                weight: style.weight,
-                maxSize: style.dynamicTypeMaxSize
-            )
-            .fixedSize(horizontal: false, vertical: true)
+        if #available(iOS 16.0, *) {
+            Text(text)
+                .lineLimit(style.lineLimit)
+                .lineSpacing(style.lineSpacing ?? 0)
+                .tracking(style.tracking)
+                .foregroundStyle(style.color)
+                .scaledFont(
+                    name: style.font,
+                    size: style.size,
+                    weight: style.weight,
+                    maxSize: style.dynamicTypeMaxSize
+                )
+                .fixedSize(horizontal: false, vertical: true)
+        } else {
+            Text(text)
+                .lineLimit(style.lineLimit)
+                .lineSpacing(style.lineSpacing ?? 0)
+                .foregroundStyle(style.color)
+                .scaledFont(
+                    name: style.font,
+                    size: style.size,
+                    weight: style.weight,
+                    maxSize: style.dynamicTypeMaxSize
+                )
+                .fixedSize(horizontal: false, vertical: true)
+        }
     }
 }
 
