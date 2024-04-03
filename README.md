@@ -138,6 +138,10 @@ NiceComponents is available through **[Swift Package Manager](https://swift.org/
 2. Choose your project
 3. Enter this URL in the search bar `git@github.com:steamclock/niceComponents.git`
 
+#### Building with CI
+
+Since NiceComponents uses some macros to automatically generate initializers for some classes, you may need to add `-skipMacroValidation` to your `xcodebuild` call to make it work.
+
 ### Migrating from Nice Components 1.0
 
 Given the size and scope of changes from Nice Components 1 to 2, migrating may be a somewhat big process. The good news, a lot of that work can be done with good ol' Find and Replace.
