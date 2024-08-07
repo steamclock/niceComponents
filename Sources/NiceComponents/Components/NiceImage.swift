@@ -93,10 +93,10 @@ public struct NiceImage: View {
     ) {
         self.init(
             bundleString: nil,
-            systemIcon: systemIcon, 
+            systemIcon: systemIcon,
             url: nil,
             width: width,
-            height: height, 
+            height: height,
             tintColor: tintColor,
             fallbackImage: nil,
             contentMode: contentMode,
@@ -104,6 +104,7 @@ public struct NiceImage: View {
             imageAlignment: imageAlignment
         )
     }
+
 
     /// Create a new image from an URL.
     /// Under the hood, we use Kingfisher to fetch and cache the image.
