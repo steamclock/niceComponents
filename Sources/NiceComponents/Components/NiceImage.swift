@@ -13,11 +13,8 @@ import Kingfisher
 /// Image View that allows for creating an image through a variety of sources,
 /// including bundleString, systemIcon, or URL.
 public struct NiceImage: View {
-    /// Optional: Name of the image in the asset catalog.
-    public let bundleString: String?
-
-    /// Optional: Name of a system icon.
-    public let systemIcon: String?
+    /// The local image to display
+    public let image: Image?
 
     /// Optional: URL of an image.
     public let url: URL?
@@ -62,8 +59,7 @@ public struct NiceImage: View {
         imageAlignment: Alignment = .center
     ) {
         self.init(
-            bundleString: bundleString,
-            systemIcon: nil,
+            image: Image(bundleString),
             url: nil,
             width: width,
             height: height,
@@ -92,8 +88,7 @@ public struct NiceImage: View {
         imageAlignment: Alignment = .center
     ) {
         self.init(
-            bundleString: nil,
-            systemIcon: systemIcon,
+            image: Image(systemName: systemIcon),
             url: nil,
             width: width,
             height: height,
@@ -105,6 +100,35 @@ public struct NiceImage: View {
         )
     }
 
+    /// Create a new image from an ImageResource.
+    /// - Parameters:
+    ///     - resource: The resource to use.
+    ///     - width: The width of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions. Default is `nil`.
+    ///     - height: The height of the image. Note that `.infinity` will be converted to `nil` to avoid invalid frame dimensions. Default is `nil`.
+    ///     - tintColor: Optional color to tint the image. Default is `nil`.
+    ///     - contentMode: Content mode for the image. Default is `.fill`.
+    ///     - imageAlignment: Image's frame alignment. Default is `.center`.
+    @available(iOS 17.0, *)
+    public init(
+        resource: SwiftUI.ImageResource,
+        width: CGFloat? = nil,
+        height: CGFloat? = nil,
+        tintColor: Color? = nil,
+        contentMode: SwiftUI.ContentMode = .fill,
+        imageAlignment: Alignment = .center
+    ) {
+        self.init(
+            image: Image(resource),
+            url: nil,
+            width: width,
+            height: height,
+            tintColor: tintColor,
+            fallbackImage: nil,
+            contentMode: contentMode,
+            loadingStyle: nil,
+            imageAlignment: imageAlignment
+        )
+    }
 
     /// Create a new image from an URL.
     /// Under the hood, we use Kingfisher to fetch and cache the image.
@@ -128,8 +152,7 @@ public struct NiceImage: View {
         imageAlignment: Alignment = .center
     ) {
         self.init(
-            bundleString: nil,
-            systemIcon: nil,
+            image: nil,
             url: url,
             width: width,
             height: height,
@@ -142,8 +165,7 @@ public struct NiceImage: View {
     }
 
     private init(
-        bundleString: String?,
-        systemIcon: String?,
+        image: Image?,
         url: URL?,
         width: CGFloat?,
         height: CGFloat?,
@@ -153,8 +175,7 @@ public struct NiceImage: View {
         loadingStyle: UIActivityIndicatorView.Style?,
         imageAlignment: Alignment
     ) {
-        self.bundleString = bundleString
-        self.systemIcon = systemIcon
+        self.image = image
         self.url = url
         self.width = width == .infinity ? nil : width
         self.height = height == .infinity ? nil : height
@@ -168,15 +189,6 @@ public struct NiceImage: View {
         } else {
             self.fallbackImage = nil
         }
-    }
-
-    private var image: Image? {
-        if let string = bundleString {
-            return Image(string)
-        } else if let icon = systemIcon {
-            return Image(systemName: icon)
-        }
-        return nil
     }
 
     public var body: some View {
