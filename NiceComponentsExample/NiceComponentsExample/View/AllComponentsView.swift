@@ -89,6 +89,12 @@ struct AllComponentsView: View {
                     contentMode: .fit
                 )
 
+                NiceImage(
+                    resource: .olivecat,
+                    height: 200,
+                    contentMode: .fit
+                )
+
                 VStack {
                     NiceImage(URL(string: "https://placekitten.com/100/150"))
                 }.background(Color.red)
