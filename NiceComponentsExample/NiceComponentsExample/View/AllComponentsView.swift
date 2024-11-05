@@ -60,9 +60,9 @@ struct AllComponentsView: View {
                 NiceDivider()
 
                 VStack(alignment: .leading, spacing: 4) {
-                    NiceButton("Primary Button", style: .primary) {}
+                    NiceButton("Primary Button", style: .primary, maxWidth: nil, textPadding: 20) {}
 
-                    NiceButton("Secondary Button", style: .secondary) {}
+                    NiceButton("Secondary Button", style: .secondary, maxWidth: nil) {}
 
                     NiceButton("Borderless Button", style: .borderless) {}
 

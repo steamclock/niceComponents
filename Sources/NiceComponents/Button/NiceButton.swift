@@ -16,6 +16,15 @@ public struct NiceButton: View {
     /// The style configuration for the button.
     let style: NiceButtonStyle
 
+    /// Padding between the text and edges of the button. Default is 8.
+    /// Ignored if maxWidth is set, overridden by imageOffsets.
+    var textPadding: CGFloat?
+
+    /// Set max width for the button, dictating if it should fill all available space or not.
+    /// Pass in .infinity to have the button fill all available width, null to have it size to fit.
+    /// Default is .infinity.
+    var maxWidth: CGFloat?
+
     /// An optional image to display on the left side of the button.
     var leftImage: NiceButtonImage?
 
@@ -45,17 +54,21 @@ public struct NiceButton: View {
         _ text: String,
         style: NiceButtonStyle,
         inactive: Bool = false,
+        balanceImages: Bool = true,
+        maxWidth: CGFloat? = .infinity,
         leftImage: NiceButtonImage? = nil,
         rightImage: NiceButtonImage? = nil,
-        balanceImages: Bool = true,
+        textPadding: CGFloat? = 8,
         action: @escaping () -> Void
     ) {
         self.text = text
         self.style = style
         self.inactive = inactive
+        self.balanceImages = balanceImages
+        self.maxWidth = maxWidth
         self.leftImage = leftImage
         self.rightImage = rightImage
-        self.balanceImages = balanceImages
+        self.textPadding = textPadding
         self.action = action
     }
 
@@ -77,13 +90,13 @@ public struct NiceButton: View {
                        weight: style.textStyle.weight,
                        maxSize: style.textStyle.dynamicTypeMaxSize
                    )
-                   .padding(.leading, leftImage?.offset ?? 0)
-                   .padding(.trailing, rightImage?.offset ?? 0)
+                   .padding(.leading, leftImage?.offset ?? textPadding ?? 0)
+                   .padding(.trailing, rightImage?.offset ?? textPadding ?? 0)
                if let rightImage = rightImage {
                    rightImage.image
                }
            }
-           .frame(maxWidth: .infinity)
+           .frame(maxWidth: maxWidth)
        }
        .disabled(inactive)
        .frame(height: style.height)
