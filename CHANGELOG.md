@@ -5,7 +5,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [2.1.0]
-- Added `maxWidth` and `textPadding` params to NiceButton constructor to allow for setting buttons to size to fit.
+- Added `horizontalContentPadding` param to NiceButton constructor to allow for setting buttons to size to fit.
+- Fixed an issue that was causing system icons to not work in buttons.
+- Changed default button image sizing from undefined to width: 16, height: 14.
+- Changed default button image padding from 0 to 8.
 
 ## [2.0.4]
 - Added a NiceImage constructor that accepts an `ImageResource` for iOS 17.0 and beyond.
