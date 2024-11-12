@@ -16,14 +16,9 @@ public struct NiceButton: View {
     /// The style configuration for the button.
     let style: NiceButtonStyle
 
-    /// Padding between the text and edges of the button. Default is 8.
-    /// Ignored if maxWidth is set, overridden by imageOffsets.
-    var textPadding: CGFloat?
-
-    /// Set max width for the button, dictating if it should fill all available space or not.
-    /// Pass in .infinity to have the button fill all available width, null to have it size to fit.
-    /// Default is .infinity.
-    var maxWidth: CGFloat?
+    /// Padding between the button text/images and edges of the button. Default is 8.
+    /// Set this to `nil` to have the button fill it's available space, like you'd set `maxWidth: .infinity`.
+    var horizontalContentPadding: CGFloat?
 
     /// An optional image to display on the left side of the button.
     var leftImage: NiceButtonImage?
@@ -46,29 +41,28 @@ public struct NiceButton: View {
     ///   - text: The text to display on the button.
     ///   - style: The style configuration for the button.
     ///   - inactive: A Boolean value that determines whether the button is inactive. Defaults to `false`.
+    ///   - balanceImages: A Boolean value indicating whether the images should be balanced. Defaults to `true`.
     ///   - leftImage: An optional image to display on the left side of the button.
     ///   - rightImage: An optional image to display on the right side of the button.
-    ///   - balanceImages: A Boolean value indicating whether the images should be balanced. Defaults to `true`.
+    ///   - horizontalContentPadding: Padding between the button content and edges of the button. Default is nil, causing the button to expand to fill all available space.
     ///   - action: The closure to execute when the button is tapped.
     public init(
         _ text: String,
         style: NiceButtonStyle,
         inactive: Bool = false,
         balanceImages: Bool = true,
-        maxWidth: CGFloat? = .infinity,
         leftImage: NiceButtonImage? = nil,
         rightImage: NiceButtonImage? = nil,
-        textPadding: CGFloat? = 8,
+        horizontalContentPadding: CGFloat? = nil,
         action: @escaping () -> Void
     ) {
         self.text = text
         self.style = style
         self.inactive = inactive
         self.balanceImages = balanceImages
-        self.maxWidth = maxWidth
         self.leftImage = leftImage
         self.rightImage = rightImage
-        self.textPadding = textPadding
+        self.horizontalContentPadding = horizontalContentPadding
         self.action = action
     }
 
@@ -81,7 +75,9 @@ public struct NiceButton: View {
            HStack(spacing: 0) {
                if let leftImage = leftImage {
                    leftImage.image
+                       .padding(.leading, leftImage.offset)
                }
+
                Text(text)
                    .foregroundColor(inactive ? style.colorStyle.inactiveOnSurface : style.colorStyle.onSurface)
                    .scaledFont(
@@ -89,14 +85,15 @@ public struct NiceButton: View {
                        size: style.textStyle.size,
                        weight: style.textStyle.weight,
                        maxSize: style.textStyle.dynamicTypeMaxSize
-                   )
-                   .padding(.leading, leftImage?.offset ?? textPadding ?? 0)
-                   .padding(.trailing, rightImage?.offset ?? textPadding ?? 0)
+                   ).padding(.leading, leftImage?.offset ?? horizontalContentPadding ?? 0)
+                   .padding(.trailing, rightImage?.offset ?? horizontalContentPadding ?? 0)
+
                if let rightImage = rightImage {
                    rightImage.image
+                       .padding(.trailing, rightImage.offset)
                }
            }
-           .frame(maxWidth: maxWidth)
+           .frame(maxWidth: horizontalContentPadding == nil ? .infinity : nil)
        }
        .disabled(inactive)
        .frame(height: style.height)

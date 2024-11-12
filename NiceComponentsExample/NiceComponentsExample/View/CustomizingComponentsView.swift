@@ -55,6 +55,15 @@ struct CustomizingComponentsView: View {
 
                     NiceButton("Buttons too!", style: .primary.with(surface: .red)) {}
 
+                    NiceButton("System icons on the left", style: .secondary, leftImage: NiceButtonImage(systemIcon: "heart.fill")) {}
+
+                    NiceButton("And the right", style: .secondary, rightImage: NiceButtonImage(systemIcon: "heart")) {}
+
+                    NiceButton("Smaller ones too", style: .secondary, leftImage: NiceButtonImage(systemIcon: "heart.fill", offset: 8), horizontalContentPadding: 20) {}
+
+                    NiceButton("Over here as well", style: .secondary, rightImage: NiceButtonImage(systemIcon: "heart"), horizontalContentPadding: 20) {}
+
+
                     NiceButton("and buttons with images", style: .primary, balanceImages: false) {}
                         .withLeftImage(
                             NiceImage(systemIcon: "fireworks", width: 25, height: 25),
