@@ -60,7 +60,7 @@ struct AllComponentsView: View {
                 NiceDivider()
 
                 VStack(alignment: .leading, spacing: 4) {
-                    NiceButton("Primary Button", style: .primary) {}
+                    NiceButton("Primary Button", style: .primary, horizontalContentPadding: 20) {}
 
                     NiceButton("Secondary Button", style: .secondary) {}
 
