@@ -50,7 +50,7 @@ public extension Font {
             scaledSize = min(maxFontSize, scaledSize)
         }
         if let name = name {
-            return Self.custom(name, size: scaledSize).weight(weight ?? .regular)
+            return Self.custom(name, fixedSize: scaledSize).weight(weight ?? .regular)
         }
 
         return Font.system(size: scaledSize, weight:  weight ?? .regular)
