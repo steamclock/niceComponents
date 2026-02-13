@@ -16,9 +16,13 @@ public struct NiceButton: View {
     /// The style configuration for the button.
     let style: NiceButtonStyle
 
-    /// Padding between the button text/images and edges of the button. Default is 8.
+    /// Padding between the button text/images and edges of the button.
+    /// Default is nil, unless contentHorizontalAlignment has been set, in which case it is 16.
     /// Set this to `nil` to have the button fill it's available space, like you'd set `maxWidth: .infinity`.
     var horizontalContentPadding: CGFloat?
+
+    /// When set, aligns the content of the button, including images inside the button. Default is `center`.
+    var contentHorizontalAlignment: TextAlignment
 
     /// An optional image to display on the left side of the button.
     var leftImage: NiceButtonImage?
@@ -42,15 +46,18 @@ public struct NiceButton: View {
     ///   - style: The style configuration for the button.
     ///   - inactive: A Boolean value that determines whether the button is inactive. Defaults to `false`.
     ///   - balanceImages: A Boolean value indicating whether the images should be balanced. Defaults to `true`.
+    ///   - contentHorizontalAlignment: Optionally align all content within the button. Defaults to `center`.
     ///   - leftImage: An optional image to display on the left side of the button.
     ///   - rightImage: An optional image to display on the right side of the button.
-    ///   - horizontalContentPadding: Padding between the button content and edges of the button. Default is nil, causing the button to expand to fill all available space.
+    ///   - horizontalContentPadding: Padding between the button content and edges of the button.
+    ///       Default is nil, unless contentHorizontalAlignment has been set, in which case it is 16.
     ///   - action: The closure to execute when the button is tapped.
     public init(
         _ text: String,
         style: NiceButtonStyle,
         inactive: Bool = false,
         balanceImages: Bool = true,
+        contentHorizontalAlignment: TextAlignment? = nil,
         leftImage: NiceButtonImage? = nil,
         rightImage: NiceButtonImage? = nil,
         horizontalContentPadding: CGFloat? = nil,
@@ -60,9 +67,10 @@ public struct NiceButton: View {
         self.style = style
         self.inactive = inactive
         self.balanceImages = balanceImages
+        self.contentHorizontalAlignment = contentHorizontalAlignment ?? .center
         self.leftImage = leftImage
         self.rightImage = rightImage
-        self.horizontalContentPadding = horizontalContentPadding
+        self.horizontalContentPadding = horizontalContentPadding ?? (contentHorizontalAlignment == nil ? nil : 16)
         self.action = action
     }
 
@@ -73,6 +81,10 @@ public struct NiceButton: View {
     public var body: some View {
         Button(action: action) {
            HStack(spacing: 0) {
+               if contentHorizontalAlignment == .trailing {
+                   Spacer()
+               }
+
                if let leftImage = leftImage {
                    leftImage.image
                        .padding(.leading, leftImage.offset)
@@ -91,6 +103,10 @@ public struct NiceButton: View {
                if let rightImage = rightImage {
                    rightImage.image
                        .padding(.trailing, rightImage.offset)
+               }
+
+               if contentHorizontalAlignment == .leading {
+                   Spacer()
                }
            }
            .frame(maxWidth: horizontalContentPadding == nil ? .infinity : nil)

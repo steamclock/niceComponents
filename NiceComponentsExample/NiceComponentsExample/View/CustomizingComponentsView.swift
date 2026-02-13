@@ -63,6 +63,10 @@ struct CustomizingComponentsView: View {
 
                     NiceButton("Over here as well", style: .secondary, rightImage: NiceButtonImage(systemIcon: "heart"), horizontalContentPadding: 20) {}
 
+                    NiceButton("Leading aligned", style: .primary, contentHorizontalAlignment: .leading) {}
+
+                    NiceButton(".. and trailing aligned", style: .secondary, contentHorizontalAlignment: .trailing) {}
+
 
                     NiceButton("and buttons with images", style: .primary, balanceImages: false) {}
                         .withLeftImage(
